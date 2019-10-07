@@ -1,0 +1,483 @@
+@charset "utf-8";
+@import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500");
+* {
+    outline: none !important;
+}
+header {
+    background-color: black !important;
+}
+body {
+    font: sans-serif;
+    background: #14181c !important;
+}
+/*css cho back top top button*/
+#BTTbutton {
+    display: inline-block;
+    background-color: #007bff69;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: background-color .3s, 
+      opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+}
+#BTTbutton::after {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 2em;
+    line-height: 50px;
+    color: #fff;
+}
+#BTTbutton:hover {
+    cursor: pointer;
+    background-color: #007bff;
+}
+#BTTbutton:active {
+    background-color: #555;
+}
+#BTTbutton.show {
+    opacity: 1;
+    visibility: visible;
+}
+@media (min-width: 500px) {
+    #button {
+      margin: 30px;
+    }
+}
+
+/*css cho thanh menu */
+.navbar .nav-link {
+    color: white !important;
+    font-size: 1.05rem;
+}
+.navbar {
+    transition: 0.5s;
+}
+.navbar-nav :hover .nav-link {
+    color: deepskyblue !important;
+}
+.navbar-nav :hover button {
+    color: deepskyblue !important;
+    background-color: transparent !important;
+    border-color: deepskyblue !important;
+}
+.navbar-brand {
+    color: deepskyblue !important;
+    font-family: "Poppins";
+    font-weight: 600;
+    font-size: 1.5rem !important;
+    vertical-align: middle;
+}
+.userMenu {
+    margin-top: 0.5rem !important;
+    background: #21282f !important;
+    padding: 0 0 !important;
+}
+.userMenu :hover {
+    background: #007bff !important;
+}
+.userMenu .dropdown-item {
+    color: white !important;
+    transition: 0.2s;
+    padding: 0.75rem 1.5rem !important;
+}
+.notification {
+    padding: 0 0 !important;
+    border: none !important;
+}
+.notification .dropdown-item {
+    padding: 0.5rem !important;
+    border-bottom: 1px solid #bcd;
+}
+.notification .card {
+    border: none;
+    background: none;
+    width: 500px;
+}
+.notification .col-md {
+    display: flex;
+    align-items: center;
+}
+.notification .card-body {
+    padding: 0rem 0.5rem;
+    word-wrap: break-word;
+    white-space: normal;
+}
+.notification .card-body p {
+    margin-bottom: 0rem !important;
+}
+.notification .viewAll {
+    background: #007bff;
+    color: white;
+    border: none;
+}
+.dropdown-item i {
+    margin-right: 5px;
+}
+
+/*css cho trang dang nhap va dang xuat */
+.loginform, .signupform {
+    position: relative;
+    margin-top: 4rem;
+    margin-bottom: 60px;
+}
+.loginform a, .signupform a {
+    text-decoration: none !important;
+    color: aqua !important;
+}
+.loginform h3, .signupform h3 {
+    color: deepskyblue;
+    text-align: center;
+    margin-bottom: 20px !important;
+    font-weight: 600 !important;
+}
+.loginform .form-container, .signupform .form-container {
+    background-color: #21282f;
+    color: #bcd;
+    padding: 30px;
+    border-radius: 10px;
+}
+.loginform .social, .signupform .social {
+    text-align: center;
+    margin-top: 20px;
+}
+.social .list-group-item {
+    border: none !important;
+    background-color: #21282f !important;
+}
+.sign-up {
+    color: #bcd;
+    background-color: #21282f;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+.sign-up p {
+    padding: 5px;
+}
+
+/**css cho phần body trang chủ**/
+.homeContent {
+    margin-top: 30px;
+}
+.searchbox {
+    border: 0px !important;
+    width: 100% !important;
+}
+.searchbtn {
+    background-color: white !important;
+}
+.leftBar i {
+    margin-right: 5px;
+}
+.leftBar .nav-link {
+    color: white !important;
+    padding: 0.75rem 0.5rem !important;
+    font-size: 1.05rem;
+}
+.subMenu .nav-link {
+    color: #bcd !important;
+    padding: 0.25rem 0.5rem !important;
+    font-size: 1rem;
+}
+.subMenu .more {
+    color: #007bff !important;
+}
+.MainContent .menu {
+    border-radius: 8px;
+    background-color: #21282f;
+    margin-bottom: 1rem;
+}
+.MainContent .menu .nav-link {
+    color: #bcd !important;
+    font-size: 1.05rem;
+}
+.MainContent .nav-tabs {
+    border: none !important;
+}
+.MainContent .nav-tabs .active {
+    background-color: transparent !important;
+    border-color: transparent !important;
+    color: deepskyblue !important;
+    font-weight: 600;
+}
+.MainContent .nav-tabs :hover {
+    border-color: transparent !important;
+    color: deepskyblue !important;
+}
+.MainContent #lietkephong .list-group li {
+    list-style: none;
+    border-radius: 8px;; 
+    margin-bottom: 1rem; 
+    background: url(../image/banner/congnghe.png);
+}
+.MainContent #lietkephong .list-group a {
+    text-decoration: none;
+}
+.MainContent .room {
+    color: white;
+    background: rgba(2, 2, 2, 0.7);
+    border: 1px solid transparent;
+}
+.MainContent .room:hover .card-header a {
+    color: deepskyblue;
+}
+.MainContent .room .row {
+    margin-right: 0px;
+    margin-left: 0px; 
+}
+.MainContent .room .card-header {
+    border: none;
+}
+.MainContent .room .card-header a {
+    text-decoration: none;
+    color: white;
+}
+.MainContent .room .card-body {
+    color: #bcd;
+    border: none;
+    padding: 0.5rem 1.25rem;
+}
+.MainContent .room .card-body p {
+    margin-bottom: 0px !important; 
+}
+.MainContent .room .card-footer {
+    border: none;
+    padding: 0.25rem 1.25rem;
+    font-size: 0.9rem;
+}
+.MainContent .room .list-group-item {
+    background-color: transparent !important;
+    padding: 0rem 0.5rem;
+    border: none;
+}
+.MainContent .marked i{
+    color: rgb(231, 7, 112);
+}
+.rightBar {
+    color: #bcd;
+}
+.rightBar .slides {
+    margin-bottom: 1rem !important;
+}
+.rightBar .list-group-item {
+    margin: 0.5rem 0;
+    padding: 0.5rem 0.5rem !important;
+    background-color: transparent !important;
+    border: none;
+}
+.rightBar .onlineMem {
+    border-left: 5px solid #09f5c2;
+}
+.rightBar .onlineRoom {
+    border-left: 5px solid #007bff;
+}
+.rightBar .onlineMy {
+    border-left: 5px solid #9b10f8;
+}
+.pagination .active a {
+    background: #007bff !important;
+}
+.pagination li a {
+    border-color: black !important;
+    color: #bcd !important;
+    background: #21282f !important;
+}
+footer {
+    background: black;
+    width: 100%;
+    height: auto;
+    margin-top: 4rem;
+    padding-top: 1rem; 
+    padding-bottom: 5rem;
+}
+footer h5, footer p {
+    color: #bbccdd;
+    margin-bottom: 1rem !important;
+}
+footer ul {
+    list-style: none;
+    width: 100%;
+    height: auto;
+    padding: 0px;
+}
+footer ul li {
+    float: left;
+    margin-right: 10px;
+}
+footer ul li a img {
+    width: 30px;
+    height: auto;
+}
+
+/** Css cho chi tiet phong **/
+.MainContent .roomTitle h3, .MainContent .roomTitle h4 {
+    color: white;
+}
+.MainContent .roomTitle p, .MainContent .roomTitle i {
+    color: #bcd;
+    font-size: 0.9rem;
+}
+.MainContent .roomTitle a {
+    font-size: 0.9rem;
+}
+.MainContent .roomTitle {
+    border-bottom: 1px solid #bbccdd;
+    padding-bottom: 0.5rem;
+}
+.MainContent .roomDescribe {
+    margin-top: 1rem;
+}
+.MainContent .roomDescribe p {
+    color: white;
+    margin-bottom: 0.4rem;
+}
+.MainContent .roomFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.MainContent .userBox {
+    text-align: end;
+    font-size: 0.9rem;
+    color: #bcd;
+    display: flex;
+    align-items: center;
+}
+.MainContent .userBox p {
+    margin-bottom: 0;
+}
+.MainContent .ratingBox {
+    color: #bcd;
+    display: inline-flex;
+    align-items: center;    
+}
+.MainContent .ratingBox .btn-outline-light {
+    border-color: #bcd;
+}
+.MainContent .ratingBox .btn-outline-light:hover {
+    color: white;
+    background-color: #14181c;
+}
+.MainContent .ratingBox .btn-outline-light:hover .fa-heart {
+    color: rgb(231, 7, 112);
+}
+.starrating {
+    align-items: center;
+    margin-left: 1rem;
+    display: inline-flex;
+    border: 1px solid #bcd;
+    border-radius: 0.2rem;
+    padding: 0 0.5rem;
+    font-size: 0.875rem;
+}
+.starrating p {
+    color: white;
+    margin-bottom: 0;   
+    margin-right: 5px;
+}
+.starrating > input {
+    display: none;
+}
+.starrating > label:before { 
+    content: "\f005";
+    margin: 2px;
+    font-size: 1.05rem;
+    font-family: FontAwesome;
+    display: inline-block; 
+}
+.starrating > label {
+    color: white;
+    margin-bottom: 0;
+}
+.starrating > input:checked ~ label { 
+    color: yellow;
+}
+.starrating > input:hover ~ label { 
+    color: yellow;
+}
+.MainContent .comment .commentHead {
+    align-items: center;
+    display: flex;
+    color: #bcd;
+    margin-top: 2rem;
+}
+.MainContent .comment .commentHead h5 {
+    border-left: 5px solid #bcd;
+    padding-left: 5px;
+    color: rgb(29, 161, 242);
+}
+.MainContent .comment .commentOptions {
+    display: flex;
+    margin-top: 30px;
+}
+.MainContent .comment .commentOptions .form-control-sm {
+    background: #21282f;
+    color: white;
+}
+.MainContent .comment .commentBody .postComment {
+    margin-top: 0.5rem;
+}
+.MainContent .comment .commentBody #commentForm {
+    margin-bottom: 0.5rem;
+    background: #21282f;
+    color: white;
+}
+.MainContent .comment .commentBody .btn-primary {
+    background: rgb(23, 129, 194);
+    border-color: transparent;
+}
+.MainContent .comment .commentShow .list-group-item {
+    display: flex;
+    background: #14181c;
+    color: white;
+    border: none;
+    padding: 1rem 0;
+}
+.MainContent .commentShow .commentText {
+    margin-left: 10px;
+    width: 100%;
+}
+.MainContent .commentShow .commentText .commentWrapper {
+    background: #21282f;
+    border-radius: 10px;
+    padding: 10px;
+}
+.MainContent .commentShow .commentText .userName {
+    display: flex;
+    align-items: center;
+}
+.MainContent .commentShow .commentText .userName .commentPin {
+    font-size: 0.9rem;
+    color: #09f5c2;
+}
+.MainContent .commentShow .commentText .userName .name a {
+    text-decoration: none;
+    color: deepskyblue;
+}
+.MainContent .commentShow .commentText .userComment {
+    font-size: 1.1rem;
+}
+.MainContent .commentShow .commentText .extraButtons {
+    margin-top: 10px;
+}
+.MainContent .commentShow .commentText .extraButtons .btn {
+    margin-right: 10px;
+}
+
+/*css cho roomjoin**/
+.MainContent .roomJoin {
+    margin-top: 1rem;
+    align-items: end !important;
+}
+.MainContent .roomJoin .form-group .btn {
+    margin-left: 10px;
+}
