@@ -194,10 +194,26 @@
                                                 <div class="form-group">
                                                     <label class="col-form-label">Tên phòng:</label>
                                                     <input type="text" class="form-control" name="tenphong">
-                                                    <label class="col-form-label">Mật khẩu phòng:</label>
-                                                    <input type="text" class="form-control" name="matkhau" id="matkhau">
-                                                    <small id="matkhau" class="form-text">*Để trống nếu không đặt mật
-                                                        khẩu</small>
+                                                    <div class="row">
+                                                        <div class="col-md-6">
+                                                            <label class="col-form-label">Mật khẩu phòng:</label>
+                                                            <input type="text" class="form-control" name="matkhau"
+                                                                id="matkhau">
+                                                            <small id="matkhau" class="form-text"
+                                                                style="color: #007bff">Để trống nếu không
+                                                                đặt
+                                                                mật
+                                                                khẩu</small>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label class="col-form-label">Chủ đề:</label>
+                                                            <select class="form-control">
+                                                                <option>Chủ đề 1</option>
+                                                                <option>Chủ đề 2</option>
+                                                                <option>Chủ đề 3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
                                                     <label class="col-form-label">Mô tả:</label>
                                                     <textarea class="form-control" rows="3"></textarea>
                                                 </div>
@@ -214,7 +230,8 @@
                             </div>
                         </div>
                         <!---->
-                        <nav class="nav flex-column">
+                        <nav class="nav flex-column bigMenu">
+                            <a class="nav-link" href="#"><i class="fas fa-home"></i> Tất cả các phòng</a>
                             <a class="nav-link" href="#"><i class="fas fa-bars"></i> Chủ đề</a>
                             <div class="container">
                                 <nav class="nav flex-column subMenu">
@@ -236,7 +253,6 @@
                                             class="badge badge-light float-right">4</span></a>
                                     <a class="nav-link" href="#">Y học <span
                                             class="badge badge-light float-right">4</span></a>
-                                    <a class="nav-link more" href="#">Xem thêm...</a>
                                 </nav>
                             </div>
                             <a class="nav-link" href="#"><i class="fas fa-heart"></i> Đánh dấu</a>
@@ -252,10 +268,10 @@
                             <div class="roomFooter">
                                 <div class="clearfix">
                                     <div class="float-left">
-                                        <button type="button" class="btn btn-sm btn-outline-light float-left" style="margin-right: 1rem"><i
-                                                class="fas fa-arrow-left"></i> Trở về</button>
-                                        <button type="button" class="btn btn-sm btn-outline-light float-left" style="margin-right: 1rem"><i
-                                                class="far fa-caret-square-up"></i> Upvote
+                                        <button type="button" class="btn btn-sm btn-outline-light float-left"
+                                            style="margin-right: 1rem"><i class="fas fa-arrow-left"></i> Trở về</button>
+                                        <button type="button" class="btn btn-sm btn-outline-light float-left"
+                                            style="margin-right: 1rem"><i class="far fa-caret-square-up"></i> Upvote
                                             (123)</button>
                                     </div>
                                     <!--Cho chu cau hoi-->
@@ -278,13 +294,13 @@
                             <div class="comment">
                                 <div class="commentHead justify-content-between">
                                     <div>
-                                        <h5>Bình luận</h5>
+                                        <h5>Trả lời</h5>
                                     </div>
                                 </div>
                                 <div class="commentBody">
                                     <div class="form-group postComment">
                                         <textarea class="form-control" id="commentForm" rows="3"
-                                            placeholder="Viết bình luận..."></textarea>
+                                            placeholder="Trả lời câu hỏi..."></textarea>
                                         <button type="submit" class="btn btn-sm btn-primary">Đăng <i
                                                 class="far fa-comment"></i></button>
                                     </div>
@@ -333,8 +349,7 @@
                                                             <div class="small text-muted">23:00 29/09/2019</div>
                                                         </div>
                                                         <div class="commentPin" style="display: none">
-                                                            <i class="fas fa-thumbtack"></i> Bình
-                                                            luận được ghim
+                                                            <i class="fas fa-thumbtack"></i> Câu trả lời được ghim
                                                         </div>
                                                     </div>
                                                     <div class="userComment">

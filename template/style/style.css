@@ -178,6 +178,9 @@ body {
 .leftBar i {
     margin-right: 5px;
 }
+.leftBar .bigMenu {
+    margin-top: 0.75rem;
+}
 .leftBar .nav-link {
     color: white !important;
     padding: 0.75rem 0.5rem !important;
@@ -190,6 +193,14 @@ body {
 }
 .subMenu .more {
     color: #007bff !important;
+}
+.MainHeader {
+    border-left: 5px solid white;
+    margin-bottom: 1rem;
+}
+.MainHeader h3 {
+    color: white;
+    margin-bottom: 0;
 }
 .MainContent .menu {
     border-radius: 8px;
@@ -224,7 +235,7 @@ body {
 }
 .MainContent .room {
     color: white;
-    background: rgba(2, 2, 2, 0.7);
+    background: rgba(2, 2, 2, 0.5);
     border: 1px solid transparent;
 }
 .MainContent .room:hover .card-header a {
@@ -449,7 +460,7 @@ footer ul li a img {
 .MainContent .commentShow .commentText .commentWrapper {
     background: #21282f;
     border-radius: 10px;
-    padding: 10px;
+    padding: 5px 10px;
 }
 .MainContent .commentShow .commentText .userName {
     display: flex;
