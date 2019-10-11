@@ -173,7 +173,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <!--thanh menu trai-->
-                    <div class="col leftBar">
+                    <div class="col-md leftBar">
                         <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#taophong"
                             data-whatever="@mdo"><i class="fas fa-plus-circle"></i> Tạo
                             phòng</button>
@@ -260,7 +260,7 @@
                         </nav>
                     </div>
                     <!--phan noi dung giua-->
-                    <div class="col-7 centerBar">
+                    <div class="col-md-7 centerBar">
                         <div class="MainContent">
                             <div class="roomTitle" style="border: none">
                                 <h4>Nội dung câu hỏi</h4>
@@ -275,9 +275,40 @@
                                             (123)</button>
                                     </div>
                                     <!--Cho chu cau hoi-->
-                                    <div class="float-left" style="display: inherit">
-                                        <button class="btn btn-sm btn-info" style="margin-right: 1rem">Chỉnh sửa <i
+                                    <div class="float-left" style="display: flex">
+                                        <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit"
+                                            data-whatever="@mdo" style="margin-right: 1rem">Chỉnh sửa <i
                                                 class="fas fa-pen"></i></button>
+                                        <!--Khung sua cau hoi-->
+                                        <div class="modal fade" id="edit" tabindex="-1" role="dialog"
+                                            aria-labelledby="edit" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content" style="color: black">
+                                                    <form action="" method="" enctype="multipart/form-data">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="taophong">Sửa câu hỏi</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form>
+                                                                <textarea class="form-control"
+                                                                    rows="4">Nội dung câu hỏi</textarea>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Hủy</button>
+                                                            <input type="submit" class="btn btn-info" id="edit"
+                                                                name="sua" value="Cập nhật">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!---->
                                         <button class="btn btn-sm btn-danger" style="margin-right: 1rem">Xóa câu hỏi <i
                                                 class="fas fa-trash"></i></button>
                                     </div>
@@ -388,7 +419,7 @@
                     </div>
 
                     <!--thanh ben phai-->
-                    <div class="col rightBar">
+                    <div class="col-md rightBar">
                         <form class="form-inline">
                             <div class="input-group mb-3 searchbox">
                                 <input type="search" class="form-control" placeholder="Tìm kiếm...">

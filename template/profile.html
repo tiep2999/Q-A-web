@@ -19,7 +19,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <title>Trang chủ</title>
+    <title>Profile</title>
 </head>
 
 <body>
@@ -38,6 +38,14 @@
             e.preventDefault();
             $('html, body').animate({ scrollTop: 0 }, '300');
         });
+
+        function marked() {
+            if (document.getElementById("heart").style.color == "rgb(231, 7, 112)") {
+                document.getElementById("heart").style.color = "white";
+            } else {
+                document.getElementById("heart").style.color = "rgb(231, 7, 112)";
+            }
+        }
     </script>
 
     <header>
@@ -151,8 +159,7 @@
                                 <a class="dropdown-item" href="#"><i class="fas fa-question-circle"></i> Phòng của
                                     tôi</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-heart"></i> Đánh dấu</a>
-                                <a class="dropdown-item" href="login.html"><i class="fas fa-sign-out-alt"></i> Đăng
-                                    xuất</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
                             </div>
                         </li>
                     </ul>
@@ -166,7 +173,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <!--thanh menu trai-->
-                    <div class="col leftBar">
+                    <div class="col-md leftBar">
                         <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#taophong"
                             data-whatever="@mdo"><i class="fas fa-plus-circle"></i> Tạo
                             phòng</button>
@@ -223,7 +230,8 @@
                             </div>
                         </div>
                         <!---->
-                        <nav class="nav flex-column">
+                        <nav class="nav flex-column bigMenu">
+                            <a class="nav-link" href="#"><i class="fas fa-home"></i> Tất cả các phòng</a>
                             <a class="nav-link" href="#"><i class="fas fa-bars"></i> Chủ đề</a>
                             <div class="container">
                                 <nav class="nav flex-column subMenu">
@@ -245,7 +253,6 @@
                                             class="badge badge-light float-right">4</span></a>
                                     <a class="nav-link" href="#">Y học <span
                                             class="badge badge-light float-right">4</span></a>
-                                    <a class="nav-link more" href="#">Xem thêm...</a>
                                 </nav>
                             </div>
                             <a class="nav-link" href="#"><i class="fas fa-heart"></i> Đánh dấu</a>
@@ -253,72 +260,109 @@
                         </nav>
                     </div>
                     <!--phan noi dung giua-->
-                    
-                    
-                    <div class="col-7 centerBar">
-                        <div class="profile">
-                            <div class="row select">
-                                <div class="col-md-6 select-right">
-                                    <span>Hồ sơ<span>
+                    <div class="col-md-7 centerBar">
+                        <div class="MainContent">
+                            <div class="profileInfo row">
+                                <div class="col-md-4 userInfo">
+                                    <img src="image/user/withBG.png" width="100%">
+                                    <h4>Nguyễn Tuấn Linh</h4>
+                                    <h5>1m93</h5>
+                                    <p><i class="fas fa-info-circle"></i> Nam</p>
+                                    <p><i class="fas fa-birthday-cake"></i> 12/03/1999</p>
+                                    <p><i class="fas fa-envelope"></i> thunderking9x@gmail.com</p>
+                                    <button type="button" class="btn btn-info btn-block" data-toggle="modal"
+                                        data-target="#editprofile" data-whatever="@mdo"><i class="fas fa-pen"></i>
+                                        Chỉnh sửa</button>
+                                    <!--khung sua thong tin-->
+                                    <div class="modal fade" id="editprofile" tabindex="-1" role="dialog"
+                                        aria-labelledby="editprofile" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <form action="" method="" enctype="multipart/form-data">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title" id="taophong" style="color: black">Chỉnh
+                                                            sửa thông tin</h5>
+                                                        <button type="button" class="close" data-dismiss="modal"
+                                                            aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form>
+                                                            <div class="form-group">
+                                                                <label class="col-form-label">Họ tên:</label>
+                                                                <input type="text" class="form-control" value="Nguyễn Tuấn Linh">
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <label class="col-form-label">Giới tính:</label>
+                                                                        <select class="form-control">
+                                                                            <option>Nam</option>
+                                                                            <option>Nữ</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <label class="col-form-label">Ngày sinh:</label>
+                                                                        <input type="date" class="form-control" value="1999-03-12">
+                                                                    </div>
+                                                                </div>
+                                                                <label class="col-form-label">Email:</label>
+                                                                <input type="email" class="form-control" value="thunderking9x@gmail.com">
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary"
+                                                            data-dismiss="modal">Hủy</button>
+                                                        <input type="submit" class="btn btn-info" id="editprofile"
+                                                            name="sua" value="Cập nhật">
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!---->
                                 </div>
-                                <div class="col-md-6 select-left">
-                                    <ul>
-                                        <li>
-                                            <a href="#" class="nav-link">
-                                                <i class="fa fa-wrench"></i>
-                                                chỉnh sửa</a>
-                                        </li>
-                                        <li>
-                                            <a href="#" class="nav-link">
-                                                <i class="fa fa-sign-out"></i>
-                                                đăng xuất</a>
-                                        </li>
-                                    </ul>
+                                <div class="col-md-8 roomList">
+                                    <div class="myRoom">
+                                        <div class="title justify-content-between d-flex align-items-center">
+                                            <div>
+                                                <h4>Phòng của tôi</h4>
+                                            </div>
+                                            <div>
+                                                <a href="#" style="color: rgb(23, 129, 194)"><i></i>Xem tất cả</a>
+                                            </div>
+                                        </div>
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 1</a>
+                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 2</a>
+                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 3</a>
+                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 4</a>
+                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 5</a>
+                                        </div>
+                                    </div>
+                                    <div class="markedRoom">
+                                        <div class="title justify-content-between d-flex align-items-center">
+                                            <div>
+                                                <h4>Phòng đánh dấu</h4>
+                                            </div>
+                                            <div>
+                                                <a href="#" style="color: rgb(23, 129, 194)"><i></i>Xem tất cả</a>
+                                            </div>
+                                        </div>
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 1</a>
+                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 2</a>
+                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 3</a>
+                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 4</a>
+                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 5</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row information">
-                                <div class="col-md-3 avatar">
-                                    <span class="avatar-user" >
-                                        <img src="https://i.imacdn.com/vg/default-avatar-1.png" >
-                                    </span>
-                                </div>
-                                <div class="col-md-5 user-info">
-                                    <ul class="pad">
-                                        <li class="name">
-                                            Yasuo
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-user"></i>
-                                            Ya văn Suo
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-birthday-cake" aria-hidden="true"></i>
-                                            0/0/0000
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-exclamation-circle"></i>
-                                            nam
-                                        </li>
-                                        <li>
-                                            <i class="fa fa-envelope"></i>
-                                            Yasuoganhteam@gmail.com
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-md-4 user-button">
-                                    <button class="btn btn-primary btn-block">
-                                        <i class="fas fa-question-circle"></i>
-                                        Phòng của tôi
-                                    </button >
-                                    <button class="btn btn-primary btn-block">
-                                        <i class="fas fa-heart"></i>
-                                        Đánh dấu
-                                    </button>
-                                </div>
-                            </div>    
                         </div>
-
-                        <!--tìm kiếm-->
+                    </div>
+                    <!--thanh ben phai-->
+                    <div class="col-md rightBar">
                         <form class="form-inline">
                             <div class="input-group mb-3 searchbox">
                                 <input type="search" class="form-control" placeholder="Tìm kiếm...">
@@ -327,239 +371,6 @@
                                 </div>
                             </div>
                         </form>
-                        <div class="MainContent">
-                            <div class="menu clearfix">
-                                <ul class="nav nav-tabs float-left" id="myTab">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" href="#">Mới nhất</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Nổi bật</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Đã
-                                            tham gia</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Đã
-                                            đóng</a>
-                                    </li>
-                                </ul>
-                                <ul class="nav float-right">
-                                    <li class="nav-item">
-                                        <label for="numP" style="color: #bcd">Kết quả / Trang: </label>
-                                        <select class="form-control-sm mx-3 my-2" name="numP">
-                                            <option>5</option>
-                                            <option>10</option>
-                                            <option>20</option>
-                                            <option>50</option>
-                                        </select>
-                                    </li>
-                                </ul>
-                            </div>
-                            <!--liet ke phong-->
-                            <div id="lietkephong">
-                                <ul class="list-group">
-                                    <li>
-                                        <div class="card room">
-                                            <h5 class="card-header"><a href="room.html">INT6677_9</a></h5>
-                                            <div class="card-body row">
-                                                <div class="col-sm-8">
-                                                    <p>Ứng dụng của machine learning...
-                                                    </p>
-                                                </div>
-                                                <div class="col-sm">
-                                                    <div class="float-right">
-                                                        <ul
-                                                            class="list-group list-group-horizontal justify-content-center">
-                                                            <li class="list-group-item"><i class="fas fa-user"></i>
-                                                                123
-                                                            </li>
-                                                            <li class="list-group-item"><i class="fas fa-star"></i>
-                                                                4.5
-                                                            </li>
-                                                            <li class="list-group-item"><i class="fas fa-lock"></i>
-                                                            </li>
-                                                            <li class="list-group-item marked"><i
-                                                                    class="fas fa-heart"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer roomfoot clearfix">
-                                                <div class="roomDetail float-left">
-                                                    <i class="text-muted">Người đăng - thời gian đăng - <a href="#">Chủ
-                                                            đề</a></i>
-                                                </div>
-                                                <a class="float-right" href="#">Chi tiết <i
-                                                        class="fas fa-angle-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="card room">
-                                            <h5 class="card-header"><a href="#">Tên phòng? Không có mật khẩu và được
-                                                    đánh dấu</a></h5>
-                                            <div class="card-body row">
-                                                <div class="col-sm-8">
-                                                    <p>Thông tin phòng, câu hỏi thảo luận
-                                                    </p>
-                                                </div>
-                                                <div class="col-sm">
-                                                    <div class="float-right">
-                                                        <ul
-                                                            class="list-group list-group-horizontal justify-content-center">
-                                                            <li class="list-group-item"><i class="fas fa-user"></i>
-                                                                123
-                                                            </li>
-                                                            <li class="list-group-item"><i class="fas fa-star"></i>
-                                                                4.5
-                                                            </li>
-                                                            <li class="list-group-item marked"><i
-                                                                    class="fas fa-heart"></i></li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer roomfoot clearfix">
-                                                <div class="roomDetail float-left">
-                                                    <i class="text-muted">Người đăng - thời gian đăng - <a href="#">Chủ
-                                                            đề</a></i>
-                                                </div>
-                                                <a class="float-right" href="#">Chi tiết <i
-                                                        class="fas fa-angle-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="card room">
-                                            <h5 class="card-header"><a href="#">Tên phòng?</a></h5>
-                                            <div class="card-body row">
-                                                <div class="col-sm-8">
-                                                    <p>Thông tin phòng, câu hỏi thảo luận
-                                                    </p>
-                                                </div>
-                                                <div class="col-sm">
-                                                    <div class="float-right">
-                                                        <ul
-                                                            class="list-group list-group-horizontal justify-content-center">
-                                                            <li class="list-group-item"><i class="fas fa-user"></i>
-                                                                123
-                                                            </li>
-                                                            <li class="list-group-item"><i class="fas fa-star"></i>
-                                                                4.5
-                                                            </li>
-                                                            <li class="list-group-item"><i class="fas fa-lock"></i>
-                                                            </li>
-                                                            <li class="list-group-item"><i class="fas fa-heart"></i>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer roomfoot clearfix">
-                                                <div class="roomDetail float-left">
-                                                    <i class="text-muted">Người đăng - thời gian đăng - <a href="#">Chủ
-                                                            đề</a></i>
-                                                </div>
-                                                <a class="float-right" href="#">Chi tiết <i
-                                                        class="fas fa-angle-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="card room">
-                                            <h5 class="card-header"><a href="#">Tên phòng?</a></h5>
-                                            <div class="card-body row">
-                                                <div class="col-sm-8">
-                                                    <p>Thông tin phòng, câu hỏi thảo luận
-                                                    </p>
-                                                </div>
-                                                <div class="col-sm">
-                                                    <div class="float-right">
-                                                        <ul
-                                                            class="list-group list-group-horizontal justify-content-center">
-                                                            <li class="list-group-item"><i class="fas fa-user"></i>
-                                                                123
-                                                            </li>
-                                                            <li class="list-group-item"><i class="fas fa-star"></i>
-                                                                4.5
-                                                            </li>
-                                                            <li class="list-group-item"><i class="fas fa-heart"></i>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer roomfoot clearfix">
-                                                <div class="roomDetail float-left">
-                                                    <i class="text-muted">Người đăng - thời gian đăng - <a href="#">Chủ
-                                                            đề</a></i>
-                                                </div>
-                                                <a class="float-right" href="#">Chi tiết <i
-                                                        class="fas fa-angle-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <div class="card room">
-                                            <h5 class="card-header"><a href="#">Tên phòng?</a></h5>
-                                            <div class="card-body row">
-                                                <div class="col-sm-8">
-                                                    <p>Thông tin phòng, câu hỏi thảo luận
-                                                    </p>
-                                                </div>
-                                                <div class="col-sm">
-                                                    <div class="float-right">
-                                                        <ul
-                                                            class="list-group list-group-horizontal justify-content-center">
-                                                            <li class="list-group-item"><i class="fas fa-user"></i>
-                                                                123
-                                                            </li>
-                                                            <li class="list-group-item"><i class="fas fa-star"></i>
-                                                                4.5
-                                                            </li>
-                                                            <li class="list-group-item"><i class="fas fa-lock"></i>
-                                                            </li>
-                                                            <li class="list-group-item"><i class="fas fa-heart"></i>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="card-footer roomfoot clearfix">
-                                                <div class="roomDetail float-left">
-                                                    <i class="text-muted">Người đăng - thời gian đăng - <a href="#">Chủ
-                                                            đề</a></i>
-                                                </div>
-                                                <a class="float-right" href="#">Chi tiết <i
-                                                        class="fas fa-angle-right"></i></a>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <nav>
-                                    <ul class="pagination pagination-sm justify-content-center">
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item">
-                                            <a class="page-link" href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                    </div>
-                    <!--thanh ben phai-->
-                    <div class="col rightBar">
                         <div class="slides">
                             <div class="carousel slide carousel-fade" data-ride="carousel" id="carouselExampleInterval">
                                 <div class="carousel-inner">
@@ -594,6 +405,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
     </section>
 
     <footer>

@@ -173,7 +173,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <!--thanh menu trai-->
-                    <div class="col leftBar">
+                    <div class="col-md leftBar">
                         <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#taophong"
                             data-whatever="@mdo"><i class="fas fa-plus-circle"></i> Tạo
                             phòng</button>
@@ -260,7 +260,7 @@
                         </nav>
                     </div>
                     <!--phan noi dung giua-->
-                    <div class="col-7 centerBar">
+                    <div class="col-md-7 centerBar">
                         <div class="MainContent">
                             <div class="roomTitle">
                                 <h3>Ứng dụng của machine learning vào việc phát triển xe tự hành hiện nay</h3>
@@ -290,8 +290,69 @@
                                     <div class="float-left" style="display: inherit">
                                         <button class="btn btn-sm btn-danger" style="margin-right: 1rem">Đóng phòng <i
                                                 class="fas fa-door-closed"></i></button>
-                                        <button class="btn btn-sm btn-info" style="margin-right: 1rem">Chỉnh sửa <i
+                                        <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit"
+                                            data-whatever="@mdo" style="margin-right: 1rem">Chỉnh sửa <i
                                                 class="fas fa-pen"></i></button>
+                                        <!--Khung sua phong-->
+                                        <div class="modal fade" id="edit" tabindex="-1" role="dialog"
+                                            aria-labelledby="edit" aria-hidden="true">
+                                            <div class="modal-dialog" role="document">
+                                                <div class="modal-content" style="color: black">
+                                                    <form action="" method="" enctype="multipart/form-data">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="taophong">Sửa phòng</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form>
+                                                                <div class="form-group">
+                                                                    <label class="col-form-label">Tên phòng:</label>
+                                                                    <input type="text" class="form-control"
+                                                                        name="tenphong" value="Tên phòng">
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <label class="col-form-label">Mật khẩu
+                                                                                phòng:</label>
+                                                                            <input type="text" class="form-control"
+                                                                                name="matkhau" id="matkhau"
+                                                                                value="matkhaucu">
+                                                                            <small id="matkhau" class="form-text"
+                                                                                style="color: #007bff">Để trống nếu
+                                                                                không
+                                                                                đặt
+                                                                                mật
+                                                                                khẩu</small>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <label class="col-form-label">Chủ
+                                                                                đề:</label>
+                                                                            <select class="form-control">
+                                                                                <option>Chủ đề 1</option>
+                                                                                <option>Chủ đề 2</option>
+                                                                                <option>Chủ đề 3</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <label class="col-form-label">Mô tả:</label>
+                                                                    <textarea class="form-control"
+                                                                        rows="3">Mổ tả của phòng</textarea>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">Hủy</button>
+                                                            <input type="submit" class="btn btn-info" id="edit"
+                                                                name="sua" value="Cập nhật">
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!---->
                                     </div>
                                     <!---->
                                     <div class="float-left">
@@ -662,9 +723,8 @@
                             </div>
                         </div>
                     </div>
-
                     <!--thanh ben phai-->
-                    <div class="col rightBar">
+                    <div class="col-md rightBar">
                         <form class="form-inline">
                             <div class="input-group mb-3 searchbox">
                                 <input type="search" class="form-control" placeholder="Tìm kiếm...">

@@ -178,6 +178,9 @@ body {
 .leftBar i {
     margin-right: 5px;
 }
+.leftBar .bigMenu {
+    margin-top: 0.75rem;
+}
 .leftBar .nav-link {
     color: white !important;
     padding: 0.75rem 0.5rem !important;
@@ -190,6 +193,14 @@ body {
 }
 .subMenu .more {
     color: #007bff !important;
+}
+.MainHeader {
+    border-left: 5px solid white;
+    margin-bottom: 1rem;
+}
+.MainHeader h3 {
+    color: white;
+    margin-bottom: 0;
 }
 .MainContent .menu {
     border-radius: 8px;
@@ -224,7 +235,7 @@ body {
 }
 .MainContent .room {
     color: white;
-    background: rgba(2, 2, 2, 0.7);
+    background: rgba(2, 2, 2, 0.5);
     border: 1px solid transparent;
 }
 .MainContent .room:hover .card-header a {
@@ -449,7 +460,7 @@ footer ul li a img {
 .MainContent .commentShow .commentText .commentWrapper {
     background: #21282f;
     border-radius: 10px;
-    padding: 10px;
+    padding: 5px 10px;
 }
 .MainContent .commentShow .commentText .userName {
     display: flex;
@@ -482,63 +493,47 @@ footer ul li a img {
     margin-left: 10px;
 }
 
-/*css cho userinfo*/
-.profile {
-    margin-top: none;
-}
-.select {
-    border-bottom:1px solid darkcyan;
-}
-.select-right span{
-    font-size: 22px;
-    display: block;
+/**css cho profile**/
+.MainContent .profileInfo .userInfo h4 {
+    color: white;
+    font-weight: 600;
     margin-top: 10px;
-    margin-left: 5px;
-    color: #007bff;
 }
-.select-left ul{
-    margin-top: 10px ;
-    font-size: 14px;
-    text-align: right;
-}
-.select-left ul li{
-    display: inline-block;
-}
-.information {
-    margin: 3%;
-}
-.avatar img{
-    width: 100%;
-    height: 100%;
-    max-width: 100%;
-    height: auto;
-}
-span.avatar-user img {
-    border-radius:50%;
-    -moz-border-radius:50%;
-    -webkit-border-radius:50%;
-}
-.user-info{
-    border-left: 1px solid darkcyan;
-    border-right: 1px solid darkcyan;
-}
-.user-info ul li{
-    margin-bottom: 3px;
-}
-.user-info ul.pad{
-    list-style: none;
-    padding-left: 0px;
-}
-.user-info li{
+.MainContent .profileInfo .userInfo h5 {
     color: white;
 }
-.user-info ul li.name{
-    font-size: 30px;
-    color: wheat;
+.MainContent .profileInfo .userInfo p {
+    color: #bcd;
 }
-.user-button button{
-    margin-top: 30px;
-    margin-bottom: 30px ;
+.MainContent .profileInfo .myRoom .title {
+    color: white;
+    padding-left: 10px;
+    border-left: 5px solid #09f5c2;
 }
-
-
+.MainContent .profileInfo .markedRoom .title {
+    color: white;
+    padding-left: 10px;
+    border-left: 5px solid rgb(231, 7, 112);
+}
+.MainContent .markedRoom {
+    margin-top: 2rem;
+}
+.MainContent .profileInfo .list-group {
+    margin-top: 15px;
+    border-radius: 15px;
+}
+.MainContent .profileInfo .list-group-item {
+    border: transparent;
+    background: #21282f;
+    margin-bottom: 5px;
+    border-radius: 15px;
+    color: #bcd;
+}
+.MainContent .profileInfo .list-group-item:first-child {
+    border-top-left-radius: 15px !important;
+    border-top-right-radius: 15px !important;
+}
+.MainContent .profileInfo .list-group-item:hover {
+    background: rgb(23, 129, 194);
+    color: white;
+}
