@@ -57,6 +57,7 @@ body {
 .navbar .nav-link {
     color: white !important;
     font-size: 1.05rem;
+    transition: 0.5s;
 }
 .navbar {
     transition: 0.5s;
@@ -185,6 +186,14 @@ body {
     color: white !important;
     padding: 0.75rem 0.5rem !important;
     font-size: 1.05rem;
+    transition: 0.5s;
+}
+.leftBar .nav-link:hover {
+    color: rgb(29, 161, 242) !important;
+}
+.leftBar .nav-link:hover .badge {
+    background: rgb(29, 161, 242);
+    color: white;
 }
 .subMenu .nav-link {
     color: #bcd !important;
@@ -210,6 +219,7 @@ body {
 .MainContent .menu .nav-link {
     color: #bcd !important;
     font-size: 1.05rem;
+    transition: 0.5s;
 }
 .MainContent .nav-tabs {
     border: none !important;
@@ -251,6 +261,7 @@ body {
 .MainContent .room .card-header a {
     text-decoration: none;
     color: white;
+    transition: 0.5s;
 }
 .MainContent .room .card-body {
     color: #bcd;
