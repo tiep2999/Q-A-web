@@ -188,17 +188,20 @@ body {
     font-size: 1.05rem;
     transition: 0.5s;
 }
-.leftBar .nav-link:hover {
+.leftBar .bigMenu .nav-link:hover {
     color: rgb(29, 161, 242) !important;
 }
-.leftBar .nav-link:hover .badge {
-    background: rgb(29, 161, 242);
-    color: white;
+.leftBar .subMenu .nav-link:hover {
+    background: rgba(85, 85, 85, 0.4);
+    color: white !important;
 }
 .subMenu .nav-link {
     color: #bcd !important;
     padding: 0.25rem 0.5rem !important;
     font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 .subMenu .more {
     color: #007bff !important;
