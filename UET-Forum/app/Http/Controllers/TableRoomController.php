@@ -24,9 +24,10 @@ class TableRoomController extends \Illuminate\Routing\Controller
     {
         $data = $this->_room->getRoomById($id);
         if (empty($data['data']['password']))
-            return view('room', ['room' => $data['data'], 'question' => $data['question']]);
+           // return view('room', ['room' => $data['data'], 'question' => $data['question']]);
+            return CoreController::viewPage('room',['room'=>$data['data'],'question'=>$data['question']]);
         else
-            return view('roomjoin');
+            return CoreController::viewPage('roomjoin',['']);
     }
 
 }

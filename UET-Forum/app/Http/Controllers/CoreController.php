@@ -21,4 +21,10 @@ class CoreController extends \Illuminate\Routing\Controller
 
     }
 
+    public static function viewPage(string $link, array $data){
+        $cate = CoreController::DataCore();
+        $data = array_merge($data,['cates'=>$cate]);
+        return view($link,$data);
+    }
+
 }

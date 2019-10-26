@@ -39,17 +39,14 @@ class DashBoardController extends  Controller
         $data = $this->_room->getAll();
         $data = $this ->_room->addInfToObjRoom($data);
         $currentUser = $this->_user->getCurrentUser();
-        $cate = CoreController::DataCore();
-       //dd(session('currentUser'));
-        return view('index',['rooms'=>$data,'cUser'=>$currentUser,'cates'=>$cate]);
+        return CoreController::viewPage('index',['rooms'=>$data,'cUser'=>$currentUser]);
     }
 
     public function search($request){
         $r = $request->toArray();
         $room = new Room();
         $data = $room->getRoomsByCondition($r);
-        $cate = CoreController::DataCore();
-        return view('index',['rooms'=>$data['data'],'cond'=>$data['condition'],'cates'=>$cate]);
+        return CoreController::viewPage('index',['rooms'=>$data['data'],'cond'=>$data['condition']]);
     }
 
 }
