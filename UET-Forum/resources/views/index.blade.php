@@ -43,17 +43,17 @@
                         <div class="menu clearfix">
                             <ul class="nav nav-tabs float-left" id="myTab">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="http://forum.com.vn/uet-forum/dashboard-search?new=1">Mới nhất</a>
+                                    <a class="nav-link active" href="{{env('APP_URL')}}/uet-forum/dashboard-search?new=1">Mới nhất</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="http://forum.com.vn/uet-forum/dashboard-search?voted=3">Nổi bật</a>
+                                    <a class="nav-link" href="{{env('APP_URL')}}/uet-forum/dashboard-search?voted=3">Nổi bật</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Đã
                                         tham gia</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="http://forum.com.vn/uet-forum/dashboard-search?deleted=1">Đã
+                                    <a class="nav-link" href="{{env('APP_URL')}}/uet-forum/dashboard-search?deleted=1">Đã
                                         đóng</a>
                                 </li>
                             </ul>
