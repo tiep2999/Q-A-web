@@ -28,7 +28,8 @@ class QuestionController extends \Illuminate\Routing\Controller
         }catch (\Exception $e){
             return view('messages.404');
         }
-        return view('question',['question'=>$d,'comments'=>$comment]);
+      //  return view('question',['question'=>$d,'comments'=>$comment]);
+        return CoreController::viewPage('question',['question'=>$d,'comments'=>$comment]);
     }
 
 }

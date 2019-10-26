@@ -14,6 +14,6 @@ public function view(){
     $romm = new Room();
     $cUser = $u->getCurrentUser();
     $allRoom = $romm->getAllRoomByUserId($cUser['id']);
-    return view('profile',['cUser'=>$cUser,'rooms'=>$allRoom]);
+    return CoreController::viewPage('profile',['cUser'=>$cUser,'rooms'=>$allRoom]);
 }
 }
