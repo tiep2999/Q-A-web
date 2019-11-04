@@ -32,4 +32,26 @@ class Comment extends Model
         }
     }
 
+    public function insert($data){
+
+        $c = new Comment();
+        try{
+
+            $c->user_id = (empty($data['user_id']))? '' : $data['user_id'];
+            $c->content = (empty($data['comment']))? '' : $data['comment'];
+            $c->question_id = (empty($data['question_id']))? '' : $data['question_id'];
+            $c->lastUpdated = date('Y-m-d H:i:s', time() + 7 * 60 * 60);
+            $c->activeFlg = 1;
+            $c->voted = 1;
+            $c->up = 0;
+
+            $c->save();
+
+        }catch(\Exception $e){
+          //  dd("ex comment");
+        }
+        return false;
+    }
+
+
 }

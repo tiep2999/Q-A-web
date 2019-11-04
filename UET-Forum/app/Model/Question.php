@@ -62,7 +62,7 @@ class Question extends Model
                 $user = Comment::find($value->id)->user->only('id', 'userName', 'fullName');
                 $value = $value->toArray();
                 $value['user_id'] = $user;
-                $q[$key]=$value;
+                $q[$key] = $value;
             }
             return $q;
         } catch (\Exception $e) {
@@ -72,5 +72,23 @@ class Question extends Model
 
     }
 
+    public function insert($data)
+    {
+        try {
+            $q = new Question();
+            $q->content = (empty($data['question'])) ? '' : $data['question'];
+            $q->room_id = (empty($data['room_id'])) ? '' : $data['room_id'];
+            $q->user_id = (empty($data['user_id'])) ? '' : $data['user_id'];
+            $q->activeFlg = 1;
+            $q->created = date('Y-m-d H:i:s', time() + 7 * 60 * 60);
+            $q->save();
+            return true;
+
+        } catch (\Exception $e) {
+            dd("ex insert question!");
+        }
+
+        return false;
+    }
 
 }

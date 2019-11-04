@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Model\Comment;
 use App\Model\Question;
 
 class QuestionController extends \Illuminate\Routing\Controller
@@ -31,5 +32,16 @@ class QuestionController extends \Illuminate\Routing\Controller
       //  return view('question',['question'=>$d,'comments'=>$comment]);
         return CoreController::viewPage('question',['question'=>$d,'comments'=>$comment]);
     }
+
+    public function postComment($request){
+        $comment = new Comment();
+        if($comment->insert($request->toArray())){
+            return $this->showQuestion($request->question_id);
+        }
+        return $this->showQuestion($request->question_id);
+
+    }
+
+
 
 }

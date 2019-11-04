@@ -111,10 +111,15 @@
                             </div>
                             <div class="commentBody">
                                 <div class="form-group postComment">
-                                        <textarea class="form-control" id="commentForm" rows="3"
+                                        <textarea name="comment" form="post-comment" class="form-control" id="commentForm" rows="3"
                                                   placeholder="Trả lời câu hỏi..."></textarea>
+                                    <form method="post" id="post-comment" action="{{route('post-comment')}}">
+                                        @csrf
+                                        <input type="hidden" name="user_id" value="{{$curUser['id']}}">
+                                        <input type="hidden" name="question_id" value="{{$question['id']}}" >
                                     <button type="submit" class="btn btn-sm btn-primary">Đăng <i
                                                 class="far fa-comment"></i></button>
+                                    </form>
                                 </div>
                                 <div class="commentShow">
                                     <ul class="list-group">

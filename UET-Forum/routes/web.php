@@ -41,16 +41,38 @@ Route::group(['prefix' => "uet-forum", 'middleware' => 'afterLogin'], function (
         return $roomControl->showRoomById(decrypt($id));
     })->name('room');
 
+    Route::post('/room-pass',function (\Illuminate\Http\Request $request){
+        return \App\Http\Controllers\TableRoomController::checkPass($request);
+    })->name('check-pass');
+
     Route::get('/dashboard', 'DashBoardController@view')->name('dashboard');
-    Route::get('/dashboard-search', function (\Illuminate\Http\Request $request){
+    Route::get('/dashboard-search', function (\Illuminate\Http\Request $request) {
         $dCon = new \App\Http\Controllers\DashBoardController();
         return $dCon->search($request);
     })->name('dashboard-search');
 
 
+    Route::post('/post-question',function (\Illuminate\Http\Request $request){
+        $roomC = new \App\Http\Controllers\TableRoomController();
+        return $roomC->postQuestion($request);
+    })->name('post-question');
+
+    Route::post('/post-comment',function (\Illuminate\Http\Request $request){
+        $questionC = new \App\Http\Controllers\QuestionController();
+        return $questionC->postComment($request);
+    })->name('post-comment');
+
+    Route::post('/post-room',function (\Illuminate\Http\Request $request){
+        $roomC = new \App\Http\Controllers\TableRoomController();
+        return $roomC->postRoom($request);
+    })->name('post-room');
+
+
+
     Route::get('/room-join', function () {
         return view('roomjoin');
     })->name('room-join');
+
 
     Route::get('/logout', function () {
     })->middleware('logout')->name('logout');
@@ -60,7 +82,7 @@ Route::group(['prefix' => "uet-forum", 'middleware' => 'afterLogin'], function (
         return $q->showQuestion($id);
     })->name('question');
 
-    Route::get('/profile','ProfileController@view')->name('profile');
+    Route::get('/profile', 'ProfileController@view')->name('profile');
 
 });
 
