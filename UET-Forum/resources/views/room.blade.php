@@ -169,15 +169,20 @@
                             </div>
                             <div class="commentBody">
                                 <div class="form-group postComment clearfix">
-                                        <textarea class="form-control" id="commentForm" rows="3"
+                                        <textarea name="question" class="form-control" form="post-question" id="commentForm" rows="3"
                                                   placeholder="Viết câu hỏi..."></textarea>
                                     <a role="button" href="#" class="btn btn-sm btn-outline-light float-left"
                                        style="margin-right: 10px"><i class="fab fa-facebook-square"></i> Chia
                                         sẻ</a>
                                     <a role="button" href="#" class="btn btn-sm btn-outline-light float-left"><i
                                                 class="far fa-envelope"></i> Chia sẻ</a>
-                                    <button type="submit" class="btn btn-sm btn-primary float-right">Đăng <i
-                                                class="far fa-comment"></i></button>
+                                    <form id="post-question" method="post" action="{{route('post-question')}}">
+                                        @csrf
+                                        <input name="user_id" value="{{$curUser['id']}}" type="hidden">
+                                        <input type="hidden" name="room_id" value="{{$room['id']}}">
+                                        <button type="submit" class="btn btn-sm btn-primary float-right">Đăng <i
+                                                    class="far fa-comment"></i></button>
+                                    </form>
                                 </div>
                                 <div class="commentOptions justify-content-between">
                                     <div class="commentSearch">

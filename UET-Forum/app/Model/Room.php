@@ -4,7 +4,9 @@
 namespace App\Model;
 
 
+use App\Http\Controllers\CoreController;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 
 class Room extends Model
 {
@@ -39,7 +41,7 @@ class Room extends Model
 
     public function getAllRoomByUserId($id)
     {
-        $all = Room::query('SELECT * FROM `room` WHERE id=',$id)->get()->toArray();
+        $all = Room::query('SELECT * FROM `room` WHERE id=', $id)->get()->toArray();
         return $all;
     }
 
@@ -70,13 +72,14 @@ class Room extends Model
             $data = Room::find($id)->toArray();
             $data = $this->addInfToObjRoom(['0' => $data]);
 
-            return ['data'=>$data['0'],'question'=>$question];
+            return ['data' => $data['0'], 'question' => $question];
         } catch (\Exception $e) {
             return null;
         }
     }
 
-    public function getRoomsByCondition(array $array=[]){
+    public function getRoomsByCondition(array $array = [])
+    {
 
         $u = new Room();
         $data = $u->newQuery();
@@ -84,7 +87,7 @@ class Room extends Model
             $data->where('admin', 'like', $array['user_id']);
         }
         if (!empty($array['code'])) {
-            $data->where('code', 'like', "%".$array['code']."%");
+            $data->where('code', 'like', "%" . $array['code'] . "%");
 
         }
         if (!empty($array['category_id'])) {
@@ -97,12 +100,40 @@ class Room extends Model
             $data->orderBy('created', 'DESC');
         }
         if (!empty($array['deleted'])) {
-            $data->where('isDeleted', '=','1');
+            $data->where('isDeleted', '=', '1');
         }
         $da = $data->get();
         $dat = $this->addInfToObjRoom($da->toArray());
-        return ['data'=>$dat,'condition'=>$array];
+        return ['data' => $dat, 'condition' => $array];
     }
 
 
+    public function insert($data)
+    {
+        $r = new Room();
+
+        try {
+
+            $r->code = (empty($data['name'])) ? '' : $data['name'] . strval(rand(0, 99));
+            $index = $r->code;
+            $r->name = (empty($data['name'])) ? '' : $data['name'];
+            $r->password = (empty($data['password'])) ? '' : md5($data['password']);
+            $r->category_id = (empty($data['cate'])) ? '' : $data['cate'];
+            $r->describe = (empty($data['describe'])) ? '' : $data['describe'];
+            $r->status_id = 1;
+            $r->admin = (empty($data['user_id'])) ? '' : $data['user_id'];
+            $r->created = date('Y-m-d H:i:s', time() + 7 * 60 * 60);
+            $r->updated = date('Y-m-d H:i:s', time() + 7 * 60 * 60);
+            $r->voted = 1;
+            $r->isDeleted = 0;
+
+            $r->save();
+            $rMol = new Room();
+            $room = $rMol->getRoomsByCondition(['code' => $index]);
+            return $room['data']['0']['id'];
+        } catch (\Exception $e) {
+            dd("ex insert room!" . $e);
+        }
+        return false;
+    }
 }
