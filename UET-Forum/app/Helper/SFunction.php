@@ -19,4 +19,11 @@ class SFunction
         }
         return false;
     }
+
+    static function checkValiPass($request){
+        if(isset($request->password_new)&&isset($request->password_vali)){
+            return ($request->password_new==$request->password_vali)? true : false;
+        }
+        return 'NO_PASS';
+    }
 }

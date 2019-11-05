@@ -46,7 +46,7 @@ class DashBoardController extends  Controller
         $r = $request->toArray();
         $room = new Room();
         $data = $room->getRoomsByCondition($r);
-        return CoreController::viewPage('index',['rooms'=>$data['data'],'cond'=>$data['condition']]);
+        return CoreController::viewPage('index',['rooms'=>$data['data'],'conditions'=>$data['condition']]);
     }
 
 }

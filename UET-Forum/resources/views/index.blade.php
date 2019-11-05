@@ -28,7 +28,17 @@
             <!--phan noi dung giua-->
                 <div class="col-md-7 centerBar">
                     <div class="MainHeader clearfix">
-                        <h3 class="float-left" style="margin-left: 10px">Tất cả các phòng</h3>
+                        <h3 class="float-left" style="margin-left: 10px">
+                            {{(isset($conditions['new']))?@trans('lang.newRoom'):(isset($conditions['voted']))?@trans('lang.voteRoom')
+                               :(isset($conditions['deleted']))?@trans('lang.deletedRoom'):'Tất cả các phòng'}}
+                            @if(!empty($conditions['category_id']))
+                                @foreach($cates as $cate)
+                                    @if($cate['id']==$conditions['category_id'])
+                                        /{{$cate['name']}}
+                                    @endif
+                                @endforeach
+                            @endif
+                        </h3>
                         <form action='{{route('dashboard-search')}}' method="get" class="form float-right">
                             <div class="input-group searchbox">
                                 <input type="search" class="form-control" name="code" placeholder="Tìm kiếm...">
@@ -43,17 +53,20 @@
                         <div class="menu clearfix">
                             <ul class="nav nav-tabs float-left" id="myTab">
                                 <li class="nav-item">
-                                    <a class="nav-link active" href="{{env('APP_URL')}}/uet-forum/dashboard-search?new=1">Mới nhất</a>
+                                    <a class="nav-link {{(isset($conditions['new']))?'active':''}}"
+                                       href="{{env('APP_URL')}}/uet-forum/dashboard-search?new=1">Mới nhất</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{env('APP_URL')}}/uet-forum/dashboard-search?voted=3">Nổi bật</a>
+                                    <a class="nav-link {{(isset($conditions['voted']))?'active':''}}"
+                                       href="{{env('APP_URL')}}/uet-forum/dashboard-search?voted=3">Nổi bật</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Đã
+                                    <a class="nav-link  {{(isset($condition['new']))?'active':''}}" href="#">Đã
                                         tham gia</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{env('APP_URL')}}/uet-forum/dashboard-search?deleted=1">Đã
+                                <li class="nav-item ">
+                                    <a class="nav-link {{(isset($conditions['deleted']))?'active':''}}"
+                                       href="{{env('APP_URL')}}/uet-forum/dashboard-search?deleted=1">Đã
                                         đóng</a>
                                 </li>
                             </ul>
@@ -73,42 +86,47 @@
                         <div id="lietkephong">
                             <ul class="list-group">
                                 @foreach($rooms as $key=>$room)
-                                <li>
-                                    <div class="card room">
-                                        <h5 class="card-header"><a href="{{route('room',['id'=>encrypt($room['id'])])}}">{{$room['code']}}</a></h5>
-                                        <div class="card-body row">
-                                            <div class="col-sm-8">
-                                                <p>{{$room['name']}}
-                                                </p>
-                                            </div>
-                                            <div class="col-sm">
-                                                <div class="float-right">
-                                                    <ul
-                                                            class="list-group list-group-horizontal justify-content-center">
-                                                        <li class="list-group-item"><i class="fas fa-user"></i>
-                                                            123
-                                                        </li>
-                                                        <li class="list-group-item"><i class="fas fa-star"></i>
-                                                            4.5
-                                                        </li>
-                                                        <li class="list-group-item"><i class="fas fa-lock"></i>
-                                                        </li>
-                                                        <li class="list-group-item marked"><i
-                                                                    class="fas fa-heart"></i></li>
-                                                    </ul>
+                                    <li>
+                                        <div class="card room">
+                                            <h5 class="card-header"><a
+                                                        href="{{route('room',['id'=>encrypt($room['id'])])}}">{{$room['code']}}</a>
+                                            </h5>
+                                            <div class="card-body row">
+                                                <div class="col-sm-8">
+                                                    <p>{{$room['name']}}
+                                                    </p>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <div class="float-right">
+                                                        <ul
+                                                                class="list-group list-group-horizontal justify-content-center">
+                                                            <li class="list-group-item"><i class="fas fa-user"></i>
+                                                                123
+                                                            </li>
+                                                            <li class="list-group-item"><i class="fas fa-star"></i>
+                                                                4.5
+                                                            </li>
+                                                            <li class="list-group-item"><i class="fas fa-lock"></i>
+                                                            </li>
+                                                            <li class="list-group-item marked"><i
+                                                                        class="fas fa-heart"></i></li>
+                                                        </ul>
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="card-footer roomfoot clearfix">
-                                            <div class="roomDetail float-left">
-                                                <i class="text-muted"> -{{$room['admin']['fullName']}} - {{$room['created']}} <a href="#">{{$room['category_id']['name']}}</a></i>
+                                            <div class="card-footer roomfoot clearfix">
+                                                <div class="roomDetail float-left">
+                                                    <i class="text-muted"> -{{$room['admin']['fullName']}}
+                                                        - {{$room['created']}} <a
+                                                                href="#">{{$room['category_id']['name']}}</a></i>
+                                                </div>
+                                                <a class="float-right"
+                                                   href="{{route('room',['id'=>encrypt($room['id'])])}}">Chi tiết <i
+                                                            class="fas fa-angle-right"></i></a>
                                             </div>
-                                            <a class="float-right" href="{{route('room',['id'=>encrypt($room['id'])])}}">Chi tiết <i
-                                                        class="fas fa-angle-right"></i></a>
                                         </div>
-                                    </div>
-                                </li>
-                                    @endforeach
+                                    </li>
+                                @endforeach
 
                             </ul>
                             <nav>

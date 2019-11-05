@@ -47,7 +47,7 @@ class Room extends Model
 
     public function getAll()
     {
-        return Room::all()->toArray();
+        return Room::where('isDeleted', '0')->get();
     }
 
     public function addInfToObjRoom($rooms /* array $rooms*/)
@@ -70,6 +70,9 @@ class Room extends Model
             $question = Room::find($id)->question->toArray();
             $question = $q->AddInfo($question);
             $data = Room::find($id)->toArray();
+            if ($data['isDeleted'] == 1) {
+                return null;
+            }
             $data = $this->addInfToObjRoom(['0' => $data]);
 
             return ['data' => $data['0'], 'question' => $question];
@@ -83,12 +86,12 @@ class Room extends Model
 
         $u = new Room();
         $data = $u->newQuery();
+
         if (!empty($array['user_id'])) {
             $data->where('admin', 'like', $array['user_id']);
         }
         if (!empty($array['code'])) {
             $data->where('code', 'like', "%" . $array['code'] . "%");
-
         }
         if (!empty($array['category_id'])) {
             $data->where('category_id', 'like', $array['category_id']);
@@ -101,6 +104,8 @@ class Room extends Model
         }
         if (!empty($array['deleted'])) {
             $data->where('isDeleted', '=', '1');
+        }else {
+            $data->where('isDeleted', '=', 0);
         }
         $da = $data->get();
         $dat = $this->addInfToObjRoom($da->toArray());
@@ -136,4 +141,48 @@ class Room extends Model
         }
         return false;
     }
+
+    public function deleteById($id)
+    {
+        try {
+            $r = Room::find($id);
+            $r->isDeleted = 1;
+            $user = User::getCurrentUser();
+            if ($user['id'] == $r->admin) {
+                $r->save();
+                return true;
+            } else {
+                return "404";
+            }
+
+        } catch (\Exception $e) {
+            dd("error deleted");
+        }
+
+    }
+
+    public function updateById($id, $data)
+    {
+        try {
+            $room = Room::find($id);
+            if ($room->isDeleted == 0) {
+                $room->name = (isset($data['name'])) ? $data['name'] : '';
+                $room->category_id = (isset($data['cate'])) ? $data['cate'] : '';
+                $room->describe = (isset($data['describe'])) ? $data['describe'] : '';
+                $room->updated = date('Y-m-d H:i:s', time() + 7 * 60 * 60);
+                $room->password = (isset($data['password_new'])) ? md5($data['password_new']) : md5('');
+                $user = User::getCurrentUser();
+                if ($user['id'] == $room->admin) {
+                    $room->save();
+                    return true;
+                }
+                return false;
+
+            }
+        } catch (\Exception $e) {
+            dd("error update!");
+        }
+        return false;
+    }
+
 }
