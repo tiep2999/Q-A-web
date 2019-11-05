@@ -66,8 +66,13 @@
                             <div class="ratingBox clearfix">
                                 <!--Cho admin phong-->
                                 <div class="float-left" style="display: inherit">
-                                    <button class="btn btn-sm btn-danger" style="margin-right: 1rem">Đóng phòng <i
-                                                class="fas fa-door-closed"></i></button>
+                                    <form method="post" action="{{route('delete-room')}}">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{$room['id']}}">
+                                        <button type="submit" class="btn btn-sm btn-danger" style="margin-right: 1rem">
+                                            Đóng phòng <i
+                                                    class="fas fa-door-closed"></i></button>
+                                    </form>
                                     <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit"
                                             data-whatever="@mdo" style="margin-right: 1rem">Chỉnh sửa <i
                                                 class="fas fa-pen"></i></button>
@@ -76,7 +81,9 @@
                                          aria-labelledby="edit" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content" style="color: black">
-                                                <form action="" method="" enctype="multipart/form-data">
+                                                <form action="{{route('update-room')}}" method="post" id="update-room">
+                                                    @csrf
+                                                    <input type="hidden" name="id" value="{{$room['id']}}">
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="taophong">Sửa phòng</h5>
                                                         <button type="button" class="close" data-dismiss="modal"
@@ -85,18 +92,16 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form>
                                                             <div class="form-group">
-                                                                <label class="col-form-label">Tên phòng:</label>
+                                                                <label class="col-form-label">{{$room['name']}}</label>
                                                                 <input type="text" class="form-control"
-                                                                       name="tenphong" value="Tên phòng">
+                                                                       name="name" value="Tên phòng">
                                                                 <div class="row">
                                                                     <div class="col-md-6">
                                                                         <label class="col-form-label">Mật khẩu
-                                                                            phòng:</label>
-                                                                        <input type="text" class="form-control"
-                                                                               name="matkhau" id="matkhau"
-                                                                               value="matkhaucu">
+                                                                            mới:</label>
+                                                                        <input type="password" class="form-control"
+                                                                               name="password_new" id="matkhau">
                                                                         <small id="matkhau" class="form-text"
                                                                                style="color: #007bff">Để trống nếu
                                                                             không
@@ -106,20 +111,52 @@
                                                                         </small>
                                                                     </div>
                                                                     <div class="col-md-6">
+                                                                        <label class="col-form-label">Nhập lại mật khẩu
+                                                                            mới :</label>
+                                                                        <input type="password" class="form-control"
+                                                                               name="password_vali" id="matkhau">
+                                                                        <small id="matkhau" class="form-text"
+                                                                               style="color: #007bff">Để trống nếu
+                                                                            không
+                                                                            đặt
+                                                                            mật
+                                                                            khẩu
+                                                                        </small>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="row">
+
+                                                                    <div class="col-md-6">
+                                                                        <label class="col-form-label">Mật khẩu
+                                                                            cũ:</label>
+                                                                        <input type="password" class="form-control"
+                                                                               name="password_old" id="matkhau">
+                                                                        <small id="matkhau" class="form-text"
+                                                                               style="color: #007bff">Để trống nếu
+                                                                            không
+                                                                            đặt
+                                                                            mật
+                                                                            khẩu
+                                                                        </small>
+                                                                    </div>
+
+                                                                    <div class="col-md-6">
                                                                         <label class="col-form-label">Chủ
                                                                             đề:</label>
-                                                                        <select class="form-control">
-                                                                            <option>Chủ đề 1</option>
-                                                                            <option>Chủ đề 2</option>
-                                                                            <option>Chủ đề 3</option>
+                                                                        <select name="cate" class="form-control">
+                                                                            @foreach($cates as $cate)
+                                                                                <option {{ ($cate['id']==$room['category_id']['id'])?'selected':''}} value="{{$cate['id']}}">{{$cate['name']}}</option>
+                                                                            @endforeach
                                                                         </select>
                                                                     </div>
                                                                 </div>
+
                                                                 <label class="col-form-label">Mô tả:</label>
-                                                                <textarea class="form-control"
+                                                                <textarea name="describe" form="update-room" class="form-control"
                                                                           rows="3">Mổ tả của phòng</textarea>
                                                             </div>
-                                                        </form>
+
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"
@@ -169,7 +206,8 @@
                             </div>
                             <div class="commentBody">
                                 <div class="form-group postComment clearfix">
-                                        <textarea name="question" class="form-control" form="post-question" id="commentForm" rows="3"
+                                        <textarea name="question" class="form-control" form="post-question"
+                                                  id="commentForm" rows="3"
                                                   placeholder="Viết câu hỏi..."></textarea>
                                     <a role="button" href="#" class="btn btn-sm btn-outline-light float-left"
                                        style="margin-right: 10px"><i class="fab fa-facebook-square"></i> Chia
@@ -245,10 +283,10 @@
                                                         <button type="button" class="btn btn-sm btn-danger float-right"
                                                                 style="margin-right: 0">Xóa
                                                         </button>
-                                                        <button type="button"
-                                                                class="btn btn-sm btn-success float-right">Chỉnh
-                                                            sửa
-                                                        </button>
+{{--                                                        <button type="button"--}}
+{{--                                                                class="btn btn-sm btn-success float-right">Chỉnh--}}
+{{--                                                            sửa--}}
+{{--                                                        </button>--}}
                                                     </div>
                                                 </div>
                                             </li>

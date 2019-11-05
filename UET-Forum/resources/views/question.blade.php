@@ -56,39 +56,39 @@
                                 </div>
                                 <!--Cho chu cau hoi-->
                                 <div class="float-left" style="display: flex">
-                                    <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit"
-                                            data-whatever="@mdo" style="margin-right: 1rem">Chỉnh sửa <i
-                                                class="fas fa-pen"></i></button>
+{{--                                    <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit"--}}
+{{--                                            data-whatever="@mdo" style="margin-right: 1rem">Chỉnh sửa <i--}}
+{{--                                                class="fas fa-pen"></i></button>--}}
                                     <!--Khung sua cau hoi-->
-                                    <div class="modal fade" id="edit" tabindex="-1" role="dialog"
-                                         aria-labelledby="edit" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content" style="color: black">
-                                                <form action="" method="" enctype="multipart/form-data">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="taophong">Sửa câu hỏi</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form>
-                                                                <textarea class="form-control"
-                                                                          rows="4">Nội dung câu hỏi</textarea>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">Hủy
-                                                        </button>
-                                                        <input type="submit" class="btn btn-info" id="edit"
-                                                               name="sua" value="Cập nhật">
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
+{{--                                    <div class="modal fade" id="edit" tabindex="-1" role="dialog"--}}
+{{--                                         aria-labelledby="edit" aria-hidden="true">--}}
+{{--                                        <div class="modal-dialog" role="document">--}}
+{{--                                            <div class="modal-content" style="color: black">--}}
+{{--                                                <form action="" method="" enctype="multipart/form-data">--}}
+{{--                                                    <div class="modal-header">--}}
+{{--                                                        <h5 class="modal-title" id="taophong">Sửa câu hỏi</h5>--}}
+{{--                                                        <button type="button" class="close" data-dismiss="modal"--}}
+{{--                                                                aria-label="Close">--}}
+{{--                                                            <span aria-hidden="true">&times;</span>--}}
+{{--                                                        </button>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="modal-body">--}}
+{{--                                                        <form>--}}
+{{--                                                                <textarea class="form-control"--}}
+{{--                                                                          rows="4">Nội dung câu hỏi</textarea>--}}
+{{--                                                        </form>--}}
+{{--                                                    </div>--}}
+{{--                                                    <div class="modal-footer">--}}
+{{--                                                        <button type="button" class="btn btn-secondary"--}}
+{{--                                                                data-dismiss="modal">Hủy--}}
+{{--                                                        </button>--}}
+{{--                                                        <input type="submit" class="btn btn-info" id="edit"--}}
+{{--                                                               name="sua" value="Cập nhật">--}}
+{{--                                                    </div>--}}
+{{--                                                </form>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
                                     <!---->
                                     <button class="btn btn-sm btn-danger" style="margin-right: 1rem">Xóa câu hỏi <i
                                                 class="fas fa-trash"></i></button>

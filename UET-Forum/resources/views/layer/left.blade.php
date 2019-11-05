@@ -69,8 +69,8 @@
         <div class="container">
             <nav class="nav flex-column subMenu">
                 @foreach($cates as $cate)
-                    <a class="nav-link"
-                       href="http://forum.com.vn/uet-forum/dashboard-search?category_id={{$cate['id']}}">{{$cate['name']}}
+                    <a class="nav-link {{(isset($conditions['category_id']))?(($conditions['category_id']==$cate['id'])?'active':''):''}}"
+                       href="{{env('APP_URL')}}/uet-forum/dashboard-search?category_id={{$cate['id']}}">{{$cate['name']}}
                         <span
                                 class="badge badge-light float-right">4</span></a>
                 @endforeach
