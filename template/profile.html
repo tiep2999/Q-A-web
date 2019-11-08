@@ -52,7 +52,7 @@
         <!--thanh menu-->
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg navbar-dark">
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="#">UET-Q&A</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -176,7 +176,7 @@
                     <div class="col-md leftBar">
                         <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#taophong"
                             data-whatever="@mdo"><i class="fas fa-plus-circle"></i> Tạo
-                            phòng</button>
+                            phiên hỏi đáp</button>
                         <!--Khung tao phong-->
                         <div class="modal fade" id="taophong" tabindex="-1" role="dialog" aria-labelledby="taophong"
                             aria-hidden="true">
@@ -184,7 +184,7 @@
                                 <div class="modal-content">
                                     <form action="" method="" enctype="multipart/form-data">
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="taophong">Tạo phòng</h5>
+                                            <h5 class="modal-title" id="taophong">Tạo phiên hỏi đáp</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
@@ -192,11 +192,11 @@
                                         <div class="modal-body">
                                             <form>
                                                 <div class="form-group">
-                                                    <label class="col-form-label">Tên phòng:</label>
+                                                    <label class="col-form-label">Tên phiên hỏi đáp:</label>
                                                     <input type="text" class="form-control" name="tenphong">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <label class="col-form-label">Mật khẩu phòng:</label>
+                                                            <label class="col-form-label">Mật khẩu:</label>
                                                             <input type="text" class="form-control" name="matkhau"
                                                                 id="matkhau">
                                                             <small id="matkhau" class="form-text"
@@ -223,7 +223,7 @@
                                             <button type="button" class="btn btn-secondary"
                                                 data-dismiss="modal">Hủy</button>
                                             <input type="submit" class="btn btn-primary" id="taophong" name="tao"
-                                                value="Tạo phòng">
+                                                value="Tạo">
                                         </div>
                                     </form>
                                 </div>
@@ -231,36 +231,27 @@
                         </div>
                         <!---->
                         <nav class="nav flex-column bigMenu">
-                            <a class="nav-link" href="#"><i class="fas fa-home"></i> Tất cả các phòng</a>
+                            <a class="nav-link" href="#"><i class="fas fa-home"></i> Tất cả các phiên</a>
                             <a class="nav-link" href="#"><i class="fas fa-bars"></i> Chủ đề</a>
                             <div class="container">
                                 <nav class="nav flex-column subMenu">
-                                    <a class="nav-link" href="#">Học tập <span
-                                            class="badge badge-light float-right">4</span></a>
-                                    <a class="nav-link" href="#">Công nghệ <span
-                                            class="badge badge-light float-right">4</span></a>
-                                    <a class="nav-link" href="#">Khoa học <span
-                                            class="badge badge-light float-right">4</span></a>
-                                    <a class="nav-link" href="#">Đời sống <span
-                                            class="badge badge-light float-right">4</span></a>
-                                    <a class="nav-link" href="#">Sức khỏe <span
-                                            class="badge badge-light float-right">4</span></a>
-                                    <a class="nav-link" href="#">Thể thao <span
-                                            class="badge badge-light float-right">4</span></a>
-                                    <a class="nav-link" href="#">Điện ảnh <span
-                                            class="badge badge-light float-right">4</span></a>
-                                    <a class="nav-link" href="#">Âm nhạc <span
-                                            class="badge badge-light float-right">4</span></a>
-                                    <a class="nav-link" href="#">Y học <span
-                                            class="badge badge-light float-right">4</span></a>
+                                    <a class="nav-link" href="#">Học tập <span class="badge badge-light">4</span></a>
+                                    <a class="nav-link" href="#">Công nghệ <span class="badge badge-light">4</span></a>
+                                    <a class="nav-link" href="#">Khoa học <span class="badge badge-light">4</span></a>
+                                    <a class="nav-link" href="#">Đời sống <span class="badge badge-light">4</span></a>
+                                    <a class="nav-link" href="#">Sức khỏe <span class="badge badge-light">4</span></a>
+                                    <a class="nav-link" href="#">Thể thao <span class="badge badge-light">4</span></a>
+                                    <a class="nav-link" href="#">Điện ảnh <span class="badge badge-light">4</span></a>
+                                    <a class="nav-link" href="#">Âm nhạc <span class="badge badge-light">4</span></a>
+                                    <a class="nav-link" href="#">Y học <span class="badge badge-light">4</span></a>
                                 </nav>
                             </div>
                             <a class="nav-link" href="#"><i class="fas fa-heart"></i> Đánh dấu</a>
-                            <a class="nav-link" href="#"><i class="fas fa-question-circle"></i> Phòng của tôi</a>
+                            <a class="nav-link" href="#"><i class="fas fa-question-circle"></i> Phiên của tôi</a>
                         </nav>
                     </div>
                     <!--phan noi dung giua-->
-                    <div class="col-md-7 centerBar">
+                    <div class="col-md-8 centerBar">
                         <div class="MainContent">
                             <div class="profileInfo row">
                                 <div class="col-md-4 userInfo">
@@ -270,7 +261,7 @@
                                     <p><i class="fas fa-info-circle"></i> Nam</p>
                                     <p><i class="fas fa-birthday-cake"></i> 12/03/1999</p>
                                     <p><i class="fas fa-envelope"></i> thunderking9x@gmail.com</p>
-                                    <button type="button" class="btn btn-info btn-block" data-toggle="modal"
+                                    <button type="button" class="btn btn-outline-dark btn-block" data-toggle="modal"
                                         data-target="#editprofile" data-whatever="@mdo"><i class="fas fa-pen"></i>
                                         Chỉnh sửa</button>
                                     <!--khung sua thong tin-->
@@ -370,7 +361,7 @@
                     <div class="col-md rightBar">
                         <form class="form-inline">
                             <div class="input-group mb-3 searchbox">
-                                <input type="search" class="form-control" placeholder="Tìm kiếm...">
+                                <input type="search" class="form-control sinput" placeholder="Tìm kiếm...">
                                 <div class="input-group-append">
                                     <button class="btn searchbtn" type="button"><i class="fas fa-search"></i></button>
                                 </div>
@@ -403,9 +394,9 @@
                         </div>
                         <div class="extraInformation">
                             <ul class="list-group">
-                                <li class="list-group-item onlineMem">Thành viên đang online: 1000</li>
-                                <li class="list-group-item onlineRoom">Phòng đang mở: 20</li>
-                                <li class="list-group-item onlineMy">Phòng đang mở của tôi: 2</li>
+                                <li class="list-group-item onlineMem">Đang online: 1000</li>
+                                <li class="list-group-item onlineRoom">Phiên đang mở: 20</li>
+                                <li class="list-group-item onlineMy">Phiên đang mở của tôi: 2</li>
                             </ul>
                         </div>
                     </div>
