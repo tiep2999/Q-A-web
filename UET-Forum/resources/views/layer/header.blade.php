@@ -17,5 +17,10 @@
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
     <title>{{isset($title)?$title:''}}</title>
+{{--    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">--}}
+{{--    <!-- include jQuery -->--}}
+{{--    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>--}}
+{{--    <!-- include jQuery UI -->--}}
+{{--    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>--}}
 </head>
 

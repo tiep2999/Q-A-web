@@ -93,9 +93,9 @@
                                                     </div>
                                                     <div class="modal-body">
                                                             <div class="form-group">
-                                                                <label class="col-form-label">{{$room['name']}}</label>
+                                                                <label class="col-form-label">Tên phòng</label>
                                                                 <input type="text" class="form-control"
-                                                                       name="name" value="Tên phòng">
+                                                                       name="name" value="{{$room['name']}}" placeholder="{{$room['name']}}">
                                                                 <div class="row">
                                                                     <div class="col-md-6">
                                                                         <label class="col-form-label">Mật khẩu
@@ -154,7 +154,7 @@
 
                                                                 <label class="col-form-label">Mô tả:</label>
                                                                 <textarea name="describe" form="update-room" class="form-control"
-                                                                          rows="3">Mổ tả của phòng</textarea>
+                                                                          rows="3">{{$room['describe']}}</textarea>
                                                             </div>
 
                                                     </div>
@@ -193,7 +193,7 @@
                             <div class="userBox">
                                 <div style="margin-right: 10px">
                                     <a href="#">{{$room['admin']['fullName']}}</a>
-                                    <p>Ngày tạo: 19:31 22/08/2019</p>
+                                    <p>Ngày tạo: {{$room['created']}}</p>
                                 </div>
                                 <img src="{{asset('css/image/user/withBG.png')}}" width="35">
                             </div>

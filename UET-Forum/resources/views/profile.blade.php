@@ -43,7 +43,7 @@
                                 <img src="{{asset('css/image/user/withBG.png')}}" width="100%">
                                 <h4>{{$cUser['fullName']}}</h4>
                                 <h5>{{$cUser['userName']}}</h5>
-                                <p><i class="fas fa-info-circle"></i> Nam</p>
+                                {{--                                <p><i class="fas fa-info-circle"></i> Nam</p>--}}
                                 <p><i class="fas fa-birthday-cake"></i>{{$cUser['dateOfBirth']}}</p>
                                 <p><i class="fas fa-envelope"></i>{{$cUser['email']}}</p>
                                 <button type="button" class="btn btn-info btn-block" data-toggle="modal"
@@ -69,26 +69,36 @@
                                                         <div class="form-group">
                                                             <label class="col-form-label">Họ tên:</label>
                                                             <input type="text" class="form-control"
-                                                                   value="Nguyễn Tuấn Linh">
+                                                                   placeholder="{{$cUser['fullName']}}">
                                                             <label class="col-form-label">Ảnh đại diện:</label>
                                                             <input type="file" class="form-control-file">
                                                             <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <label class="col-form-label">Giới tính:</label>
-                                                                    <select class="form-control">
-                                                                        <option>Nam</option>
-                                                                        <option>Nữ</option>
-                                                                    </select>
-                                                                </div>
+                                                                {{--                                                                <div class="col-md-6">--}}
+                                                                {{--                                                                    <label class="col-form-label">Giới tính:</label>--}}
+                                                                {{--                                                                    <select class="form-control">--}}
+                                                                {{--                                                                        <option>Nam</option>--}}
+                                                                {{--                                                                        <option>Nữ</option>--}}
+                                                                {{--                                                                    </select>--}}
+                                                                {{--                                                                </div>--}}
                                                                 <div class="col-md-6">
                                                                     <label class="col-form-label">Ngày sinh:</label>
-                                                                    <input type="date" class="form-control"
-                                                                           value="1999-03-12">
+                                                                    <input id="Datepicker1"
+                                                                           value="{{$cUser['dateOfBirth']}}" type="date"
+                                                                           class="form-control">{{$cUser['dateOfBirth']}}
                                                                 </div>
+
+{{--                                                                <script type="text/javascript">--}}
+{{--                                                                    $(function () {--}}
+{{--                                                                        $("#Datepicker1").datepicker({--}}
+{{--                                                                            numberOfMonths: 3--}}
+{{--                                                                        });--}}
+{{--                                                                    });--}}
+{{--                                                                </script>--}}
+
                                                             </div>
                                                             <label class="col-form-label">Email:</label>
                                                             <input type="email" class="form-control"
-                                                                   value="thunderking9x@gmail.com">
+                                                                   value="{{$cUser['email']}}"> {{$cUser['email']}}
                                                         </div>
                                                     </form>
                                                 </div>
@@ -112,13 +122,14 @@
                                             <h4>Phòng của tôi</h4>
                                         </div>
                                         <div>
-                                            <a href="#" ><i  class="fa fa-angle-double-right"></i>Xem tất cả</a>
+                                            <a href="#"><i class="fa fa-angle-double-right"></i>Xem tất cả</a>
 
                                         </div>
                                     </div>
                                     <div class="list-group">
                                         @foreach($rooms as $room)
-                                            <a href="{{route('room',['id'=>encrypt($room['id'])])}}" class="list-group-item list-group-item-action">{{$room['name']}}</a>
+                                            <a href="{{route('room',['id'=>encrypt($room['id'])])}}"
+                                               class="list-group-item list-group-item-action">{{$room['name']}}</a>
                                         @endforeach
 
                                     </div>

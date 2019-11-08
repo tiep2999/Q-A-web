@@ -34,7 +34,7 @@
                             @if(!empty($conditions['category_id']))
                                 @foreach($cates as $cate)
                                     @if($cate['id']==$conditions['category_id'])
-                                        /{{$cate['name']}}
+                                        / {{$cate['name']}}
                                     @endif
                                 @endforeach
                             @endif
