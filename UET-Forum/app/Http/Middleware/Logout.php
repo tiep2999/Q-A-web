@@ -12,6 +12,11 @@ class Logout
 {
     public function handle($request, Closure $next)
     {
+        $this->logOut();
+        return redirect('/');
+    }
+
+    public function logOut(){
         if (!empty(\cookie('uAct'))) {
             Cookie::queue('pAct', '', 0);
             Cookie::queue('uAct', '', 0);
@@ -19,7 +24,5 @@ class Logout
                 session()->forget('role');
             }
         }
-
-        return redirect('/');
     }
 }

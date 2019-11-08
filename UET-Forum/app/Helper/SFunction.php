@@ -33,4 +33,17 @@ class SFunction
         }
         return 'NO_PASS';
     }
+
+    static function upFile($request){
+        try {
+            $file = $request->avatar;
+            $name = $file->getClientOriginalName();
+            $name = time() . bin2hex(openssl_random_pseudo_bytes(2)) . $name;
+            $file->move(config('app.pathFile'), $name);
+        } catch (\Exception $e) {
+            dd($e);
+            return '';
+        }
+        return "avatar/" . $name;
+    }
 }

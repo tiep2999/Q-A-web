@@ -130,8 +130,8 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
 
     static function getCurrentUser()
     {
-      //  $user = session('currentUser');
-        $user =User::find(decrypt($_COOKIE['id']))->toArray();
+        //  $user = session('currentUser');
+        $user = User::find(decrypt($_COOKIE['id']))->toArray();
         return $user;
     }
 
@@ -168,18 +168,35 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
     public function updateUser($id, $data)
     {
 
-        $u = User::find(decrypt($id));
-        $u->userName = (empty($data['userName'])) ? '' : $data['userName'];
-        $u->fullName = (empty($data['fullName'])) ? '' : $data['fullName'];
-        $u->email = (empty($data['email'])) ? '' : $data['email'];
-        $u->dateOfBirth = (empty($data['dateOfBirth'])) ? '' : $data['dateOfBirth'];
-        $u->role_id = (empty($data['role_id'])) ? '' : $data['role_id'];
-        $u->update_date = (empty($data['update_date'])) ? '' : $data['update_date'];
-        $u->active_flg = 1;
-        $u->remember_token = (empty($data['remember_token'])) ? '' : $data['remember_token'];
-        $u->save();
-        $lastId = $u->id;
-        return $lastId;
+        try {
+            $u = User::find(decrypt($id));
+            if (isset($data['avatar'])) {
+                if (!empty($data['avatar'])) $u->avatar = $data['avatar'];
+            }
+            if (!empty($data['userName'])) $u->userName = $data['userName'];
+            if (!empty($data['fullName'])) $u->fullName = $data['fullName'];
+            if (!empty($data['email'])) $u->email = $data['email'];
+            if (!empty($data['dateOfBirth'])) $u->dateOfBirth = $data['dateOfBirth'];
+            $u->update_date = date('Y-m-d H:i:s', time() + 7 * 60 * 60);
+            $u->active_flg = 1;
+            $u->save();
+            $lastId = $u->id;
+            return $lastId;
+        } catch (\Exception $e) {
+            dd($e);
+        }
+        return null;
+
+    }
+
+    public function setTokenRoom($id,$token){
+        try{
+            $u = User::find(decrypt($id));
+            $u->remember_token = $token;
+            $u->save();
+        }catch (\Exception $e){
+            dd($e);
+        }
     }
 
     public function insertUser($data)
@@ -197,7 +214,7 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
                 $u->password = Support\Facades\Hash::make(config('app.password'));
                 $u->dateOfBirth = (empty($data['dateOfBirth'])) ? '' : $data['dateOfBirth'];
                 $u->role_id = (empty($data['role_id'])) ? '' : $data['role_id'];
-                $u->update_date = (empty($data['update_date'])) ? '' : $data['update_date'];
+                $u->update_date = date('Y-m-d H:i:s', time() + 7 * 60 * 60);
                 $u->active_flg = 1;
                 $u->save();
                 return true;

@@ -26,11 +26,8 @@ class CoreController extends \Illuminate\Routing\Controller
         $core = CoreController::DataCore();
         $data = array_merge($data,$core);
         if(isset($data['room'])&&isset($data['question'])){
-
-            $user = User::getCurrentUser();
-            $user['remember_token']=$data['room']['id'];
             $u = new User();
-            $u->updateUser($_COOKIE['id'],$user);
+            $u->setTokenRoom($_COOKIE['id'],$data['room']['id']);
         }
         return view($link,$data);
     }
