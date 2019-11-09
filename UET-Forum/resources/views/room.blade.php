@@ -91,7 +91,7 @@
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="form-group">
-                                                                <label class="col-form-label">Tên phiên đáp:</label>
+                                                                <label class="col-form-label">Tên phiên hỏi đáp:</label>
                                                                 <input type="text" class="form-control" name="name" value="{{$room['name']}}">
                                                                 <div class="row">
                                                                     <div class="col-md-6">
@@ -144,7 +144,7 @@
                                                                 </div>
 
                                                                 <label class="col-form-label">Mô tả:</label>
-                                                                <textarea name="describe" form="update-room" class="form-control" rows="3">Mổ tả của phiên</textarea>
+                                                                <textarea name="describe" form="update-room" class="form-control" rows="3">{{$room['describe']}}</textarea>
                                                             </div>
 
                                                         </div>

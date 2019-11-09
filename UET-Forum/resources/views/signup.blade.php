@@ -2,25 +2,28 @@
 <html lang="en">
 
 @include('layer.header',['title'=>'signup'])
+
 <body>
     <!--Back to top button-->
     <a id="BTTbutton"></a>
     <script>
         var btn = $('#BTTbutton');
-        $(window).scroll(function () {
+        $(window).scroll(function() {
             if ($(window).scrollTop() > 300) {
                 btn.addClass('show');
             } else {
                 btn.removeClass('show');
             }
         });
-        btn.on('click', function (e) {
+        btn.on('click', function(e) {
             e.preventDefault();
-            $('html, body').animate({ scrollTop: 0 }, '300');
+            $('html, body').animate({
+                scrollTop: 0
+            }, '300');
         });
     </script>
-        <!--thanh menu-->
-        @include('layer.toolbar')
+    <!--thanh menu-->
+    @include('layer.toolbar')
 
     <body>
         <!--form dang ky-->
@@ -38,14 +41,12 @@
                         </div>
                         <div class="form-group">
                             <label for="password">Mật khẩu</label>
-                            <input type="password" class="form-control" id="password" aria-errormessage="passHelp"
-                                   placeholder="Nhập mật khẩu">
+                            <input type="password" class="form-control" id="password" aria-errormessage="passHelp" placeholder="Nhập mật khẩu">
                             <small id="passHelp" class="form-text">Đảm bảo mật khẩu của bạn đủ mạnh</small>
                         </div>
                         <div class="form-group">
                             <label for="Repassword">Mật khẩu</label>
-                            <input type="password" class="form-control" id="Repassword" aria-errormessage="RepassHelp"
-                                   placeholder="Nhập lại mật khẩu">
+                            <input type="password" class="form-control" id="Repassword" aria-errormessage="RepassHelp" placeholder="Nhập lại mật khẩu">
                             <small id="RepassHelp" class="form-text">Cần trùng khớp với mật khẩu đã tạo bên
                                 trên</small>
                         </div>
@@ -78,13 +79,10 @@
                         <div class="container-fluid social">
                             <p>Hoặc đăng ký bằng</p>
                             <ul class="list-group list-group-horizontal justify-content-center">
-                                <li class="list-group-item"><a href="#"><img src="{{asset('css/image/icons/facebook.svg')}}"
-                                                                             width="40px"></a></li>
-                                <li class="list-group-item"><a href="#"><img src="{{asset('css/image/icons/search.svg')}}"
-                                                                             width="40px"></a>
+                                <li class="list-group-item"><a href="#"><img src="{{asset('css/image/icons/facebook.svg')}}" width="40px"></a></li>
+                                <li class="list-group-item"><a href="#"><img src="{{asset('css/image/icons/search.svg')}}" width="40px"></a>
                                 </li>
-                                <li class="list-group-item"><a href="#"><img src="{{asset('css/image/icons/twitter.svg')}}"
-                                                                             width="40px"></a>
+                                <li class="list-group-item"><a href="#"><img src="{{asset('css/image/icons/twitter.svg')}}" width="40px"></a>
                                 </li>
                             </ul>
                         </div>
@@ -95,4 +93,5 @@
     </body>
 </body>
 @include('layer.footer')
+
 </html>
