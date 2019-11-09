@@ -2,7 +2,7 @@
     <!--thanh menu-->
     <div class="container-fluid">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#">UET-Q&A</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -105,7 +105,7 @@
                                     src={{asset("css/image/user/withBG.png")}} class="rounded-circle" width="25px"> {{$_COOKIE['fullName']}}</button>
                         <div class="dropdown-menu dropdown-menu-lg-right userMenu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('profile')}}"><i class="fas fa-user"></i> Thông tin cá nhân</a>
-                            <a class="dropdown-item" href="{{route('room',['id'=>encrypt($curUser['id'])])}}"><i class="fas fa-question-circle"></i> Phòng của
+                            <a class="dropdown-item" href="{{route('room',['id'=>encrypt($curUser['id'])])}}"><i class="fas fa-question-circle"></i> Phiên của
                                 tôi</a>
                             <a class="dropdown-item" href="#"><i class="fas fa-heart"></i> Đánh dấu</a>
                             <a class="dropdown-item" href={{route('logout')}}><i class="fas fa-sign-out-alt"></i> Đăng

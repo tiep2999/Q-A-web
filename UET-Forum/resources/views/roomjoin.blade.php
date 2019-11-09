@@ -28,7 +28,7 @@
                 <!--thanh menu trai-->
             @include('layer.left')
             <!--phan noi dung giua-->
-                <div class="col-7 centerBar">
+                <div class="col-8 centerBar">
                     <div class="MainContent">
                         <div class="roomTitle">
                             <h3>{{$room['name']}}</h3>
@@ -59,10 +59,10 @@
                                     <div class="float-left">
 
                                         <input type="hidden" name="id" value="{{$room['id']}}">
-                                        <input type="password" name="password" class="form-control form-control-sm"
+                                        <input type="password" name="password" class="form-control form-control-sm sinput"
                                                id="password"
                                                aria-errormessage="passHelp" placeholder="Nhập mật khẩu">
-                                        <small id="passHelp" class="form-text">Để trống nếu không có mật khẩu</small>
+                                        <small id="passHelp" class="form-text" style="color: black">Để trống nếu không có mật khẩu</small>
                                     </div>
 
                                     <button class="btn btn-sm btn-primary float-left" type="submit">Tham gia</button>

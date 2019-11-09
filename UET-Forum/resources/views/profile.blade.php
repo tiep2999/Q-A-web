@@ -36,7 +36,7 @@
                 <!--thanh menu trai-->
             @include('layer.left')
             <!--phan noi dung giua-->
-                <div class="col-md-7 centerBar">
+                <div class="col-md-8 centerBar">
                     <div class="MainContent">
                         <div class="profileInfo row">
                             <div class="col-md-4 userInfo">
@@ -46,7 +46,7 @@
                                 <p><i class="fas fa-info-circle"></i> Nam</p>
                                 <p><i class="fas fa-birthday-cake"></i>{{$cUser['dateOfBirth']}}</p>
                                 <p><i class="fas fa-envelope"></i>{{$cUser['email']}}</p>
-                                <button type="button" class="btn btn-info btn-block" data-toggle="modal"
+                                <button type="button" class="btn btn-outline-dark btn-block" data-toggle="modal"
                                         data-target="#editprofile" data-whatever="@mdo"><i class="fas fa-pen"></i>
                                     Chỉnh sửa
                                 </button>

@@ -2,7 +2,7 @@
     @if(!empty($search)&&$search=='room')
         <form class="form-inline">
             <div class="input-group mb-3 searchbox">
-                <input type="search" class="form-control" placeholder="Tìm kiếm...">
+                <input type="search" class="form-control sinput" placeholder="Tìm kiếm...">
                 <div class="input-group-append">
                     <button class="btn searchbtn" type="button"><i class="fas fa-search"></i></button>
                 </div>
@@ -36,9 +36,9 @@
     </div>
     <div class="extraInformation">
         <ul class="list-group">
-            <li class="list-group-item onlineMem">Thành viên đang online: 1000</li>
-            <li class="list-group-item onlineRoom">Phòng đang mở: 20</li>
-            <li class="list-group-item onlineMy">Phòng đang mở của tôi: 2</li>
+            <li class="list-group-item onlineMem">Đang online: 1000</li>
+            <li class="list-group-item onlineRoom">Phiên đang mở: 20</li>
+            <li class="list-group-item onlineMy">Phiên đang mở của tôi: 2</li>
         </ul>
     </div>
 </div>

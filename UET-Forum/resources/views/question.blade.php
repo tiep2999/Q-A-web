@@ -36,7 +36,7 @@
                 <!--thanh menu trai-->
             @include('layer.left')
             <!--phan noi dung giua-->
-                <div class="col-md-7 centerBar">
+                <div class="col-md-8 centerBar">
                     <div class="MainContent">
                         <div class="roomTitle" style="border: none">
                             <h4>{{$question['content']}}</h4>
@@ -45,11 +45,11 @@
                             <div class="clearfix">
                                 <div class="float-left">
                                     <a href="{{route('room',['id'=>encrypt($question['room_id']['id'])])}}">
-                                        <button type="button" class="btn btn-sm btn-outline-light float-left"
+                                        <button type="button" class="btn btn-sm btn-outline-dark float-left"
                                                 style="margin-right: 1rem"><i class="fas fa-arrow-left"></i> Trở về
                                         </button>
                                     </a>
-                                    <button type="button" class="btn btn-sm btn-outline-light float-left"
+                                    <button type="button" class="btn btn-sm btn-outline-dark float-left"
                                             style="margin-right: 1rem"><i class="far fa-caret-square-up"></i> Upvote
                                         (123)
                                     </button>

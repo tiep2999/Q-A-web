@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="footer-info col-sm-4">
-                <h5>Navbar</h5>
+                <h5>UET-Q&A</h5>
                 <p>2019 thử nghiệm, sản phẩm thực hành bộ môn</p>
             </div>
             <div class="footer-payment col-sm-4">

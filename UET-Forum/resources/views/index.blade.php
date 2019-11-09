@@ -26,11 +26,11 @@
                 <!--thanh menu trai-->
             @include('layer.left')
             <!--phan noi dung giua-->
-                <div class="col-md-7 centerBar">
+                <div class="col-md-8 centerBar">
                     <div class="MainHeader clearfix">
                         <h3 class="float-left" style="margin-left: 10px">
                             {{(isset($conditions['new']))?@trans('lang.newRoom'):(isset($conditions['voted']))?@trans('lang.voteRoom')
-                               :(isset($conditions['deleted']))?@trans('lang.deletedRoom'):'Tất cả các phòng'}}
+                               :(isset($conditions['deleted']))?@trans('lang.deletedRoom'):'Tất cả các phiên'}}
                             @if(!empty($conditions['category_id']))
                                 @foreach($cates as $cate)
                                     @if($cate['id']==$conditions['category_id'])
@@ -41,7 +41,7 @@
                         </h3>
                         <form action='{{route('dashboard-search')}}' method="get" class="form float-right">
                             <div class="input-group searchbox">
-                                <input type="search" class="form-control" name="code" placeholder="Tìm kiếm...">
+                                <input type="search" class="form-control sinput" name="code" placeholder="Tìm kiếm...">
                                 <div class="input-group-append">
                                     <button class="btn searchbtn" type="submit"><i
                                                 class="fas fa-search"></i></button>
@@ -72,8 +72,8 @@
                             </ul>
                             <ul class="nav float-right">
                                 <li class="nav-item">
-                                    <label for="numP" style="color: #bcd">Kết quả / Trang: </label>
-                                    <select class="form-control-sm mx-3 my-2" name="numP">
+                                    <label for="numP" style="color: black">Kết quả / Trang: </label>
+                                    <select class="form-control-sm mx-3 my-2 numP" name="numP">
                                         <option>5</option>
                                         <option>10</option>
                                         <option>20</option>
