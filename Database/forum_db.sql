@@ -30,16 +30,17 @@ CREATE TABLE `user` (
 `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
 `role_id` bigint(20) DEFAULT NULL,
 `update_date` datetime DEFAULT NULL,
-`remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+`remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+`avatar` varchar(255) DEFAULT NULL
 )ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id`,`userName`,`fullName`,`email`,`dateOfBirth`,`active_flg`,`password`,`role_id`,`update_date`) VALUES
-(1,'admin','TRAN KIM HIEU','hieu@gmail','2019-02-08',1,'$2y$10$zSLvWNPQ8IrrRcOzVfPIJu5AmTTx9QWa4GVcbo8iplxhgINQ96mJG',1,'2019-02-09 00:00:00'),
-(2,'hieutk','ThanLibra','hieu@gmail','2019-02-09',1,'$2y$10$zSLvWNPQ8IrrRcOzVfPIJu5AmTTx9QWa4GVcbo8iplxhgINQ96mJG',2,'2019-02-09 00:00:00');
+INSERT INTO `user` (`id`,`userName`,`fullName`,`email`,`dateOfBirth`,`active_flg`,`password`,`role_id`,`update_date`,`avatar`) VALUES
+(1,'admin','TRAN KIM HIEU','hieu@gmail','2019-02-08',1,'$2y$10$zSLvWNPQ8IrrRcOzVfPIJu5AmTTx9QWa4GVcbo8iplxhgINQ96mJG',1,'2019-02-09 00:00:00','\avatar'),
+(2,'hieutk','ThanLibra','hieu@gmail','2019-02-09',1,'$2y$10$zSLvWNPQ8IrrRcOzVfPIJu5AmTTx9QWa4GVcbo8iplxhgINQ96mJG',2,'2019-02-09 00:00:00','\avatar');
 
 --
 -- Table structure for table `roleGlobal`
