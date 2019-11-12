@@ -41,7 +41,7 @@ class Room extends Model
 
     public function getAllRoomByUserId($id)
     {
-        $all = Room::query('SELECT * FROM `room` WHERE id=', $id)->get()->toArray();
+        $all = Room::where('isDeleted', '0')->where('admin',$id)->get()->toArray();
         return $all;
     }
 
@@ -104,7 +104,7 @@ class Room extends Model
         }
         if (!empty($array['deleted'])) {
             $data->where('isDeleted', '=', '1');
-        }else {
+        } else {
             $data->where('isDeleted', '=', 0);
         }
         $da = $data->get();

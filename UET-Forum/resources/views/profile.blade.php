@@ -43,10 +43,10 @@
                         <div class="MainContent">
                             <div class="profileInfo row">
                                 <div class="col-md-4 userInfo">
-                                    <img src="{{asset('css/image/user/withBG.png')}}" width="100%">
+                                    <img src="{{(isset($cUser['avatar']))?asset($cUser['avatar']):''}}" width="100%">
                                     <h4>{{$cUser['fullName']}}</h4>
                                     <h5>{{$cUser['userName']}}</h5>
-                                    <p><i class="fas fa-info-circle"></i> Nam</p>
+                                    {{-- <p><i class="fas fa-info-circle"></i> Nam</p>--}}
                                     <p><i class="fas fa-birthday-cake"></i> {{$cUser['dateOfBirth']}}</p>
                                     <p><i class="fas fa-envelope"></i> {{$cUser['email']}}</p>
                                     <button type="button" class="btn btn-outline-dark btn-block" data-toggle="modal" data-target="#editprofile" data-whatever="@mdo"><i class="fas fa-pen"></i>
@@ -56,7 +56,8 @@
                                     <div class="modal fade" id="editprofile" tabindex="-1" role="dialog" aria-labelledby="editprofile" aria-hidden="true">
                                         <div class="modal-dialog" role="document">
                                             <div class="modal-content">
-                                                <form action="" method="" enctype="multipart/form-data">
+                                                <form action="{{route('update-user')}}" method="post" enctype="multipart/form-data">
+                                                    @csrf
                                                     <div class="modal-header">
                                                         <h5 class="modal-title" id="taophong" style="color: black">Chỉnh
                                                             sửa thông tin</h5>
@@ -65,29 +66,68 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form>
-                                                            <div class="form-group">
-                                                                <label class="col-form-label">Họ tên:</label>
-                                                                <input type="text" class="form-control" value="Nguyễn Tuấn Linh">
-                                                                <label class="col-form-label">Ảnh đại diện:</label>
-                                                                <input type="file" class="form-control-file">
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <label class="col-form-label">Giới tính:</label>
-                                                                        <select class="form-control">
-                                                                            <option>Nam</option>
-                                                                            <option>Nữ</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <label class="col-form-label">Ngày sinh:</label>
-                                                                        <input type="date" class="form-control" value="1999-03-12">
-                                                                    </div>
-                                                                </div>
-                                                                <label class="col-form-label">Email:</label>
-                                                                <input type="email" class="form-control" value="thunderking9x@gmail.com">
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">Full name:</label>
+                                                            <input type="hidden" name="id" value="{{$cUser['id']}}">
+                                                            <input name="fullName" type="text" class="form-control" placeholder="{{$cUser['fullName']}}">
+                                                            <div class="">
+                                                                <a href="#">
+                                                                    <img id="img-ava" class="img-fluid" src="{{asset($cUser['avatar'])}}" />
+                                                                </a>
                                                             </div>
-                                                        </form>
+                                                            <label class="col-form-label">Avatar:</label>
+                                                            <input name="avatar" id="img-choose" type="file" class="form-control-file ">
+                                                            <div class="row">
+                                                                {{-- <div class="col-md-6">--}}
+                                                                {{-- <label class="col-form-label">Giới tính:</label>--}}
+                                                                {{-- <select class="form-control">--}}
+                                                                {{-- <option>Nam</option>--}}
+                                                                {{-- <option>Nữ</option>--}}
+                                                                {{-- </select>--}}
+                                                                {{-- </div>--}}
+                                                                <div class="col-md-12">
+                                                                    <label class="col-form-label">Date of birth:</label>
+                                                                    <input name="dateOfBirth" id="Datepicker1" value="{{$cUser['dateOfBirth']}}" type="date" class="form-control">
+                                                                    *{{$cUser['dateOfBirth']}}
+                                                                </div>
+
+
+                                                                {{-- <script type="text/javascript">--}}
+                                                                {{-- $(function () {--}}
+                                                                {{-- $("#Datepicker1").datepicker({--}}
+                                                                {{-- numberOfMonths: 3--}}
+                                                                {{-- });--}}
+                                                                {{-- });--}}
+                                                                {{-- </script>--}}
+
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <label class="col-form-label">Email:</label>
+                                                                    <input name="email" type="email" class="form-control" placeholder="{{$cUser['email']}}" value="{{$cUser['email']}}">
+
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-12">
+                                                                    <label class="col-form-label">Username</label>
+                                                                    <input name="userName" type="text" class="form-control" placeholder="{{$cUser['userName']}}" value="{{$cUser['userName']}}">
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <label class="col-form-label">Password</label>
+                                                                    <input name="password" type="password" class="form-control" placeholder="********">
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <label class="col-form-label">Val Password</label>
+                                                                    <input name="valPassword" type="password" class="form-control" placeholder="********">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy
@@ -124,7 +164,7 @@
                                                 <h4>Phòng đánh dấu</h4>
                                             </div>
                                             <div>
-                                                <a href="#" style="color: rgb(23, 129, 194)"><i></i>Xem tất cả</a>
+                                                <a href="#" style="color: rgb(23, 129, 194)">Xem tất cả</a>
                                             </div>
                                         </div>
                                         <div class="list-group">
@@ -145,7 +185,27 @@
             </div>
         </div>
     </section>
+    <script>
+        function handleFileSelect(evt) {
+            var files = evt.target.files; // FileList object
 
+            f = files[0];
+            var reader = new FileReader();
+
+            // Closure to capture the file information.
+            reader.onload = (function(theFile) {
+                return function(e) {
+                    document.getElementById('img-ava').src = e.target.result;
+                };
+            })(f);
+
+            // Read in the image file as a data URL.
+            reader.readAsDataURL(f);
+
+        }
+
+        document.getElementById('img-choose').addEventListener('change', handleFileSelect, false);
+    </script>
 </body>
 
 @include('layer.footer')

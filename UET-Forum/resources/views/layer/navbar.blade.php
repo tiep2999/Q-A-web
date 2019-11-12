@@ -1,9 +1,7 @@
 <div class="container-fluid">
     <nav class="navbar navbar-expand-lg navbar-dark">
         <a class="navbar-brand" href="#">UET-Q&A</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
@@ -18,18 +16,15 @@
             </ul>
             <ul class="nav justify-content-end">
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                       aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Thông báo <span class="badge badge-danger">4</span>
                     </a>
-                    <div class="dropdown-menu dropdown-menu-lg-right notification"
-                         aria-labelledby="navbarDropdown">
+                    <div class="dropdown-menu dropdown-menu-lg-right notification" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">
                             <div class="card">
                                 <div class="row no-gutters">
                                     <div class="col-md">
-                                        <img src="image/user/withBG.png" class="card-img rounded-circle"
-                                             width="auto">
+                                        <img src="image/user/withBG.png" class="card-img rounded-circle" width="auto">
                                     </div>
                                     <div class="col-md-11">
                                         <div class="card-body">
@@ -46,8 +41,7 @@
                             <div class="card" style="max-width: 540px;">
                                 <div class="row no-gutters">
                                     <div class="col-md">
-                                        <img src="image/user/withBG.png" class="card-img rounded-circle"
-                                             width="auto">
+                                        <img src="image/user/withBG.png" class="card-img rounded-circle" width="auto">
                                     </div>
                                     <div class="col-md-11">
                                         <div class="card-body">
@@ -65,8 +59,7 @@
                             <div class="card" style="max-width: 540px;">
                                 <div class="row no-gutters">
                                     <div class="col-md">
-                                        <img src="image/user/withBG.png" class="card-img rounded-circle"
-                                             width="auto">
+                                        <img src="image/user/withBG.png" class="card-img rounded-circle" width="auto">
                                     </div>
                                     <div class="col-md-11">
                                         <div class="card-body">
@@ -82,8 +75,7 @@
                             <div class="card" style="max-width: 540px;">
                                 <div class="row no-gutters">
                                     <div class="col-md">
-                                        <img src="image/user/withBG.png" class="card-img rounded-circle"
-                                             width="auto">
+                                        <img src="image/user/withBG.png" class="card-img rounded-circle" width="auto">
                                     </div>
                                     <div class="col-md-11">
                                         <div class="card-body">
@@ -99,8 +91,7 @@
                     </div>
                 </li>
                 <li class="nav-item dropdown">
-                    <button type="button" class="btn btn-outline-light" data-toggle="dropdown"><img
-                                src="{{asset("css/image/user/withBG.png")}}" class="rounded-circle" width="25px"> Tên người
+                    <button type="button" class="btn btn-outline-light" data-toggle="dropdown"><img src="{{asset("css/image/user/withBG.png")}}" class="rounded-circle" width="25px"> Tên người
                         dùng</button>
                     <div class="dropdown-menu dropdown-menu-lg-right userMenu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{route('profile')}}"><i class="fas fa-user"></i> Thông tin cá nhân</a>

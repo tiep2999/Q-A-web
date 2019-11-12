@@ -53,5 +53,13 @@ class Comment extends Model
         return false;
     }
 
+    public function deleteById($id){
+
+    }
+
+    public function updateById($id,$data){
+
+    }
+
 
 }

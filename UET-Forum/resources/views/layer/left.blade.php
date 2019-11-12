@@ -1,11 +1,9 @@
 <div class="col-md leftBar">
-    <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#taophong"
-            data-whatever="@mdo"><i class="fas fa-plus-circle"></i> Tạo
+    <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#taophong" data-whatever="@mdo"><i class="fas fa-plus-circle"></i> Tạo
         phiên hỏi đáp
     </button>
     <!--Khung tao phong-->
-    <div class="modal fade" id="taophong" tabindex="-1" role="dialog" aria-labelledby="taophong"
-         aria-hidden="true">
+    <div class="modal fade" id="taophong" tabindex="-1" role="dialog" aria-labelledby="taophong" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -25,10 +23,8 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <label class="col-form-label">Mật khẩu:</label>
-                                    <input type="text" class="form-control" name="password"
-                                           id="matkhau">
-                                    <small id="matkhau" class="form-text"
-                                           style="color: #007bff">Để trống nếu không
+                                    <input type="text" class="form-control" name="password" id="matkhau">
+                                    <small id="matkhau" class="form-text" style="color: #007bff">Để trống nếu không
                                         đặt
                                         mật
                                         khẩu
@@ -41,7 +37,7 @@
 
                                         @foreach($cates as $cate)
 
-                                            <option value="{{$cate['id']}}">{{$cate['name']}}</option>
+                                        <option value="{{$cate['id']}}">{{$cate['name']}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -52,11 +48,9 @@
                     </div>
 
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary"
-                                data-dismiss="modal">Hủy
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy
                         </button>
-                        <input type="submit" class="btn btn-primary" id="taophong" name="createdRoom"
-                               value="Tạo">
+                        <input type="submit" class="btn btn-primary" id="taophong" name="createdRoom" value="Tạo">
                     </div>
                 </form>
             </div>
@@ -69,10 +63,8 @@
         <div class="container">
             <nav class="nav flex-column subMenu">
                 @foreach($cates as $cate)
-                    <a class="nav-link {{(isset($conditions['category_id']))?(($conditions['category_id']==$cate['id'])?'active':''):''}}"
-                       href="{{env('APP_URL')}}/uet-forum/dashboard-search?category_id={{$cate['id']}}">{{$cate['name']}}
-                        <span
-                                class="badge badge-light float-right">4</span></a>
+                <a class="nav-link {{(isset($conditions['category_id']))?(($conditions['category_id']==$cate['id'])?'active':''):''}}" href="{{env('APP_URL')}}/uet-forum/dashboard-search?category_id={{$cate['id']}}">{{$cate['name']}}
+                    <span class="badge badge-light float-right">4</span></a>
                 @endforeach
             </nav>
         </div>

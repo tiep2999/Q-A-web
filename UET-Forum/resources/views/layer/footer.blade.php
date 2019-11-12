@@ -14,7 +14,7 @@
                 <h5>Liên hệ chúng tôi</h5>
                 <ul>
                     <li><a href="#"><img src={{asset("css/image/icons/facebook.svg")}} /></a></li>
-                    <li><a href="#"><img src={{asset(("css/image/icons/gmail.svg"))}}/></a></li>
+                    <li><a href="#"><img src={{asset("css/image/icons/gmail.svg")}}></a></li>
                     <li><a href="#"><img src={{asset("css/image/icons/twitter.svg")}} /></a></li>
                 </ul>
             </div>

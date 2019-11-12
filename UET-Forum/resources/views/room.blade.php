@@ -73,7 +73,7 @@
                                             @csrf
                                             <input type="hidden" name="id" value="{{$room['id']}}">
                                             <button type="submit" class="btn btn-sm btn-danger" style="margin-right: 1rem">
-                                                Đóng phiên <i class="fas fa-door-closed"></i></button>
+                                                Đóng phòng <i class="fas fa-door-closed"></i></button>
                                         </form>
                                         <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit" data-whatever="@mdo" style="margin-right: 1rem">Chỉnh sửa <i class="fas fa-pen"></i></button>
                                         <!--Khung sua phong-->
@@ -84,15 +84,15 @@
                                                         @csrf
                                                         <input type="hidden" name="id" value="{{$room['id']}}">
                                                         <div class="modal-header">
-                                                            <h5 class="modal-title" id="taophong">Sửa phiên</h5>
+                                                            <h5 class="modal-title" id="taophong">Sửa phòng</h5>
                                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                 <span aria-hidden="true">&times;</span>
                                                             </button>
                                                         </div>
                                                         <div class="modal-body">
                                                             <div class="form-group">
-                                                                <label class="col-form-label">Tên phiên hỏi đáp:</label>
-                                                                <input type="text" class="form-control" name="name" value="{{$room['name']}}">
+                                                                <label class="col-form-label">Tên phòng</label>
+                                                                <input type="text" class="form-control" name="name" value="{{$room['name']}}" placeholder="{{$room['name']}}">
                                                                 <div class="row">
                                                                     <div class="col-md-6">
                                                                         <label class="col-form-label">Mật khẩu
@@ -175,7 +175,7 @@
                                 <div class="userBox">
                                     <div style="margin-right: 10px">
                                         <a href="#">{{$room['admin']['fullName']}}</a>
-                                        <p>Ngày tạo: 19:31 22/08/2019</p>
+                                        <p>Ngày tạo: {{$room['created']}}</p>
                                     </div>
                                     <img src="{{asset('css/image/user/withBG.png')}}" width="35">
                                 </div>
@@ -244,11 +244,11 @@
                                                     </div>
                                                     <div class="extraButtons clearfix">
                                                         @if($que['id']==session('cId'))
-                                                        <button type="button" class="btn btn-sm btn-outline-dark float-left"><i class="far fa-caret-square-up"></i> Upvote
+                                                        <button type="button" class="btn btn-sm btn-outline-light float-left"><i class="far fa-caret-square-up"></i> Upvote
                                                             (123)
                                                         </button>
                                                         @endif
-                                                        <a role="button" href="{{route('question',['id'=>$que['id']])}}" class="btn btn-sm btn-outline-dark float-left"><i class="fas fa-comment"></i> Trả lời (5)</a>
+                                                        <a role="button" href="{{route('question',['id'=>$que['id']])}}" class="btn btn-sm btn-outline-light float-left"><i class="fas fa-comment"></i> Trả lời (5)</a>
                                                         <!--Cho chu cau hoi-->
                                                         <button type="button" class="btn btn-sm btn-danger float-right" style="margin-right: 0">Xóa
                                                         </button>

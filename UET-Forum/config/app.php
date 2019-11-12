@@ -7,7 +7,7 @@ return [
     | Application Name
     |--------------------------------------------------------------------------
     */
-
+    'pathFile'=>'C:\xampp\htdocs\Q-A-web\UET-Forum\public\avatar',
     /*
     |
     | This value is the name of your application. This value is used when the
