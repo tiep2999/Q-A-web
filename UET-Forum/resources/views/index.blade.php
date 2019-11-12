@@ -32,8 +32,7 @@
                     <div class="col-md-8 centerBar">
                         <div class="MainHeader clearfix">
                             <h3 class="float-left" style="margin-left: 10px">
-                                {{(isset($conditions['new']))?@trans('lang.newRoom'):(isset($conditions['voted']))?@trans('lang.voteRoom')
-                               :(isset($conditions['deleted']))?@trans('lang.deletedRoom'):'Tất cả các phiên'}}
+                                Phiên hỏi đáp
                                 @if(!empty($conditions['category_id']))
                                 @foreach($cates as $cate)
                                 @if($cate['id']==$conditions['category_id'])
