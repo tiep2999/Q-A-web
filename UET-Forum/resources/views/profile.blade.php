@@ -147,7 +147,7 @@
                                                 <h4>Phòng của tôi</h4>
                                             </div>
                                             <div>
-                                                <a href="#"><i class="fa fa-angle-double-right"></i>Xem tất cả</a>
+                                                <a href="#" style="color: rgb(23, 129, 194);">Xem tất cả</a>
 
                                             </div>
                                         </div>

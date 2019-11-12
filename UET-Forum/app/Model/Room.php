@@ -41,13 +41,13 @@ class Room extends Model
 
     public function getAllRoomByUserId($id)
     {
-        $all = Room::where('isDeleted', '0')->where('admin',$id)->get()->toArray();
+        $all = Room::where('isDeleted', '0')->where('admin', $id)->get()->toArray();
         return $all;
     }
 
     public function getAll()
     {
-        return Room::where('isDeleted', '0')->get();
+        return Room::where('isDeleted', '0')->orderBy('created', 'DESC')->get();
     }
 
     public function addInfToObjRoom($rooms /* array $rooms*/)
@@ -154,11 +154,9 @@ class Room extends Model
             } else {
                 return "404";
             }
-
         } catch (\Exception $e) {
             dd("error deleted");
         }
-
     }
 
     public function updateById($id, $data)
@@ -177,12 +175,10 @@ class Room extends Model
                     return true;
                 }
                 return false;
-
             }
         } catch (\Exception $e) {
             dd("error update!");
         }
         return false;
     }
-
 }
