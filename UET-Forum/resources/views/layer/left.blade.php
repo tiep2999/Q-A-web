@@ -58,17 +58,20 @@
     </div>
     <!---->
     <nav class="nav flex-column bigMenu">
-        <a class="nav-link" href="#"><i class="fas fa-home"></i> Tất cả các phiên</a>
+        <a class="nav-link" href="{{route('dashboard')}}"><i class="fas fa-home"></i> Tất cả các phiên</a>
         <a class="nav-link" href="#"><i class="fas fa-bars"></i> Chủ đề</a>
         <div class="container">
             <nav class="nav flex-column subMenu">
                 @foreach($cates as $cate)
-                <a class="nav-link {{(isset($conditions['category_id']))?(($conditions['category_id']==$cate['id'])?'active':''):''}}" href="{{env('APP_URL')}}/uet-forum/dashboard-search?category_id={{$cate['id']}}">{{$cate['name']}}
+                <a class="nav-link {{(isset($conditions['category_id']))?(($conditions['category_id']==$cate['id'])?'active':''):''}}"
+                    href="{{route('dashboard-search',
+                    ['admin'=>(!empty($conditions['admin']))?decrypt($_COOKIE['id']):null
+                    ,'category_id'=>$cate['id']])}}">{{$cate['name']}}
                     <span class="badge badge-light float-right">4</span></a>
                 @endforeach
             </nav>
         </div>
-        <a class="nav-link" href="#"><i class="fas fa-heart"></i> Đánh dấu</a>
-        <a class="nav-link" href="#"><i class="fas fa-question-circle"></i> Phiên của tôi</a>
+{{--        <a class="nav-link" href="#"><i class="fas fa-heart"></i> Đánh dấu</a>--}}
+        <a class="nav-link" href="{{route('dashboard-search',['admin'=>decrypt($_COOKIE['id']),'category_id'=>(!empty($conditions['category_id']))?$conditions['category_id']:null])}}"><i class="fas fa-question-circle"></i> Phiên của tôi</a>
     </nav>
 </div>

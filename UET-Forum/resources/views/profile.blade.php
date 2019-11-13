@@ -146,7 +146,6 @@
                                         </div>
                                         <div>
                                             <a href="#" style="color: rgb(23, 129, 194);">Xem tất cả</a>
-
                                         </div>
                                     </div>
                                     <div class="list-group">
@@ -156,23 +155,23 @@
 
                                     </div>
                                 </div>
-                                <div class="markedRoom">
-                                    <div class="title justify-content-between d-flex align-items-center">
-                                        <div>
-                                            <h4>Phòng đánh dấu</h4>
-                                        </div>
-                                        <div>
-                                            <a href="#" style="color: rgb(23, 129, 194)">Xem tất cả</a>
-                                        </div>
-                                    </div>
-                                    <div class="list-group">
-                                        <a href="#" class="list-group-item list-group-item-action">Phòng số 1</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Phòng số 2</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Phòng số 3</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Phòng số 4</a>
-                                        <a href="#" class="list-group-item list-group-item-action">Phòng số 5</a>
-                                    </div>
-                                </div>
+{{--                                <div class="markedRoom">--}}
+{{--                                    <div class="title justify-content-between d-flex align-items-center">--}}
+{{--                                        <div>--}}
+{{--                                            <h4>Phòng đánh dấu</h4>--}}
+{{--                                        </div>--}}
+{{--                                        <div>--}}
+{{--                                            <a href="#" style="color: rgb(23, 129, 194)">Xem tất cả</a>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="list-group">--}}
+{{--                                        <a href="#" class="list-group-item list-group-item-action">Phòng số 1</a>--}}
+{{--                                        <a href="#" class="list-group-item list-group-item-action">Phòng số 2</a>--}}
+{{--                                        <a href="#" class="list-group-item list-group-item-action">Phòng số 3</a>--}}
+{{--                                        <a href="#" class="list-group-item list-group-item-action">Phòng số 4</a>--}}
+{{--                                        <a href="#" class="list-group-item list-group-item-action">Phòng số 5</a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                     </div>

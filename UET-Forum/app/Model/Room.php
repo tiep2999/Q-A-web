@@ -39,10 +39,13 @@ class Room extends Model
         return $this->hasMany('App\Model\HistoryAction', 'room_id');
     }
 
-    public function getAllRoomByUserId($id)
+    public function getAllRoomByUserId($id,$limit='all')
     {
-        $all = Room::where('isDeleted', '0')->where('admin', $id)->get()->toArray();
-
+        if($limit!='5'){
+            $all = Room::where('isDeleted', '0')->where('admin', $id)->get()->toArray();
+        }else{
+            $all = Room::where('isDeleted', '0')->where('admin', $id)->limit($limit)->get()->toArray();
+        }
         return $all;
     }
 
@@ -88,11 +91,14 @@ class Room extends Model
         $u = new Room();
         $data = $u->newQuery();
 
-        if (!empty($array['user_id'])) {
-            $data->where('admin', 'like', $array['user_id']);
+        if (!empty($array['admin'])) {
+            $data->where('admin', '=', $array['admin']);
         }
         if (!empty($array['code'])) {
             $data->where('code', 'like', "%" . $array['code'] . "%");
+        }
+        if (!empty($array['name'])) {
+            $data->where('name', 'like', "%" . $array['name'] . "%");
         }
         if (!empty($array['category_id'])) {
             $data->where('category_id', 'like', $array['category_id']);

@@ -34,9 +34,8 @@
     </div>
     <div class="extraInformation">
         <ul class="list-group">
-            <li class="list-group-item onlineMem">Đang online: 1000</li>
-            <li class="list-group-item onlineRoom">Phiên đang mở: 20</li>
-            <li class="list-group-item onlineMy">Phiên đang mở của tôi: 2</li>
+            <li class="list-group-item onlineRoom">Phiên đang mở: {{$count['room']}}</li>
+            <li class="list-group-item onlineMy">Phiên đang mở của tôi: {{$count['myRoom']}}</li>
         </ul>
     </div>
 </div>

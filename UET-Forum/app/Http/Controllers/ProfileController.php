@@ -28,7 +28,7 @@ class ProfileController extends Controller
         $u = new User();
         $romm = new Room();
         $cUser = $u->getCurrentUser();
-        $allRoom = $romm->getAllRoomByUserId($cUser['id']);
+        $allRoom = $romm->getAllRoomByUserId($cUser['id'],'5');
 
         return CoreController::viewPage('profile', ['cUser' => $cUser, 'rooms' => $allRoom]);
     }

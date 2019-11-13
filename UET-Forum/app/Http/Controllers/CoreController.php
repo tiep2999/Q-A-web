@@ -22,7 +22,7 @@ class CoreController extends \Illuminate\Routing\Controller
         $room = new Room();
         $data['count']['room'] = $room->getAll()->count();
         $data['count']['myRoom'] = Room::where('isDeleted', '0')->where('admin',decrypt($_COOKIE['id']))->get()->count();
-        $data['count']['user'] = User::where('active_flg','1')->get()->count();
+//        $data['count']['user'] = User::where('active_flg','1')->get()->count();
         return $data;
 
     }
