@@ -145,7 +145,7 @@
                                             <h4>Phòng của tôi</h4>
                                         </div>
                                         <div>
-                                            <a href="#" style="color: rgb(23, 129, 194);">Xem tất cả</a>
+                                            <a href="{{route('dashboard-search',['admin'=>decrypt($_COOKIE['id'])])}}" style="color: rgb(23, 129, 194);">Xem tất cả</a>
                                         </div>
                                     </div>
                                     <div class="list-group">
