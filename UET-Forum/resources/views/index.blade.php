@@ -32,8 +32,7 @@
                     <div class="col-md-8 centerBar">
                         <div class="MainHeader clearfix">
                             <h3 class="float-left" style="margin-left: 10px">
-                                {{(isset($conditions['new']))?@trans('lang.newRoom'):(isset($conditions['voted']))?@trans('lang.voteRoom')
-                               :(isset($conditions['deleted']))?@trans('lang.deletedRoom'):'Tất cả các phiên'}}
+                                Phiên hỏi đáp
                                 @if(!empty($conditions['category_id']))
                                 @foreach($cates as $cate)
                                 @if($cate['id']==$conditions['category_id'])
@@ -55,7 +54,7 @@
                             <div class="menu clearfix">
                                 <ul class="nav nav-tabs float-left" id="myTab">
                                     <li class="nav-item">
-                                        <a class="nav-link {{(isset($conditions['new']))?'active':''}}" href="{{env('APP_URL')}}/uet-forum/dashboard-search?new=1">Mới nhất</a>
+                                        <a class="nav-link {{(isset($conditions['new']))?'active':''}}" href="{{route('dashboard')}}">Mới nhất</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link {{(isset($conditions['voted']))?'active':''}}" href="{{env('APP_URL')}}/uet-forum/dashboard-search?voted=3">Nổi bật</a>

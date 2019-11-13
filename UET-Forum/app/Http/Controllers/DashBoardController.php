@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 /*
  * Dashboard
  */
+
 class DashBoardController extends  Controller
 {
 
@@ -30,23 +31,23 @@ class DashBoardController extends  Controller
         $this->_room = new Room();
     }
 
-    public function getData(){
+    public function getData()
+    { }
 
-    }
-
-    public function view(){
+    public function view()
+    {
 
         $data = $this->_room->getAll();
-        $data = $this ->_room->addInfToObjRoom($data);
+        $data = $this->_room->addInfToObjRoom($data);
         $currentUser = $this->_user->getCurrentUser();
-        return CoreController::viewPage('index',['rooms'=>$data,'cUser'=>$currentUser]);
+        return CoreController::viewPage('index', ['rooms' => $data, 'cUser' => $currentUser, 'conditions' => ['new' => '1']]);
     }
 
-    public function search($request){
+    public function search($request)
+    {
         $r = $request->toArray();
         $room = new Room();
         $data = $room->getRoomsByCondition($r);
-        return CoreController::viewPage('index',['rooms'=>$data['data'],'conditions'=>$data['condition']]);
+        return CoreController::viewPage('index', ['rooms' => $data['data'], 'conditions' => $data['condition']]);
     }
-
 }

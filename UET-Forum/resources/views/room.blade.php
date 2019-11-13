@@ -248,7 +248,7 @@
                                                             (123)
                                                         </button>
                                                         @endif
-                                                        <a role="button" href="{{route('question',['id'=>$que['id']])}}" class="btn btn-sm btn-outline-light float-left"><i class="fas fa-comment"></i> Trả lời (5)</a>
+                                                        <a role="button" href="{{route('question',['id'=>$que['id']])}}" class="btn btn-sm btn-outline-dark float-left"><i class="fas fa-comment"></i> Trả lời (5)</a>
                                                         <!--Cho chu cau hoi-->
                                                         <button type="button" class="btn btn-sm btn-danger float-right" style="margin-right: 0">Xóa
                                                         </button>
