@@ -89,6 +89,10 @@ Route::group(['prefix' => "uet-forum", 'middleware' => 'afterLogin'], function (
     Route::post('/update-room','TableRoomController@updateRoom')->name('update-room');
 
     Route::post('/update-user','ProfileController@updateUser')->name('update-user');
+
+    Route::post('/delete-comment','CommentController@deleteById')->name('delete-comment');
+
+    Route::post('/update-comment','CommentController@updateComment')->name('update-comment');
 });
 
 Route::fallback('BaseMessage@Notfound');

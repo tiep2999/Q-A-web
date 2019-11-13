@@ -32,14 +32,15 @@ class Comment extends Model
         }
     }
 
-    public function insert($data){
+    public function insert($data)
+    {
 
         $c = new Comment();
-        try{
+        try {
 
-            $c->user_id = (empty($data['user_id']))? '' : $data['user_id'];
-            $c->content = (empty($data['comment']))? '' : $data['comment'];
-            $c->question_id = (empty($data['question_id']))? '' : $data['question_id'];
+            $c->user_id = (empty($data['user_id'])) ? '' : $data['user_id'];
+            $c->content = (empty($data['comment'])) ? '' : $data['comment'];
+            $c->question_id = (empty($data['question_id'])) ? '' : $data['question_id'];
             $c->lastUpdated = date('Y-m-d H:i:s', time() + 7 * 60 * 60);
             $c->activeFlg = 1;
             $c->voted = 1;
@@ -47,18 +48,44 @@ class Comment extends Model
 
             $c->save();
 
-        }catch(\Exception $e){
-          //  dd("ex comment");
+        } catch (\Exception $e) {
+            //  dd("ex comment");
         }
         return false;
     }
 
-    public function deleteById($id){
+    public function deleteById($id)
+    {
+
+        try {
+            $com = Comment::find($id);
+            $com->activeFlg = 0;
+            $com->save();
+            return true;
+        } catch (\Exception $e) {
+            dd($e);
+        }
+        return false;
 
     }
 
-    public function updateById($id,$data){
+    /*
+     * @param $id: id of comment
+             $data: data of obj , type array
+     */
+    public function updateById($id, $data)
+    {
+        try {
+            $com = Comment::find($id);
+            $com->content = (!empty($data['content'])) ? $data['content'] : '';
+            if ((isset($data['up']))) $com->up = 1;
+            $com->save();
+            return true;
+        } catch (\Exception $e) {
+            dd($e);
+        }
 
+        return false;
     }
 
 

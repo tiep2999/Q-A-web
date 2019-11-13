@@ -57,7 +57,7 @@ class Question extends Model
         try {
 
 
-            $q = Comment::whereRaw('question_id=?', [$id])->get();
+            $q = Comment::where('question_id', $id)->where('activeFlg','1')->get();
             foreach ($q as $key => $value) {
                 $user = Comment::find($value->id)->user->only('id', 'userName', 'fullName');
                 $value = $value->toArray();
