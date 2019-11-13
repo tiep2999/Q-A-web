@@ -29,7 +29,7 @@ class TableRoomController extends \Illuminate\Routing\Controller
         $room = new Room();
         $data = $room->getRoomById($id);
         if (empty($data)) return redirect()->route('dashboard');
-        if (empty($data['data']['password']) || $open == true)
+        if (empty($data['data']['password']) || $open == true||decrypt($_COOKIE['id'])==$data['data']['admin']['id'])
             // return view('room', ['room' => $data['data'], 'question' => $data['question']]);
 
             return CoreController::viewPage('room', ['room' => $data['data'], 'question' => $data['question']]);
@@ -54,9 +54,9 @@ class TableRoomController extends \Illuminate\Routing\Controller
         $curUser = User::getCurrentUser();
         if ($curUser['remember_token'] == $request->room_id) {
             if ($question->insert($request->toArray())) {
-                return self::showRoomById($request->room_id, true);
+                return redirect()->back();
             }
-            return self::showRoomById($request->room_id, true);
+            return redirect()->back();
         } else {
             return CoreController::viewPage('login', ['']);
         }
@@ -96,7 +96,7 @@ class TableRoomController extends \Illuminate\Routing\Controller
                 $r = Room::find($request->id);
                 if(SFunction::checkPass($request->password_old,$r->password,'md5')||$r->password==null){
                    if($this->_room->updateById($request->id,$request->toArray())){
-                       return self::showRoomById($request->id, true);
+                       return redirect()->back();
                    }
                 }
             }

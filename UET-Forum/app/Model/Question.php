@@ -48,6 +48,7 @@ class Question extends Model
             $que['room_id'] = Room::find($que['room_id'])->only('id', 'name', 'describe');
             $que['user_id'] = User::find($que['user_id'])->only('id', 'userName', 'fullName');
             $ques[$key] = $que;
+            if($ques[$key]['activeFlg']==0) unset($ques[$key]);
         }
         return $ques;
     }
@@ -57,7 +58,7 @@ class Question extends Model
         try {
 
 
-            $q = Comment::where('question_id', $id)->where('activeFlg','1')->get();
+            $q = Comment::where('question_id', $id)->where('activeFlg','1')->orderBy('up','DESC')->get();
             foreach ($q as $key => $value) {
                 $user = Comment::find($value->id)->user->only('id', 'userName', 'fullName');
                 $value = $value->toArray();
@@ -88,6 +89,18 @@ class Question extends Model
             dd("ex insert question!");
         }
 
+        return false;
+    }
+
+    public function deleteById($idQ){
+        try{
+            $q = Question::find($idQ);
+            $q->activeFlg = 0;
+            $q->save();
+            return true;
+        }catch(\Exception $e){
+            dd($e);
+        }
         return false;
     }
 

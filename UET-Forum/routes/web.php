@@ -93,6 +93,12 @@ Route::group(['prefix' => "uet-forum", 'middleware' => 'afterLogin'], function (
     Route::post('/delete-comment','CommentController@deleteById')->name('delete-comment');
 
     Route::post('/update-comment','CommentController@updateComment')->name('update-comment');
+
+    Route::post('/delete-question','QuestionController@deleteById')->name('delete-question');
+
+    Route::post('/down','CommentController@downComment')->name('down');
+
+    Route::post('/up','CommentController@upComment')->name('up');
 });
 
 Route::fallback('BaseMessage@Notfound');

@@ -77,8 +77,8 @@ class Comment extends Model
     {
         try {
             $com = Comment::find($id);
-            $com->content = (!empty($data['content'])) ? $data['content'] : '';
-            if ((isset($data['up']))) $com->up = 1;
+            if (isset($data['content'])) $com->content = (!empty($data['content'])) ? $data['content'] : '';
+            if (isset($data['up'])) $com ->up = ($data['up'] == 1) ? 1 : 0;
             $com->save();
             return true;
         } catch (\Exception $e) {
@@ -86,6 +86,16 @@ class Comment extends Model
         }
 
         return false;
+    }
+
+    public function up($id)
+    {
+        return $this->updateById($id, ['up' => 1]);
+    }
+
+    public function down($id)
+    {
+        return $this->updateById($id, ['up' => 0]);
     }
 
 

@@ -29,6 +29,23 @@
             document.getElementById("heart").style.color = "rgb(231, 7, 112)";
         }
     }
+
+    function showComment(id) {
+        var content = document.getElementById(id).textContent;
+        document.getElementById("commentForm").innerText = content;
+        document.getElementById("commentId").value = id;
+        // document.getElementById('reject').style.visibility = 'hidden';
+        document.getElementById('reject').style.visibility = 'visible';
+
+    }
+
+    function reject() {
+        alert('aassa');
+        document.getElementById("commentForm").innerText = '';
+        document.getElementById("commentId").value = '';
+        document.getElementById('reject').style.visibility = 'hidden';
+        return 0;
+    }
 </script>
 
 @include('layer.nav')
@@ -93,8 +110,15 @@
                                 {{-- </div>--}}
                                 {{-- </div>--}}
                                 <!---->
-                                    <button class="btn btn-sm btn-danger" style="margin-right: 1rem">Xóa câu hỏi <i
-                                                class="fas fa-trash"></i></button>
+                                    @if(decrypt($_COOKIE['id'])==$question['user_id']['id'])
+                                        <form method="post"
+                                              action="{{route('delete-question',['id'=>$question['id']])}}">
+                                            @csrf
+                                            <button type="submit" class="btn btn-sm btn-danger"
+                                                    style="margin-right: 1rem">Xóa câu hỏi <i
+                                                        class="fas fa-trash"></i></button>
+                                        </form>
+                                    @endif
                                 </div>
                                 <!---->
                             </div>
@@ -118,10 +142,14 @@
                                               rows="3" placeholder="Trả lời câu hỏi..."></textarea>
                                     <form method="post" id="post-comment" action="{{route('post-comment')}}">
                                         @csrf
+                                        <input type="hidden" value="" name="commentId" id="commentId">
                                         <input type="hidden" name="user_id" value="{{$curUser['id']}}">
                                         <input type="hidden" name="question_id" value="{{$question['id']}}">
-                                        <button type="submit" class="btn btn-sm btn-primary">Đăng <i
-                                                    class="far fa-comment"></i></button>
+                                        <button type="submit" class="btn btn-sm btn-primary">Đăng<i
+                                                    class=" far fa-comment"></i></button>
+                                        <button style="visibility: hidden" id="reject" onclick="return reject()"
+                                                class="btn btn-sm btn-danger">
+                                            Hủy<i class="fa fa-window-close"></i></button>
                                     </form>
                                 </div>
                                 <div class="commentShow">
@@ -141,33 +169,53 @@
                                                             </div>
                                                             <div class="small text-muted">{{$comment['lastUpdated']}}</div>
                                                         </div>
-                                                        <div class="commentPin">
-                                                            <i class="fas fa-thumbtack"></i> Bình
-                                                            luận được ghim
-                                                        </div>
+                                                        @if($comment['up']==1)
+                                                            <div class="commentPin">
+                                                                <i class="fas fa-thumbtack"></i> Bình
+                                                                luận được ghim
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                     <div class="userComment">
-                                                        {{$comment['content']}}
-
+                                                        <p id="{{$comment['id']}}">{{$comment['content']}}</p>
                                                     </div>
                                                     <div class="extraButtons clearfix">
                                                         <!--Cho admin phong-->
-                                                        <button type="button" class="btn btn-sm btn-info">Bỏ
-                                                            ghim
-                                                        </button>
-                                                        <!--Cho chu comment-->
-                                                        <form method="post" action="{{route('delete-comment')}}">
-                                                            @csrf
-                                                            <input name="id" value="{{$comment['id']}}" type="hidden">
+                                                        @if(decrypt($_COOKIE['id'])==$question['user_id']['id']&&$comment['up']==1)
+                                                            <form method="post"
+                                                                  action="{{route('down',['id'=>$comment['id']])}}">
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-sm btn-danger">Bỏ
+                                                                    ghim
+                                                                </button>
+                                                            </form>
+                                                        @endif
+                                                        @if(decrypt($_COOKIE['id'])==$question['user_id']['id']&&$comment['up']==0)
+                                                            <form method="post"
+                                                                  action="{{route('up',['id'=>$comment['id']])}}">
+                                                                @csrf
+                                                                <button type="submit" class="btn btn-sm btn-success">
+                                                                    ghim
+                                                                </button>
+                                                            </form>
+                                                        @endif
+                                                    <!--Cho chu comment-->
+                                                        @if(decrypt($_COOKIE['id'])==$comment['user_id']['id'])
+                                                            <form method="post" action="{{route('delete-comment')}}">
+                                                                @csrf
+                                                                <input name="id" value="{{$comment['id']}}"
+                                                                       type="hidden">
+                                                                <button type="submit"
+                                                                        class="btn btn-sm btn-danger float-right"
+                                                                        style="margin-right: 0">Xóa
+                                                                </button>
+                                                            </form>
                                                             <button type="submit"
-                                                                    class="btn btn-sm btn-danger float-right"
-                                                                    style="margin-right: 0">Xóa
+                                                                    onclick="showComment({{$comment['id']}})"
+                                                                    class="btn btn-sm btn-success float-right">Chỉnh
+                                                                sửa
                                                             </button>
-                                                        </form>
-                                                        <button type="submit"
-                                                                class="btn btn-sm btn-success float-right">Chỉnh
-                                                            sửa
-                                                        </button>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </li>

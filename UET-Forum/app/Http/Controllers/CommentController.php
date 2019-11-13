@@ -47,4 +47,24 @@ class CommentController extends \Illuminate\Routing\Controller
         return redirect()->back();
     }
 
+    public function downComment(Request $request){
+        try{
+            $com = Comment::find($request->id);
+            $this->_comment->down($request->id);
+        }catch (\Exception $e){
+
+        }
+        return back();
+    }
+
+    public function upComment(Request $request){
+        try{
+            $com = Comment::find($request->id);
+            $this->_comment->up($request->id);
+        }catch (\Exception $e){
+
+        }
+        return back();
+    }
+
 }
