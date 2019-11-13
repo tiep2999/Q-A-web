@@ -112,8 +112,7 @@
                                                             <div class="row">
                                                                 <div class="col-md-12">
                                                                     <label class="col-form-label">Username</label>
-                                                                    <input name="userName" type="text" class="form-control" placeholder="{{$cUser['userName']}}" value="{{$cUser['userName']}}">
-
+                                                                    <input name="userName" type="text" class="form-control" placeholder="{{$cUser['userName']}}">
                                                                 </div>
                                                             </div>
                                                             <div class="row">
