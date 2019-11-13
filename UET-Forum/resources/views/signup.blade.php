@@ -27,7 +27,7 @@
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12 col-sm-7 col-md-5 signupform">
-                    <h3>{{@trans('lang.signup')}}</h3>
+                    <h3>Đăng ký</h3>
                     <div class="sign-up">
                         <p>Đã có tài khoản? <a href="{{route('login')}}">Đăng nhập ngay.</a></p>
                     </div>
@@ -43,7 +43,7 @@
                             <small id="passHelp" class="form-text">Đảm bảo mật khẩu của bạn đủ mạnh</small>
                         </div>
                         <div class="form-group">
-                            <label for="Repassword">Mật khẩu</label>
+                            <label for="Repassword">Nhập lại mật khẩu</label>
                             <input type="password" class="form-control" id="Repassword" aria-errormessage="RepassHelp"
                                    placeholder="Nhập lại mật khẩu">
                             <small id="RepassHelp" class="form-text">Cần trùng khớp với mật khẩu đã tạo bên
