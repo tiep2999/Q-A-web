@@ -19,7 +19,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <title>Profile</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <title>Question</title>
 </head>
 
 <body>
@@ -156,7 +157,7 @@
                                 dùng</button>
                             <div class="dropdown-menu dropdown-menu-lg-right userMenu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Thông tin cá nhân</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-question-circle"></i> Phòng của
+                                <a class="dropdown-item" href="#"><i class="fas fa-question-circle"></i> Phiên của
                                     tôi</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-heart"></i> Đánh dấu</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
@@ -299,110 +300,101 @@
                     <!--phan noi dung giua-->
                     <div class="col-md-8 centerBar">
                         <div class="MainContent">
-                            <div class="profileInfo row">
-                                <div class="col-md-4 userInfo">
-                                    <img src="image/user/withBG.png" width="100%">
-                                    <h4>Nguyễn Tuấn Linh</h4>
-                                    <h5>1m93</h5>
-                                    <p><i class="fas fa-info-circle"></i> Nam</p>
-                                    <p><i class="fas fa-birthday-cake"></i> 12/03/1999</p>
-                                    <p><i class="fas fa-envelope"></i> thunderking9x@gmail.com</p>
-                                    <button type="button" class="btn btn-outline-dark btn-block" data-toggle="modal"
-                                        data-target="#editprofile" data-whatever="@mdo"><i class="fas fa-pen"></i>
-                                        Chỉnh sửa</button>
-                                    <!--khung sua thong tin-->
-                                    <div class="modal fade" id="editprofile" tabindex="-1" role="dialog"
-                                        aria-labelledby="editprofile" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <form action="" method="" enctype="multipart/form-data">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="taophong" style="color: black">Chỉnh
-                                                            sửa thông tin</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form>
-                                                            <div class="form-group">
-                                                                <label class="col-form-label">Họ tên:</label>
-                                                                <input type="text" class="form-control"
-                                                                    value="Nguyễn Tuấn Linh">
-                                                                <label class="col-form-label">Ảnh đại diện:</label>
-                                                                <input type="file" class="form-control-file">
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <label class="col-form-label">Giới tính:</label>
-                                                                        <select class="form-control">
-                                                                            <option>Nam</option>
-                                                                            <option>Nữ</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <label class="col-form-label">Ngày sinh:</label>
-                                                                        <input type="date" class="form-control"
-                                                                            value="1999-03-12">
-                                                                    </div>
-                                                                </div>
-                                                                <label class="col-form-label">Email:</label>
-                                                                <input type="email" class="form-control"
-                                                                    value="thunderking9x@gmail.com">
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">Hủy</button>
-                                                        <input type="submit" class="btn btn-info" id="editprofile"
-                                                            name="sua" value="Cập nhật">
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </div>
+                            <div class="roomTitle" style="border: none">
+                                <h4>Tên phiếu khảo sát</h4>
+                            </div>
+                            <div class="roomFooter">
+                                <div class="clearfix">
+                                    <div class="float-left">
+                                        <button type="button" class="btn btn-sm btn-outline-dark float-left"
+                                            style="margin-right: 1rem"><i class="fas fa-arrow-left"></i> Trở về</button>
                                     </div>
-                                    <!---->
                                 </div>
-                                <div class="col-md-8 roomList">
-                                    <div class="myRoom">
-                                        <div class="title justify-content-between d-flex align-items-center">
-                                            <div>
-                                                <h4>Phòng của tôi</h4>
-                                            </div>
-                                            <div>
-                                                <a href="#" style="color: rgb(23, 129, 194)"><i></i>Xem tất cả</a>
-                                            </div>
-                                        </div>
-                                        <div class="list-group">
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 1</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 2</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 3</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 4</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 5</a>
-                                        </div>
+                                <div class="userBox">
+                                    <div style="margin-right: 10px">
+                                        <a href="#">Nguyễn Tuấn Linh</a>
+                                        <p>Ngày tạo: 19:31 22/08/2019</p>
                                     </div>
-                                    <div class="markedRoom">
-                                        <div class="title justify-content-between d-flex align-items-center">
-                                            <div>
-                                                <h4>Phòng đánh dấu</h4>
-                                            </div>
-                                            <div>
-                                                <a href="#" style="color: rgb(23, 129, 194)"><i></i>Xem tất cả</a>
-                                            </div>
-                                        </div>
-                                        <div class="list-group">
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 1</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 2</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 3</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 4</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 5</a>
-                                        </div>
-                                    </div>
+                                    <img src="image/user/withBG.png" width="35">
+                                </div>
+                            </div>
+                            <div class="results">
+                                <div class="title">
+                                    <h5>Kết quả khảo sát</h5>
+                                </div>
+                                <div class="result">
+                                    <p>Câu 1: Nội dung câu hỏi?</p>
+                                    <div id="cau1" align='center'></div>
+                                    <script type="text/javascript">
+                                        // Load google charts
+                                        google.charts.load('current', { 'packages': ['corechart'] });
+                                        google.charts.setOnLoadCallback(drawChart);
+
+                                        // Draw the chart and set the chart values
+                                        function drawChart() {
+                                            var data = google.visualization.arrayToDataTable([
+                                                ['question', 'answer'],
+                                                ['Nội dung đáp án 1', 8],
+                                                ['Nội dung đáp án 2', 2],
+                                                ['Nội dung đáp án 3', 2],
+                                                ['Nội dung đáp án 4', 2]
+                                            ]);
+
+                                            // Optional; add a title and set the width and height of the chart
+                                            var options = {
+                                                'width': 550, 'height': 400, 'chartArea': { 'width': '100%', 'height': '85%' },
+                                                'legend': { 'position': 'bottom' }
+                                            };
+
+                                            var chart = new google.visualization.PieChart(document.getElementById('cau1'));
+                                            chart.draw(data, options);
+                                        }
+                                    </script>
+                                </div>
+                                <div class="result">
+                                    <p>Câu 2: Nội dung câu hỏi?</p>
+                                    <div id="cau2" align='center'></div>
+                                    <script type="text/javascript">
+                                        // Load google charts
+                                        google.charts.load('current', { 'packages': ['corechart'] });
+                                        google.charts.setOnLoadCallback(drawChart);
+
+                                        // Draw the chart and set the chart values
+                                        function drawChart() {
+                                            var data = google.visualization.arrayToDataTable([
+                                                ['question', 'answer', { role: 'style' }],
+                                                ['Đúng', 8, '#0df509'],
+                                                ['Sai', 2, 'red']
+                                            ]);
+
+                                            // Optional; add a title and set the width and height of the chart
+                                            var options = {
+                                                'width': 550, 'height': 100, 'chartArea': { 'width': '80%', 'height': '100%' },
+                                                'legend': { 'position': 'bottom' }
+                                            };
+
+                                            var chart = new google.visualization.BarChart(document.getElementById('cau2'));
+                                            chart.draw(data, options);
+                                        }
+                                    </script>
+                                </div>
+                                <div class="result">
+                                    <p>Câu 3: Nội dung câu hỏi?</p>
+                                    <ul>
+                                        <li>Câu trả lời 1</li>
+                                        <li>Câu trả lời 2</li>
+                                        <li>Câu trả lời 3</li>
+                                        <li>Câu trả lời 4</li>
+                                        <li>Câu trả lời 5</li>
+                                        <li>Câu trả lời 6</li>
+                                        <li>Câu trả lời 7</li>
+                                        <li>Câu trả lời 8</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <!--thanh ben phai-->
                     <div class="col-md rightBar">
                         <form class="form-inline">

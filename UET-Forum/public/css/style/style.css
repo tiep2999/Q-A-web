@@ -14,6 +14,9 @@ body {
   background: rgb(29, 161, 242) !important;
   border: none !important;
 }
+p {
+  
+}
 /*css cho back top top button*/
 #BTTbutton {
   display: inline-block;
@@ -472,7 +475,7 @@ footer ul li a img {
   margin-bottom: 0.5rem;
   background: rgba(184, 206, 230, 0.5);
   color: black;
-} 
+}
 .MainContent .comment .commentBody .btn-primary {
   background: rgb(29, 161, 242);
   border-color: transparent;
@@ -557,7 +560,7 @@ footer ul li a img {
   background: rgba(184, 206, 230, 0.5);
   margin-bottom: 5px;
   border-radius: 15px;
-  color: black; 
+  color: black;
 }
 .MainContent .profileInfo .list-group-item:first-child {
   border-top-left-radius: 15px !important;
@@ -587,6 +590,81 @@ footer ul li a img {
 }
 .notiMain .card .card-text {
   color: rgb(29, 161, 242);
+}
+
+/**Css cho survey**/
+#addquestion {
+  margin-top: 1rem;
+}
+#addquestion a {
+  color: black;
+}
+#addquestion .card-body {
+  padding: 1rem;
+}
+#addquestion .nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: white;
+  background: rgb(29, 161, 242);
+}
+#pills-tabContent .form-group {
+  margin-bottom: 0;
+}
+#pills-tabContent .buttons {
+  margin-top: 1rem;
+}
+.surveys .title {
+  margin-top: 2rem;
+  border-left: solid 5px rgb(29, 161, 242);
+  padding-left: 5px;
+  color: rgb(29, 161, 242);
+}
+.surveysList .qTitle {
+  font-size: 1.1rem;
+}
+.surveysList .question {
+  margin-top: 1.5rem;
+  border-radius: 8px;
+  background: rgba(184, 206, 230, 0.5);
+  padding: 0.6rem;
+}
+.surveysList .question ul {
+  list-style: none;
+  padding-inline-start: 0px !important;
+  margin-bottom: 0;
+}
+.surveysList .question ul li {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.surveysList .question ul li p {
+  margin-left: 10px;
+  margin-bottom: 0;
+}
+.surveysList .question textarea {
+  margin-top: 0.5rem;
+}
+.surveysList .buttons {
+  margin-top: 1.5rem;
+}
+
+/**css cho result**/
+.results {
+  margin-top: 2rem;
+}
+.results p {
+  margin-bottom: 0;
+  word-wrap: break-word;
+  white-space: normal;
+}
+.results .title {
+  color: rgb(29, 161, 242);
+  padding-left: 5px;
+  border-left: solid 5px rgb(29, 161, 242);
+}
+.result {
+  margin-top: 1.5rem;
 }
 
 @media only screen and (max-width: 920px) {

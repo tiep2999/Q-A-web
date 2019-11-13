@@ -19,7 +19,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-    <title>Profile</title>
+    <title>Survey</title>
 </head>
 
 <body>
@@ -41,11 +41,19 @@
 
         function marked() {
             if (document.getElementById("heart").style.color == "rgb(231, 7, 112)") {
-                document.getElementById("heart").style.color = "white";
+                document.getElementById("heart").style.color = "rgba(184, 206, 230, 0.5)";
             } else {
                 document.getElementById("heart").style.color = "rgb(231, 7, 112)";
             }
         }
+
+        var i = 2;
+        function add(a) {
+            if (a == i) {
+                i++;
+                $("#answerField").append('<div class="col-md-6"><label class= "col-form-label">Đáp án ' + i + ':</label ><input type="text" class="form-control form-control-sm" name="answer[]" id="answer" onfocus="add(' + i + ')"></div>')
+            }
+        } s
     </script>
 
     <header>
@@ -156,7 +164,7 @@
                                 dùng</button>
                             <div class="dropdown-menu dropdown-menu-lg-right userMenu" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Thông tin cá nhân</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-question-circle"></i> Phòng của
+                                <a class="dropdown-item" href="#"><i class="fas fa-question-circle"></i> Phiên của
                                     tôi</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-heart"></i> Đánh dấu</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-sign-out-alt"></i> Đăng xuất</a>
@@ -299,108 +307,254 @@
                     <!--phan noi dung giua-->
                     <div class="col-md-8 centerBar">
                         <div class="MainContent">
-                            <div class="profileInfo row">
-                                <div class="col-md-4 userInfo">
-                                    <img src="image/user/withBG.png" width="100%">
-                                    <h4>Nguyễn Tuấn Linh</h4>
-                                    <h5>1m93</h5>
-                                    <p><i class="fas fa-info-circle"></i> Nam</p>
-                                    <p><i class="fas fa-birthday-cake"></i> 12/03/1999</p>
-                                    <p><i class="fas fa-envelope"></i> thunderking9x@gmail.com</p>
-                                    <button type="button" class="btn btn-outline-dark btn-block" data-toggle="modal"
-                                        data-target="#editprofile" data-whatever="@mdo"><i class="fas fa-pen"></i>
-                                        Chỉnh sửa</button>
-                                    <!--khung sua thong tin-->
-                                    <div class="modal fade" id="editprofile" tabindex="-1" role="dialog"
-                                        aria-labelledby="editprofile" aria-hidden="true">
-                                        <div class="modal-dialog" role="document">
-                                            <div class="modal-content">
-                                                <form action="" method="" enctype="multipart/form-data">
-                                                    <div class="modal-header">
-                                                        <h5 class="modal-title" id="taophong" style="color: black">Chỉnh
-                                                            sửa thông tin</h5>
-                                                        <button type="button" class="close" data-dismiss="modal"
-                                                            aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                        </button>
-                                                    </div>
-                                                    <div class="modal-body">
-                                                        <form>
-                                                            <div class="form-group">
-                                                                <label class="col-form-label">Họ tên:</label>
-                                                                <input type="text" class="form-control"
-                                                                    value="Nguyễn Tuấn Linh">
-                                                                <label class="col-form-label">Ảnh đại diện:</label>
-                                                                <input type="file" class="form-control-file">
-                                                                <div class="row">
-                                                                    <div class="col-md-6">
-                                                                        <label class="col-form-label">Giới tính:</label>
-                                                                        <select class="form-control">
-                                                                            <option>Nam</option>
-                                                                            <option>Nữ</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="col-md-6">
-                                                                        <label class="col-form-label">Ngày sinh:</label>
-                                                                        <input type="date" class="form-control"
-                                                                            value="1999-03-12">
-                                                                    </div>
-                                                                </div>
-                                                                <label class="col-form-label">Email:</label>
-                                                                <input type="email" class="form-control"
-                                                                    value="thunderking9x@gmail.com">
-                                                            </div>
-                                                        </form>
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-secondary"
-                                                            data-dismiss="modal">Hủy</button>
-                                                        <input type="submit" class="btn btn-info" id="editprofile"
-                                                            name="sua" value="Cập nhật">
-                                                    </div>
-                                                </form>
-                                            </div>
+                            <div class="roomTitle">
+                                <h3>Ứng dụng của machine learning vào việc phát triển xe tự hành hiện nay</h3>
+                                <div class="justify-content-between" style="display: flex">
+                                    <div class="justify-content-start" style="display: flex">
+                                        <div style="margin-right: 15px">
+                                            <i><i class="fas fa-star"></i> 4.5</i>
                                         </div>
-                                    </div>
-                                    <!---->
-                                </div>
-                                <div class="col-md-8 roomList">
-                                    <div class="myRoom">
-                                        <div class="title justify-content-between d-flex align-items-center">
-                                            <div>
-                                                <h4>Phòng của tôi</h4>
-                                            </div>
-                                            <div>
-                                                <a href="#" style="color: rgb(23, 129, 194)"><i></i>Xem tất cả</a>
-                                            </div>
+                                        <div style="margin-right: 15px">
+                                            <i><i class="fas fa-users"></i> 123</i>
                                         </div>
-                                        <div class="list-group">
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 1</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 2</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 3</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 4</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 5</a>
-                                        </div>
-                                    </div>
-                                    <div class="markedRoom">
-                                        <div class="title justify-content-between d-flex align-items-center">
-                                            <div>
-                                                <h4>Phòng đánh dấu</h4>
-                                            </div>
-                                            <div>
-                                                <a href="#" style="color: rgb(23, 129, 194)"><i></i>Xem tất cả</a>
-                                            </div>
-                                        </div>
-                                        <div class="list-group">
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 1</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 2</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 3</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 4</a>
-                                            <a href="#" class="list-group-item list-group-item-action">Phòng số 5</a>
+                                        <div style="margin-right: 15px">
+                                            <i><i class="fas fa-question-circle"></i> 5</i>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="roomDescribe">
+                                <p>gbjbuibgbuifubibkbuhiuighibhuihbuihghbihg bifbigbihbi gbigbhib bigfbi b gbi brgbib b
+                                    igbbrgihbi gifbhibkg bib bkfibibk fb ifhb fdsb dbibk bidfbi bkdfbib jfbi db jdbfibv
+                                </p>
+                            </div>
+                            <div class="roomFooter">
+                                <div class="ratingBox clearfix">
+                                    <div class="float-left">
+                                        <button class="btn btn-sm btn-outline-dark" onclick="marked()">Đánh dấu<i
+                                                class="fas fa-heart" id="heart" style="margin-left: 5px"></i></button>
+                                    </div>
+                                    <div class="starrating risingstar flex-row-reverse">
+                                        <input type="radio" id="star5" name="rating" value="5" /><label for="star5"
+                                            title="5 star"></label>
+                                        <input type="radio" id="star4" name="rating" value="4" /><label for="star4"
+                                            title="4 star"></label>
+                                        <input type="radio" id="star3" name="rating" value="3" /><label for="star3"
+                                            title="3 star"></label>
+                                        <input type="radio" id="star2" name="rating" value="2" /><label for="star2"
+                                            title="2 star"></label>
+                                        <input type="radio" id="star1" name="rating" value="1" /><label for="star1"
+                                            title="1 star"></label>
+                                        <p>Đánh giá</p>
+                                    </div>
+                                </div>
+                                <div class="userBox">
+                                    <div style="margin-right: 10px">
+                                        <a href="#">Nguyễn Tuấn Linh</a>
+                                        <p>Ngày tạo: 19:31 22/08/2019</p>
+                                    </div>
+                                    <img src="image/user/withBG.png" width="35">
+                                </div>
+                            </div>
+                            <!--Cho admin phong-->
+                            <div class="admin float-left" style="display: flex; margin-top: 1rem">
+                                <button class="btn btn-sm btn-primary" style="margin-right: 1rem;" type="button"
+                                    data-toggle="collapse" data-target="#addquestion" aria-expanded="false"
+                                    aria-controls="addquestion">Thêm câu hỏi <i class="fas fa-plus"></i></button>
+                                <a href="#" role="button" class="btn btn-sm btn-success" style="margin-right: 1rem;">Xem
+                                    kết quả <i class="fas fa-poll"></i></a>
+                                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit"
+                                    data-whatever="@mdo" style="margin-right: 1rem">Chỉnh sửa <i
+                                        class="fas fa-pen"></i></button>
+                                <button class="btn btn-sm btn-danger">Đóng khảo sát
+                                    <i class="fas fa-door-closed"></i></button>
+                                <!--Khung sua phong-->
+                                <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content" style="color: black">
+                                            <form action="" method="" enctype="multipart/form-data">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="taophong">Sửa</h5>
+                                                    <button type="button" class="close" data-dismiss="modal"
+                                                        aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form>
+                                                        <div class="form-group">
+                                                            <label class="col-form-label">Tên phiếu khảo
+                                                                sát:</label>
+                                                            <input type="text" class="form-control" name="tenphong"
+                                                                value="Tên phòng">
+                                                            <div class="row">
+                                                                <div class="col-md">
+                                                                    <label class="col-form-label">Mật
+                                                                        khẩu:</label>
+                                                                    <input type="text" class="form-control"
+                                                                        name="matkhau" id="matkhau" value="matkhaucu">
+                                                                    <small id="matkhau" class="form-text"
+                                                                        style="color: #007bff">Để trống nếu
+                                                                        không
+                                                                        đặt
+                                                                        mật
+                                                                        khẩu</small>
+                                                                </div>
+                                                            </div>
+                                                            <label class="col-form-label">Mô tả:</label>
+                                                            <textarea class="form-control"
+                                                                rows="3">Mổ tả của phiên</textarea>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Hủy</button>
+                                                    <input type="submit" class="btn btn-info" id="edit" name="sua"
+                                                        value="Cập nhật">
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!---->
+                            </div>
+                            <div class="clearfix"></div>
+                            <!--Khung them cau hoi-->
+                            <div class="collapse" id="addquestion">
+                                <div class="card card-body">
+                                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="pills-home-tab" data-toggle="pill"
+                                                href="#pills-home" role="tab" aria-controls="pills-home"
+                                                aria-selected="true">Nhiều đáp án</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill"
+                                                href="#pills-profile" role="tab" aria-controls="pills-profile"
+                                                aria-selected="false">Đúng sai</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill"
+                                                href="#pills-contact" role="tab" aria-controls="pills-contact"
+                                                aria-selected="false">Đáp án văn bản</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="pills-tabContent">
+                                        <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
+                                            aria-labelledby="pills-home-tab">
+                                            <form class="form-group" action="" method="" enctype="multipart/form-data">
+                                                <div class="form-group">
+                                                    <label class="col-form-label">Câu hỏi:</label>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        name="question">
+                                                    <div class="row" id="answerField">
+                                                        <div class="col-md-6">
+                                                            <label class="col-form-label">Đáp án 1:</label>
+                                                            <input type="text" class="form-control form-control-sm"
+                                                                name="answer[]" id="answer1">
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <label class="col-form-label">Đáp án 2:</label>
+                                                            <input type="text" class="form-control form-control-sm"
+                                                                name="answer[]" id="answer" onfocus="add(2)">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="buttons">
+                                                    <input type="submit" class="btn btn-primary" id="taopks" name="tao"
+                                                        value="Tạo">
+                                                    <button type="button" class="btn btn-secondary">Hủy</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                                            aria-labelledby="pills-profile-tab">
+                                            <form class="form-group" action="" method="" enctype="multipart/form-data">
+                                                <div class="form-group">
+                                                    <label class="col-form-label">Câu hỏi:</label>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        name="question">
+                                                </div>
+                                                <div class="buttons">
+                                                    <input type="submit" class="btn btn-primary" id="taopks" name="tao"
+                                                        value="Tạo">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Hủy</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade" id="pills-contact" role="tabpanel"
+                                            aria-labelledby="pills-contact-tab">
+                                            <form class="form-group" action="" method="" enctype="multipart/form-data">
+                                                <div class="form-group">
+                                                    <label class="col-form-label">Câu hỏi:</label>
+                                                    <input type="text" class="form-control form-control-sm"
+                                                        name="question">
+                                                </div>
+                                                <div class="buttons">
+                                                    <input type="submit" class="btn btn-primary" id="taopks" name="tao"
+                                                        value="Tạo">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Hủy</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!---->
+                            <!---->
+                        </div>
+                        <div class="surveys">
+                            <div class="title">
+                                <h5>Danh sách câu hỏi</h5>
+                            </div>
+                            <form action="" method="" enctype="multipart/form-data" class="surveysList">
+                                <div class="question">
+                                    <div class="qTitle">Câu hỏi số 1?</div>
+                                    <ul>
+                                        <li>
+                                            <input type="radio" name="multi">
+                                            <p>Đáp án số 1</p>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="multi">
+                                            <p>Đáp án số 2</p>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="multi">
+                                            <p>Đáp án số 3</p>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="multi">
+                                            <p>Đáp án số 4</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="question">
+                                    <div class="qTitle">Câu hỏi số 2?</div>
+                                    <ul>
+                                        <li>
+                                            <input type="radio" name="yn">
+                                            <p>Đúng</p>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="yn">
+                                            <p>Sai</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="question">
+                                    <div class="qTitle">Câu hỏi số 3?</div>
+                                    <textarea class="form-control" rows="3"></textarea>
+                                </div>
+                                <div class="buttons">
+                                    <input type="submit" class="btn btn-primary" id="taophong" name="xacnhan" value="Xác nhận">
+                                    <button type="button" class="btn btn-secondary">Hủy</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <!--thanh ben phai-->
