@@ -145,12 +145,12 @@
                                             <div>
                                                 <h4>Phòng của tôi</h4>
                                             </div>
-                                            <div>
-                                                <a href="#" style="color: rgb(23, 129, 194);">Xem tất cả</a>
-                                            </div>
+                                        <div>
+                                            <a href="{{route('dashboard-search',['admin'=>decrypt($_COOKIE['id'])])}}" style="color: rgb(23, 129, 194);">Xem tất cả</a>
                                         </div>
-                                        <div class="list-group">
-                                            @foreach($rooms as $room)
+                                    </div>
+                                    <div class="list-group">
+                                        @foreach($rooms as $room)
                                             <a href="{{route('room',['id'=>encrypt($room['id'])])}}" class="list-group-item list-group-item-action">{{$room['name']}}</a>
                                             @endforeach
 

@@ -66,7 +66,9 @@ class Room extends Model
 
         return $rooms;
     }
-
+    /*
+     * @return array data include key 'data' link to data of room
+     */
     public function getRoomById($id)
     {
         try {

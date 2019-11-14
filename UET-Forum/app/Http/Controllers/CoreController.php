@@ -20,8 +20,10 @@ class CoreController extends \Illuminate\Routing\Controller
         $data['cates']= Category::all()->toArray();
         $data['curUser'] = User::find(decrypt($_COOKIE['id']))->toArray();
         $room = new Room();
+        $cUser = User::getCurrentUser();
         $data['count']['room'] = $room->getAll()->count();
         $data['count']['myRoom'] = Room::where('isDeleted', '0')->where('admin',decrypt($_COOKIE['id']))->get()->count();
+        $data['cUser'] = $cUser;
 //        $data['count']['user'] = User::where('active_flg','1')->get()->count();
         return $data;
 

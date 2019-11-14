@@ -58,7 +58,9 @@
                             <ul class="nav nav-tabs float-left" id="myTab">
                                 <li class="nav-item">
                                     <a class="nav-link {{(isset($conditions['new']))?'active':''}}"
-                                       href="{{route('dashboard')}}">Mới nhất</a>
+                                       href="{{(empty($conditions))?route('dashboard'):route('dashboard-search',['admin'=>(!empty($conditions['admin']))?decrypt($_COOKIE['id']):null
+                                       ,'category_id'=>(!empty($conditions['category_id']))?$conditions['category_id']:null
+                                       ,'new'=>1])}}">Mới nhất</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link {{(isset($conditions['voted']))?'active':''}}"
