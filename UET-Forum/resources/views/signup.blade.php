@@ -31,49 +31,43 @@
                     <div class="sign-up">
                         <p>Đã có tài khoản? <a href="{{route('login')}}">Đăng nhập ngay.</a></p>
                     </div>
-                    <form class="form-container">
+                    <form action="{{route('post-user')}}" method="post" class="form-container">
+                        @csrf
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Nhập địa chỉ Email">
+                            <input name="email" type="email" class="form-control" id="email" placeholder="Nhập địa chỉ Email">
                         </div>
                         <div class="form-group">
                             <label for="password">Mật khẩu</label>
-                            <input type="password" class="form-control" id="password" aria-errormessage="passHelp"
+                            <input name="password" type="password" class="form-control" id="password" aria-errormessage="passHelp"
                                    placeholder="Nhập mật khẩu">
                             <small id="passHelp" class="form-text">Đảm bảo mật khẩu của bạn đủ mạnh</small>
                         </div>
                         <div class="form-group">
                             <label for="Repassword">Nhập lại mật khẩu</label>
-                            <input type="password" class="form-control" id="Repassword" aria-errormessage="RepassHelp"
+                            <input name="valPassword" type="password" class="form-control" id="Repassword" aria-errormessage="RepassHelp"
                                    placeholder="Nhập lại mật khẩu">
                             <small id="RepassHelp" class="form-text">Cần trùng khớp với mật khẩu đã tạo bên
                                 trên</small>
                         </div>
                         <div class="form-group">
                             <label for="userName">Tên đăng nhập</label>
-                            <input type="text" class="form-control" id="userName" placeholder="Nhập tên đăng nhập">
+                            <input name="userName" type="text" class="form-control" id="userName" placeholder="Nhập tên đăng nhập">
                         </div>
                         <div class="form-group">
                             <label for="trueName">Họ và tên</label>
-                            <input type="text" class="form-control" id="trueName" placeholder="Nhập họ tên">
+                            <input name="fullName" type="text" class="form-control" id="trueName" placeholder="Nhập họ tên">
                         </div>
                         <div class="row">
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-12">
                                 <label for="birthDay">Ngày sinh</label>
-                                <input type="date" class="form-control" id="birthDay" placeholder="Nhập ngày sinh">
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="gender">Giới tính</label>
-                                <select class="form-control">
-                                    <option>Nam</option>
-                                    <option>Nữ</option>
-                                </select>
+                                <input name="dateOfBirth" type="date" class="form-control" id="birthDay" placeholder="Nhập ngày sinh">
                             </div>
                         </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="agree">
-                            <label class="form-check-label" for="agree">Chấp nhận tất cả các điều khoản</label>
-                        </div>
+{{--                        <div class="form-group form-check">--}}
+{{--                            <input type="checkbox" class="form-check-input" id="agree">--}}
+{{--                            <label class="form-check-label" for="agree">Chấp nhận tất cả các điều khoản</label>--}}
+{{--                        </div>--}}
                         <button type="submit" class="btn btn-primary btn-block">Tạo tài khoản</button>
                         <div class="container-fluid social">
                             <p>Hoặc đăng ký bằng</p>

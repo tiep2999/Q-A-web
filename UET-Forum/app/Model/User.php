@@ -188,20 +188,20 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
         return null;
 
     }
-
-    public function setTokenRoom($id,$token){
-        try{
+// encrypt id before update
+    public function setTokenRoom($id, $token)
+    {
+        try {
             $u = User::find(decrypt($id));
             $u->remember_token = $token;
             $u->save();
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             dd($e);
         }
     }
 
     public function insertUser($data)
     {
-
         $res = $this->userExist($data);
         if ($res | empty($data['userName'])) {
             return false;
@@ -211,9 +211,9 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
                 $u->userName = (empty($data['userName'])) ? '' : $data['userName'];
                 $u->fullName = (empty($data['fullName'])) ? '' : $data['fullName'];
                 $u->email = (empty($data['email'])) ? '' : $data['email'];
-                $u->password = Support\Facades\Hash::make(config('app.password'));
+                $u->password = (empty($data['password'])) ? Support\Facades\Hash::make('') : Support\Facades\Hash::make($data['password']);
                 $u->dateOfBirth = (empty($data['dateOfBirth'])) ? '' : $data['dateOfBirth'];
-                $u->role_id = (empty($data['role_id'])) ? '' : $data['role_id'];
+                $u->role_id = (empty($data['role_id'])) ? '2' : $data['role_id'];
                 $u->update_date = date('Y-m-d H:i:s', time() + 7 * 60 * 60);
                 $u->active_flg = 1;
                 $u->save();

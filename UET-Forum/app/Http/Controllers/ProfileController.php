@@ -48,4 +48,10 @@ class ProfileController extends Controller
         }
         return redirect()->route('profile');
     }
+
+    public function insert(Request $request){
+        $data = $request->toArray();
+        $this->_user->insertUser($data);
+        return redirect()->back();
+    }
 }

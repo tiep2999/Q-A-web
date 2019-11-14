@@ -28,8 +28,9 @@ class TableRoomController extends \Illuminate\Routing\Controller
     {
         $room = new Room();
         $data = $room->getRoomById($id);
+        $user = User::getCurrentUser();
         if (empty($data)) return redirect()->route('dashboard');
-        if (empty($data['data']['password']) || $open == true||decrypt($_COOKIE['id'])==$data['data']['admin']['id'])
+        if (empty($data['data']['password']) || $open == true || decrypt($_COOKIE['id']) == $data['data']['admin']['id']||$user['remember_token']==$data['data']['id'])
             // return view('room', ['room' => $data['data'], 'question' => $data['question']]);
 
             return CoreController::viewPage('room', ['room' => $data['data'], 'question' => $data['question']]);
@@ -42,10 +43,17 @@ class TableRoomController extends \Illuminate\Routing\Controller
     static function checkPass($request)
     {
         $data = Room::find($request->id)->toArray();
-        if (SFunction::checkPass($request->password, $data['password'], 'md5')) {
-            return self::showRoomById($request->id, true);
+        $user = User::getCurrentUser();
+        if ($user['remember_token'] == $data['id']) {
+            return redirect()->route('room',['id'=>encrypt($user['remember_token'])]);
+        } else {
+            if (SFunction::checkPass($request->password, $data['password'], 'md5')) {
+                $u = new User();
+                $u->setTokenRoom(encrypt($user['id']),$data['id']);
+                return redirect()->route('room',['id'=>encrypt($data['id'])]);
+            }
         }
-        return self::showRoomById($request->id);
+        return redirect()->back();
     }
 
     public function postQuestion($request)
@@ -90,14 +98,15 @@ class TableRoomController extends \Illuminate\Routing\Controller
         return redirect()->back();
     }
 
-    public function updateRoom(Request $request){
-        if(isset($request->id)){
-            if(SFunction::checkValiPass($request)!=false){
+    public function updateRoom(Request $request)
+    {
+        if (isset($request->id)) {
+            if (SFunction::checkValiPass($request) != false) {
                 $r = Room::find($request->id);
-                if(SFunction::checkPass($request->password_old,$r->password,'md5')||$r->password==null){
-                   if($this->_room->updateById($request->id,$request->toArray())){
-                       return redirect()->back();
-                   }
+                if (SFunction::checkPass($request->password_old, $r->password, 'md5') || $r->password == null) {
+                    if ($this->_room->updateById($request->id, $request->toArray())) {
+                        return redirect()->back();
+                    }
                 }
             }
         }

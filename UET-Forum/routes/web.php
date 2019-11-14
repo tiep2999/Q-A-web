@@ -23,9 +23,13 @@ Route::group(['prefix' => '/', 'middleware' => 'beforeLogin'], function () {
         $loginC = new \App\Http\Controllers\LoginController();
         return $loginC->login();
     }]);
+
     Route::get('/signup', function () {
         return view('signup');
     })->name('sign-up');
+
+    Route::post('/post-user', 'ProfileController@insert')->name('post-user');
+
 });
 
 Route::group(['prefix' => "uet-forum", 'middleware' => 'afterLogin'], function () {
@@ -41,7 +45,7 @@ Route::group(['prefix' => "uet-forum", 'middleware' => 'afterLogin'], function (
         return $roomControl->showRoomById(decrypt($id));
     })->name('room');
 
-    Route::post('/room-pass',function (\Illuminate\Http\Request $request){
+    Route::post('/room-pass', function (\Illuminate\Http\Request $request) {
         return \App\Http\Controllers\TableRoomController::checkPass($request);
     })->name('check-pass');
 
@@ -52,21 +56,20 @@ Route::group(['prefix' => "uet-forum", 'middleware' => 'afterLogin'], function (
     })->name('dashboard-search');
 
 
-    Route::post('/post-question',function (\Illuminate\Http\Request $request){
+    Route::post('/post-question', function (\Illuminate\Http\Request $request) {
         $roomC = new \App\Http\Controllers\TableRoomController();
         return $roomC->postQuestion($request);
     })->name('post-question');
 
-    Route::post('/post-comment',function (\Illuminate\Http\Request $request){
+    Route::post('/post-comment', function (\Illuminate\Http\Request $request) {
         $questionC = new \App\Http\Controllers\QuestionController();
         return $questionC->postComment($request);
     })->name('post-comment');
 
-    Route::post('/post-room',function (\Illuminate\Http\Request $request){
+    Route::post('/post-room', function (\Illuminate\Http\Request $request) {
         $roomC = new \App\Http\Controllers\TableRoomController();
         return $roomC->postRoom($request);
     })->name('post-room');
-
 
 
     Route::get('/room-join', function () {
@@ -82,23 +85,24 @@ Route::group(['prefix' => "uet-forum", 'middleware' => 'afterLogin'], function (
         return $q->showQuestion($id);
     })->name('question');
 
+
     Route::get('/profile', 'ProfileController@view')->name('profile');
 
-    Route::post('/delete-room','TableRoomController@deleteRoom')->name('delete-room');
+    Route::post('/delete-room', 'TableRoomController@deleteRoom')->name('delete-room');
 
-    Route::post('/update-room','TableRoomController@updateRoom')->name('update-room');
+    Route::post('/update-room', 'TableRoomController@updateRoom')->name('update-room');
 
-    Route::post('/update-user','ProfileController@updateUser')->name('update-user');
+    Route::post('/update-user', 'ProfileController@updateUser')->name('update-user');
 
-    Route::post('/delete-comment','CommentController@deleteById')->name('delete-comment');
+    Route::post('/delete-comment', 'CommentController@deleteById')->name('delete-comment');
 
-    Route::post('/update-comment','CommentController@updateComment')->name('update-comment');
+    Route::post('/update-comment', 'CommentController@updateComment')->name('update-comment');
 
-    Route::post('/delete-question','QuestionController@deleteById')->name('delete-question');
+    Route::post('/delete-question', 'QuestionController@deleteById')->name('delete-question');
 
-    Route::post('/down','CommentController@downComment')->name('down');
+    Route::post('/down', 'CommentController@downComment')->name('down');
 
-    Route::post('/up','CommentController@upComment')->name('up');
+    Route::post('/up', 'CommentController@upComment')->name('up');
 });
 
 Route::fallback('BaseMessage@Notfound');
