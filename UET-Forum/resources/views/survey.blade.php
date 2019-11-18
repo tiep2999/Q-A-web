@@ -2,7 +2,6 @@
 <html lang="en">
 
 @include('layer.header',['title'=>'roomjoin'])
-
 <body>
 <!--Back to top button-->
 <a id="BTTbutton"></a>
@@ -81,17 +80,23 @@
                             </div>
                         </div>
                         <div class="admin float-left" style="display: flex; margin-top: 1rem">
-                            <button class="btn btn-sm btn-primary" style="margin-right: 1rem;" type="button"
-                                    data-toggle="collapse" data-target="#addquestion" aria-expanded="false"
-                                    aria-controls="addquestion">Thêm câu hỏi <i class="fas fa-plus"></i></button>
-                            <a href="#" role="button" class="btn btn-sm btn-success" style="margin-right: 1rem;">Xem
-                                kết quả <i class="fas fa-poll"></i></a>
-                            <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit"
-                                    data-whatever="@mdo" style="margin-right: 1rem">Chỉnh sửa <i
-                                        class="fas fa-pen"></i></button>
-                            <button class="btn btn-sm btn-danger">Đóng khảo sát
-                                <i class="fas fa-door-closed"></i></button>
-                            <!--Khung sua phong-->
+                            @if(decrypt($_COOKIE['id'])==$survey['admin']['id'])
+                                <button class="btn btn-sm btn-primary" style="margin-right: 1rem;" type="button"
+                                        data-toggle="collapse" data-target="#addquestion" aria-expanded="false"
+                                        aria-controls="addquestion">Thêm câu hỏi <i class="fas fa-plus"></i></button>
+                                <a href="{{route('show-result-survey',['id'=>$survey['id']])}}" role="button" class="btn btn-sm btn-success" style="margin-right: 1rem;">Xem
+                                    kết quả <i class="fas fa-poll"></i></a>
+                                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit"
+                                        data-whatever="@mdo" style="margin-right: 1rem">Chỉnh sửa <i
+                                            class="fas fa-pen"></i></button>
+                                <form action="{{route('delete-survey')}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$survey['id']}}">
+                                    <button type="submit" class="btn btn-sm btn-danger">Đóng khảo sát
+                                        <i class="fas fa-door-closed"></i></button>
+                                </form>
+                        @endif
+                        <!--Khung sua phong-->
                             <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit"
                                  aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -116,7 +121,8 @@
                                                                 <label class="col-form-label">Mật
                                                                     khẩu:</label>
                                                                 <input type="text" class="form-control"
-                                                                       name="matkhau" id="matkhau" value="matkhaucu">
+                                                                       name="matkhau" id="matkhau"
+                                                                       value="matkhaucu">
                                                                 <small id="matkhau" class="form-text"
                                                                        style="color: #007bff">Để trống nếu
                                                                     không
@@ -133,9 +139,9 @@
                                                 </form>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Hủy
-                                                </button>
+{{--                                                <button type="button" class="btn btn-secondary"--}}
+{{--                                                        data-dismiss="modal">Hủy--}}
+{{--                                                </button>--}}
                                                 <input type="submit" class="btn btn-info" id="edit" name="sua"
                                                        value="Cập nhật">
                                             </div>
@@ -169,7 +175,11 @@
                                 <div class="tab-content" id="pills-tabContent">
                                     <div class="tab-pane fade show active" id="pills-home" role="tabpanel"
                                          aria-labelledby="pills-home-tab">
-                                        <form class="form-group" action="" method="" enctype="multipart/form-data">
+                                        <form class="form-group" action="{{route('question-survey-post')}}"
+                                              method="post">
+                                            @csrf
+                                            <input type="hidden" name="survey_id" value="{{$survey['id']}}">
+                                            <input type="hidden" name="type_id" value="1">
                                             <div class="form-group">
                                                 <label class="col-form-label">Câu hỏi:</label>
                                                 <input type="text" class="form-control form-control-sm"
@@ -196,12 +206,18 @@
                                     </div>
                                     <div class="tab-pane fade" id="pills-profile" role="tabpanel"
                                          aria-labelledby="pills-profile-tab">
-                                        <form class="form-group" action="" method="" enctype="multipart/form-data">
+                                        <form class="form-group" action="{{route('question-survey-post')}}"
+                                              method="post">
+                                            @csrf
+                                            <input type="hidden" name="survey_id" value="{{$survey['id']}}">
+                                            <input type="hidden" name="type_id" value="2">
                                             <div class="form-group">
                                                 <label class="col-form-label">Câu hỏi:</label>
                                                 <input type="text" class="form-control form-control-sm"
                                                        name="question">
                                             </div>
+                                            <input type="hidden" name="answer[]" value="YES">
+                                            <input type="hidden" name="answer[]" value="NO">
                                             <div class="buttons">
                                                 <input type="submit" class="btn btn-primary" id="taopks" name="tao"
                                                        value="Tạo">
@@ -213,7 +229,11 @@
                                     </div>
                                     <div class="tab-pane fade" id="pills-contact" role="tabpanel"
                                          aria-labelledby="pills-contact-tab">
-                                        <form class="form-group" action="" method="" enctype="multipart/form-data">
+                                        <form class="form-group" action="{{route('question-survey-post')}}"
+                                              method="post">
+                                            @csrf
+                                            <input type="hidden" name="survey_id" value="{{$survey['id']}}">
+                                            <input type="hidden" name="type_id" value="3">
                                             <div class="form-group">
                                                 <label class="col-form-label">Câu hỏi:</label>
                                                 <input type="text" class="form-control form-control-sm"
@@ -239,7 +259,7 @@
                             <h5>Danh sách câu hỏi</h5>
                         </div>
                         <form action="{{route('answer-post')}}" method="post" id="form-survey" class="surveysList">
-                           @csrf
+                            @csrf
                             <input type="hidden" name="id" value="{{$survey['id']}}">
                             @foreach($survey['question'] as $key=>$question)
                                 @if($question['type_id']==1)
@@ -248,7 +268,8 @@
                                         <ul>
                                             @foreach($question['answer'] as $value)
                                                 <li>
-                                                    <input type="radio"  name="{{$question['id']}}" value="{{$value['id']}}">
+                                                    <input type="radio" name="{{$question['id']}}"
+                                                           value="{{$value['id']}}">
                                                     <p>{{$value['content']}}</p>
                                                 </li>
                                             @endforeach
@@ -260,24 +281,28 @@
                                         <ul>
                                             @foreach($question['answer'] as $value)
                                                 <li>
-                                                    <input  type="radio" name="{{$question['id']}}" value="{{$value['id']}}">
+                                                    <input type="radio" name="{{$question['id']}}"
+                                                           value="{{$value['id']}}">
                                                     <p>@if($value['content']=='YES') {{'Đúng'}} @else {{'Sai'}} @endif</p>
                                                 </li>
                                             @endforeach
                                         </ul>
                                     </div>
-                                    @else
+                                @else
                                     <div class="question">
                                         <div class="qTitle">{{$question['content']}}</div>
-                                        <textarea form="form-survey" name="{{$question['id']}}" class="form-control" rows="3"></textarea>
+                                        <textarea form="form-survey" name="{{$question['id']}}" class="form-control"
+                                                  rows="3"></textarea>
                                     </div>
                                 @endif
                             @endforeach
-                            <div class="buttons">
-                                <input type="submit" class="btn btn-primary" id="taophong" name="accept"
-                                       value="Xác nhận">
-                                <button type="button" class="btn btn-secondary">Hủy</button>
-                            </div>
+                            @if(decrypt($_COOKIE['id'])!=$survey['admin']['id'])
+                                <div class="buttons">
+                                    <input type="submit" class="btn btn-primary" id="taophong" name="accept"
+                                           value="Xác nhận">
+                                    {{--                                <button type="button" class="btn btn-secondary">Hủy</button>--}}
+                                </div>
+                            @endif
                         </form>
                     </div>
                 </div>

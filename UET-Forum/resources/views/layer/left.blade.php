@@ -61,26 +61,15 @@
                         </form>
                     </div>
                     <div class="tab-pane fade" id="nav-form" role="tabpanel" aria-labelledby="nav-from-tab">
-                        <form action="" method="" enctype="multipart/form-data">
+                        <form id="survey-post" action="{{route('survey-post')}}" method="post" >
+                            @csrf
                             <div class="modal-body">
-                                <form>
                                     <div class="form-group">
                                         <label class="col-form-label">Tên phiếu khảo sát:</label>
-                                        <input type="text" class="form-control" name="tenphong">
-                                        <div class="row">
-                                            <div class="col-md">
-                                                <label class="col-form-label">Mật khẩu:</label>
-                                                <input type="text" class="form-control" name="matkhau" id="matkhau">
-                                                <small id="matkhau" class="form-text" style="color: #007bff">Để trống nếu không
-                                                    đặt
-                                                    mật
-                                                    khẩu</small>
-                                            </div>
-                                        </div>
+                                        <input type="text" class="form-control" name="nameSur">
                                         <label class="col-form-label">Mô tả:</label>
-                                        <textarea class="form-control" rows="3"></textarea>
+                                        <textarea form="survey-post" name="describeSur" class="form-control" rows="3"></textarea>
                                     </div>
-                                </form>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Hủy</button>

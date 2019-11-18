@@ -52,12 +52,30 @@ class Answer extends Model
     {
         try {
             $ans = Answer::find($data['id']);
-            $ans->amount = $ans->amount+1;
+            $ans->amount = $ans->amount + 1;
             $ans->save();
             return true;
         } catch (\Exception $e) {
             dd($e);
 
+        }
+        return false;
+    }
+
+    /*
+     * $param $data is array include 'content', 'question'
+     */
+    public function insertNewAnswer($data)
+    {
+        try {
+            $ans = new Answer();
+            $ans->question_id = $data['question_id'];
+            $ans->content = $data['content'];
+            $ans->amount = 1;
+            $ans->save();
+            return true;
+        } catch (\Exception $e) {
+            dd($e);
         }
         return false;
     }

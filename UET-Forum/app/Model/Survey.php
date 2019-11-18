@@ -23,7 +23,7 @@ class Survey extends Model
     public function getAllSurveyByUserId($id)
     {
         try {
-            $survey = User::find(1)->survey->toArray();
+            $survey = User::find($id)->survey->toArray();
             return $this->addInfor($survey);
         } catch (\Exception $e) {
             dd($e);
@@ -57,6 +57,55 @@ class Survey extends Model
         } catch (\Exception $e) {
             return null;
         }
+    }
+
+    public function insertSurvey($data){
+        $sur = new Survey();
+        try {
+            if (isset($data['nameSur']) && isset($data['describeSur'])) {
+                $sur->name = $data['nameSur'];
+                $sur->descibe = $data['describeSur'];
+                $sur->created = date('Y-m-d H:i:s', time() + 7 * 60 * 60);
+                $sur->admin = decrypt($_COOKIE['id']);
+                $sur->save();
+                $surAfter = Survey::where('name', $data['nameSur'])->where('descibe', $data['describeSur'])->get()->toArray();
+                $users = User::all()->toArray();
+                foreach ($users as $user) {
+                    $sU = new SurveyUser();
+                    $sU->user_id = $user['id'];
+                    $sU->survey_id = $surAfter['0']['id'];
+                    $sU->updated = date('Y-m-d H:i:s', time() + 7 * 60 * 60);
+                    $sU->status = 0;
+                    $sU->save();
+
+                }
+            }
+            return true;
+        }catch (\Exception $e){
+            dd($e);
+        }
+
+        return false;
+    }
+
+    public function deleteSurveyById($id){
+        try{
+            $sur = Survey::find($id);
+            SurveyUser::whereIn('survey_id',[$id])->update(['status'=>2]);
+        }catch (\Exception $e){
+            dd($e);
+        }
+        return false;
+
+    }
+
+    /*
+     *
+     */
+    public function getResultBySurveyId($id){
+        $ques = new QuestionSurvey();
+        $sur = $this->getSurveyById($id);
+        return $sur['0'];
     }
 
 

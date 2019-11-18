@@ -32,7 +32,6 @@ class LoginController extends \Illuminate\Routing\Controller
 
     public function formLogin()
     {
-
         $DI = new DIController();
         $DI->bindClassAsSingleton('core', 'App\Http\Controllers\CoreController');
         $obj = $DI->resolve('App\Http\Controllers\LoginController');

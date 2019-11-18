@@ -108,9 +108,15 @@ Route::group(['prefix' => "uet-forum", 'middleware' => 'afterLogin'], function (
 
     Route::post('/survey-post','SurveyController@postSurvey')->name('survey-post');
 
+    Route::post('/question-survey-post','QuestionSurveyController@postQuestionSurvey')->name('question-survey-post');
+
     Route::post('/survey-answer','AnswerController@postAnswer')->name('answer-post');
 
     Route::get('/survey-{id}','SurveyController@surveyJoin')->name('survey-join');
+
+    Route::post('/delete-survey','SurveyController@deleteById')->name('delete-survey');
+
+    Route::get('/result-survey-{id}','ResultSurveyController@showById')->name('show-result-survey');
 });
 
 Route::fallback('BaseMessage@Notfound');

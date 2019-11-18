@@ -36,10 +36,10 @@
                         </h3>
                         <form action='{{route('dashboard-search')}}' method="get" class="form float-right">
                             <div class="input-group searchbox">
-                                <input type="search" class="form-control sinput" name="name" @if(isset($conditions['name'])) value="{{$conditions['name']}}"@endif placeholder="Tìm kiếm theo tên...">
-                                <div class="input-group-append">
-                                    <button class="btn searchbtn" type="submit"><i class="fas fa-search"></i></button>
-                                </div>
+{{--                                <input type="search" class="form-control sinput" name="name" @if(isset($conditions['name'])) value="{{$conditions['name']}}"@endif placeholder="Tìm kiếm theo tên...">--}}
+{{--                                <div class="input-group-append">--}}
+{{--                                    <button class="btn searchbtn" type="submit"><i class="fas fa-search"></i></button>--}}
+{{--                                </div>--}}
                             </div>
                         </form>
                     </div>
@@ -63,17 +63,17 @@
                                         tham gia</a>
                                 </li>
                             </ul>
-                            <ul class="nav float-right">
-                                <li class="nav-item">
-                                    <label for="numP" style="color: black">Kết quả / Trang: </label>
-                                    <select class="form-control-sm mx-3 my-2 numP" name="numP">
-                                        <option>5</option>
-                                        <option>10</option>
-                                        <option>20</option>
-                                        <option>50</option>
-                                    </select>
-                                </li>
-                            </ul>
+{{--                            <ul class="nav float-right">--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <label for="numP" style="color: black">Kết quả / Trang: </label>--}}
+{{--                                    <select class="form-control-sm mx-3 my-2 numP" name="numP">--}}
+{{--                                        <option>5</option>--}}
+{{--                                        <option>10</option>--}}
+{{--                                        <option>20</option>--}}
+{{--                                        <option>50</option>--}}
+{{--                                    </select>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
                         </div>
                     <!--liet ke phieu-->
                     <div id="lietkephong">
@@ -109,31 +109,30 @@
                                                     - {{$survey['created']}} - <a
                                                             href="#">Vui lòng hoàn thành</a></i>
                                             </div>
-                                            <a class="float-right">Chi tiết <i
+                                            <a href="{{route('survey-join',['id'=>$survey['id']])}}" class="float-right">Chi tiết <i
                                                         class="fas fa-angle-right"></i></a>
                                         </div>
                                     </div>
                                 </li>
                             @endforeach
-
                         </ul>
-                        <nav>
-                            <ul class="pagination pagination-sm justify-content-center">
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
+{{--                        <nav>--}}
+{{--                            <ul class="pagination pagination-sm justify-content-center">--}}
+{{--                                <li class="page-item">--}}
+{{--                                    <a class="page-link" href="#" aria-label="Previous">--}}
+{{--                                        <span aria-hidden="true">&laquo;</span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li class="page-item active"><a class="page-link" href="#">1</a></li>--}}
+{{--                                <li class="page-item"><a class="page-link" href="#">2</a></li>--}}
+{{--                                <li class="page-item"><a class="page-link" href="#">3</a></li>--}}
+{{--                                <li class="page-item">--}}
+{{--                                    <a class="page-link" href="#" aria-label="Next">--}}
+{{--                                        <span aria-hidden="true">&raquo;</span>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </nav>--}}
                     </div>
                 </div>
             </div>

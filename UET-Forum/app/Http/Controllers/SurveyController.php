@@ -10,6 +10,17 @@ use Illuminate\Http\Request;
 
 class SurveyController extends \Illuminate\Routing\Controller
 {
+
+
+    private $_survey;
+    /**
+     * SurveyController constructor.
+     */
+    public function __construct()
+    {
+        $this->_survey = new Survey();
+    }
+
     public function show()
     {
         $sur = new Survey();
@@ -21,7 +32,7 @@ class SurveyController extends \Illuminate\Routing\Controller
     {
         try {
             $survey1 = SurveyUser::where('survey_id', $request->id)->where('status', 0)->get();
-            if (!empty($survey1)) {
+            if (!empty($survey1->toArray())) {
                 $sur = new Survey();
                 $surveys = $sur->getSurveyById($request->id);
                 return CoreController::viewPage('survey', ['survey' => $surveys['0']]);
@@ -34,14 +45,19 @@ class SurveyController extends \Illuminate\Routing\Controller
 
     }
 
-    public function surveyPost(Request $request)
+    public function postSurvey(Request $request)
     {
-
-        return null;
+        $this->_survey->insertSurvey($request->toArray());
+        return redirect()->back();
     }
 
     public function surveyAnswer(Request $request)
     {
         return null;
+    }
+
+    public function deleteById(Request $request){
+        $this->_survey->deleteSurveyById($request->id);
+        return redirect()->route('survey-list');
     }
 }
