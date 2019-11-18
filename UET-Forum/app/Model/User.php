@@ -235,4 +235,8 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
             return false;
         }
     }
+
+    public function survey(){
+        return $this->belongsToMany('App\Model\Survey','survey_user','user_id','survey_id')->where('status','=','0');
+    }
 }

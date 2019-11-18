@@ -36,6 +36,7 @@
         <ul class="list-group">
             <li class="list-group-item onlineRoom">Phiên đang mở: {{$count['room']}}</li>
             <li class="list-group-item onlineMy">Phiên đang mở của tôi: {{$count['myRoom']}}</li>
+            <li class="list-group-item onlineMy">Khảo sát chưa làm: {{$count['survey']}}</li>
         </ul>
     </div>
 </div>

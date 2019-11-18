@@ -105,7 +105,7 @@
                 @endforeach
             </nav>
         </div>
-        <a class="nav-link" href="#"><i class="fas fa-poll-h"></i> Phiếu khảo sát</a>
+        <a class="nav-link" href="{{route('survey-list')}}"><i class="fas fa-poll-h"></i> Phiếu khảo sát</a>
         {{-- <a class="nav-link" href="#"><i class="fas fa-heart"></i> Đánh dấu</a>--}}
         <a class="nav-link" href="{{route('dashboard-search',['admin'=>decrypt($_COOKIE['id']),'category_id'=>(!empty($conditions['category_id']))?$conditions['category_id']:null])}}"><i class="fas fa-question-circle"></i> Phiên của tôi</a>
         <a class="nav-link" href="#"><i class="fas fa-check-square"></i> Phiếu khảo sát của tôi</a>

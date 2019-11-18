@@ -36,7 +36,6 @@ class DashBoardController extends  Controller
 
     public function view()
     {
-
         $data = $this->_room->getAll();
         $data = $this->_room->addInfToObjRoom($data);
         $currentUser = $this->_user->getCurrentUser();

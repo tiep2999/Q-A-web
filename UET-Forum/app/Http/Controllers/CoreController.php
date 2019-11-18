@@ -6,6 +6,8 @@ namespace App\Http\Controllers;
 
 use App\Model\Category;
 use App\Model\Room;
+use App\Model\Survey;
+use App\Model\SurveyUser;
 use App\Model\User;
 
 class CoreController extends \Illuminate\Routing\Controller
@@ -23,6 +25,7 @@ class CoreController extends \Illuminate\Routing\Controller
         $cUser = User::getCurrentUser();
         $data['count']['room'] = $room->getAll()->count();
         $data['count']['myRoom'] = Room::where('isDeleted', '0')->where('admin',decrypt($_COOKIE['id']))->get()->count();
+        $data['count']['survey'] = SurveyUser::where('user_id',decrypt($_COOKIE['id']))->where('status','0')->get()->count();
         $data['cUser'] = $cUser;
 //        $data['count']['user'] = User::where('active_flg','1')->get()->count();
         return $data;

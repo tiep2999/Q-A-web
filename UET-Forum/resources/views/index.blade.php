@@ -46,7 +46,7 @@
                         </h3>
                         <form action='{{route('dashboard-search')}}' method="get" class="form float-right">
                             <div class="input-group searchbox">
-                                <input type="search" class="form-control sinput" name="name" placeholder="Tìm kiếm theo tên...">
+                                <input type="search" class="form-control sinput" name="name" @if(isset($conditions['name'])) value="{{$conditions['name']}}"@endif placeholder="Tìm kiếm theo tên...">
                                 <div class="input-group-append">
                                     <button class="btn searchbtn" type="submit"><i class="fas fa-search"></i></button>
                                 </div>
@@ -110,10 +110,8 @@
                                                     <div class="float-right">
                                                         <ul class="list-group list-group-horizontal justify-content-center">
                                                             <li class="list-group-item"><i class="fas fa-user"></i>
-                                                                123
                                                             </li>
                                                             <li class="list-group-item"><i class="fas fa-star"></i>
-                                                                4.5
                                                             </li>
                                                             <li class="list-group-item"><i class="fas fa-lock"></i>
                                                             </li>
