@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-@include('layer.header',['title'=>'roomjoin'])
+@include('layer.header',['title'=>'survey-join'])
 <body>
 <!--Back to top button-->
 <a id="BTTbutton"></a>

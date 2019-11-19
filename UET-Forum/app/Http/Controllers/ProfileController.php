@@ -52,6 +52,6 @@ class ProfileController extends Controller
     public function insert(Request $request){
         $data = $request->toArray();
         $this->_user->insertUser($data);
-        return redirect()->back();
+        return redirect()->route('login');
     }
 }

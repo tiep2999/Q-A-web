@@ -43,13 +43,13 @@
                                    placeholder="Nhập mật khẩu">
                             <small id="passHelp" class="form-text">Đảm bảo mật khẩu của bạn đủ mạnh</small>
                         </div>
-                        <div class="form-group">
-                            <label for="Repassword">Nhập lại mật khẩu</label>
-                            <input name="valPassword" type="password" class="form-control" id="Repassword" aria-errormessage="RepassHelp"
-                                   placeholder="Nhập lại mật khẩu">
-                            <small id="RepassHelp" class="form-text">Cần trùng khớp với mật khẩu đã tạo bên
-                                trên</small>
-                        </div>
+{{--                        <div class="form-group">--}}
+{{--                            <label for="Repassword">Nhập lại mật khẩu</label>--}}
+{{--                            <input name="valPassword" type="password" class="form-control" id="Repassword" aria-errormessage="RepassHelp"--}}
+{{--                                   placeholder="Nhập lại mật khẩu">--}}
+{{--                            <small id="RepassHelp" class="form-text">Cần trùng khớp với mật khẩu đã tạo bên--}}
+{{--                                trên</small>--}}
+{{--                        </div>--}}
                         <div class="form-group">
                             <label for="userName">Tên đăng nhập</label>
                             <input name="userName" type="text" class="form-control" id="userName" placeholder="Nhập tên đăng nhập">

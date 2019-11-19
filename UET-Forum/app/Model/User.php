@@ -173,6 +173,7 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
             if (isset($data['avatar'])) {
                 if (!empty($data['avatar'])) $u->avatar = $data['avatar'];
             }
+            if (!empty($data['password'])) $u->password = Support\Facades\Hash::make($data['password']);
             if (!empty($data['userName'])) $u->userName = $data['userName'];
             if (!empty($data['fullName'])) $u->fullName = $data['fullName'];
             if (!empty($data['email'])) $u->email = $data['email'];
@@ -188,6 +189,7 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
         return null;
 
     }
+
 // encrypt id before update
     public function setTokenRoom($id, $token)
     {
@@ -236,19 +238,23 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
         }
     }
 
-    public function survey(){
-        return $this->belongsToMany('App\Model\Survey','survey_user','user_id','survey_id')->where('status','=','0');
+    public function survey()
+    {
+        return $this->belongsToMany('App\Model\Survey', 'survey_user', 'user_id', 'survey_id')->where('status', '=', '0');
     }
 
-    public function allSurvey(){
-        return $this->belongsToMany('App\Model\Survey','survey_user','user_id','survey_id');
+    public function allSurvey()
+    {
+        return $this->belongsToMany('App\Model\Survey', 'survey_user', 'user_id', 'survey_id');
     }
 
-    public function liveSurvey(){
-        return $this->belongsToMany('App\Model\Survey','survey_user','user_id','survey_id')->where('status','!=','2');
+    public function liveSurvey()
+    {
+        return $this->belongsToMany('App\Model\Survey', 'survey_user', 'user_id', 'survey_id')->where('status', '!=', '2');
     }
 
-    public function diedSurvey(){
-        return $this->belongsToMany('App\Model\Survey','survey_user','user_id','survey_id')->where('status','=','2');
+    public function diedSurvey()
+    {
+        return $this->belongsToMany('App\Model\Survey', 'survey_user', 'user_id', 'survey_id')->where('status', '=', '2');
     }
 }

@@ -50,8 +50,12 @@ class SurveyController extends \Illuminate\Routing\Controller
 
     public function postSurvey(Request $request)
     {
-        $this->_survey->insertSurvey($request->toArray());
+        $id = $this->_survey->insertSurvey($request->toArray());
+        if ($id!=false) {
+            return redirect()->route('survey-join', ['id' => $id]);
+        }
         return redirect()->back();
+
     }
 
     public function surveyAnswer(Request $request)
@@ -69,13 +73,13 @@ class SurveyController extends \Illuminate\Routing\Controller
     {
         $surveys = null;
         $sur = new Survey();
-        if(isset($request->died)){
-            $surveys = $sur->getAllSurveyByAdminId(decrypt($_COOKIE['id']),['died'=>true]);
-            return CoreController::viewPage('surveyList', ['surveys' => $surveys, 'admin' => 1,'cons'=>['died'=>1]]);
-        }elseif (isset($request->live)){
-            $surveys = $sur->getAllSurveyByAdminId(decrypt($_COOKIE['id']),['live'=>true]);
-            return CoreController::viewPage('surveyList', ['surveys' => $surveys, 'admin' => 1,'cons'=>['live'=>1]]);
-        }else{
+        if (isset($request->died)) {
+            $surveys = $sur->getAllSurveyByAdminId(decrypt($_COOKIE['id']), ['died' => true]);
+            return CoreController::viewPage('surveyList', ['surveys' => $surveys, 'admin' => 1, 'cons' => ['died' => 1]]);
+        } elseif (isset($request->live)) {
+            $surveys = $sur->getAllSurveyByAdminId(decrypt($_COOKIE['id']), ['live' => true]);
+            return CoreController::viewPage('surveyList', ['surveys' => $surveys, 'admin' => 1, 'cons' => ['live' => 1]]);
+        } else {
             $surveys = $sur->getAllSurveyByAdminId(decrypt($_COOKIE['id']));
         }
 
@@ -90,7 +94,7 @@ class SurveyController extends \Illuminate\Routing\Controller
                 $survey1 = $survey1->toArray();
                 if ($survey1['0']['status'] == 2) {
                     $sur = new Survey();
-                    $surveys = $sur->getSurveyById($request->id,true);
+                    $surveys = $sur->getSurveyById($request->id, true);
                 } else {
                     $sur = new Survey();
                     $surveys = $sur->getSurveyById($request->id);

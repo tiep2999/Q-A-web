@@ -116,14 +116,14 @@
                                                                 </div>
                                                             </div>
                                                             <div class="row">
-                                                                <div class="col-md-6">
+                                                                <div class="col-md-12">
                                                                     <label class="col-form-label">Password</label>
                                                                     <input name="password" type="password" class="form-control" placeholder="********">
                                                                 </div>
-                                                                <div class="col-md-6">
-                                                                    <label class="col-form-label">Val Password</label>
-                                                                    <input name="valPassword" type="password" class="form-control" placeholder="********">
-                                                                </div>
+{{--                                                                <div class="col-md-6">--}}
+{{--                                                                    <label class="col-form-label">Val Password</label>--}}
+{{--                                                                    <input name="valPassword" type="password" class="form-control" placeholder="********">--}}
+{{--                                                                </div>--}}
                                                             </div>
                                                         </div>
 
