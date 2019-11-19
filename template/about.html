@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <title>Trang chủ</title>
+</head>
+
+<body>
+    <!--Back to top button-->
+    <a id="BTTbutton"></a>
+    <script>
+        var btn = $('#BTTbutton');
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 300) {
+                btn.addClass('show');
+            } else {
+                btn.removeClass('show');
+            }
+        });
+        btn.on('click', function (e) {
+            e.preventDefault();
+            $('html, body').animate({ scrollTop: 0 }, '300');
+        });
+    </script>
+
+    <header>
+        <!--thanh menu-->
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <a class="navbar-brand" href="#">UET-Q&A</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Trang chủ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Giới thiệu</a>
+                        </li>
+                    </ul>
+                    <ul class="nav justify-content-end">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Thông báo <span class="badge badge-danger">4</span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-lg-right notification"
+                                aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">
+                                    <div class="card">
+                                        <div class="row no-gutters">
+                                            <div class="col-md">
+                                                <img src="image/user/withBG.png" class="card-img rounded-circle"
+                                                    width="auto">
+                                            </div>
+                                            <div class="col-md-11">
+                                                <div class="card-body">
+                                                    <p>Thông báo số 1jhv hjf vjfhv jhdv
+                                                        jfdvnjkdvknvjkdfgnjvnkjdfnvkjfnbhjvjdvjf djhv jfd </p>
+                                                    <p class="card-text"><small class="text-muted">x phút trước</small>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="card" style="max-width: 540px;">
+                                        <div class="row no-gutters">
+                                            <div class="col-md">
+                                                <img src="image/user/withBG.png" class="card-img rounded-circle"
+                                                    width="auto">
+                                            </div>
+                                            <div class="col-md-11">
+                                                <div class="card-body">
+                                                    <p class="card-text">Thông báo số 2 day finlfs slkn skjnknkz
+                                                        oirhgosn sjgrknsk oirghois kshgohgo skghoih fsdkgibg sgohgsoi
+                                                    </p>
+                                                    <p class="card-text"><small class="text-muted">x phút trước</small>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="card" style="max-width: 540px;">
+                                        <div class="row no-gutters">
+                                            <div class="col-md">
+                                                <img src="image/user/withBG.png" class="card-img rounded-circle"
+                                                    width="auto">
+                                            </div>
+                                            <div class="col-md-11">
+                                                <div class="card-body">
+                                                    <p class="card-text">Thông báo số 3</p>
+                                                    <p class="card-text"><small class="text-muted">x phút trước</small>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <div class="card" style="max-width: 540px;">
+                                        <div class="row no-gutters">
+                                            <div class="col-md">
+                                                <img src="image/user/withBG.png" class="card-img rounded-circle"
+                                                    width="auto">
+                                            </div>
+                                            <div class="col-md-11">
+                                                <div class="card-body">
+                                                    <p class="card-text">Thông báo số 4</p>
+                                                    <p class="card-text"><small class="text-muted">x phút trước</small>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a class="dropdown-item viewAll" href="#" style="text-align: center">Xem tất cả</a>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <button type="button" class="btn btn-outline-light" data-toggle="dropdown"><img
+                                    src="image/user/withBG.png" class="rounded-circle" width="25px"> Tên người
+                                dùng</button>
+                            <div class="dropdown-menu dropdown-menu-lg-right userMenu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Thông tin cá nhân</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-question-circle"></i> Phiên của
+                                    tôi</a>
+                                <a class="dropdown-item" href="#"><i class="fas fa-heart"></i> Đánh dấu</a>
+                                <a class="dropdown-item" href="login.html"><i class="fas fa-sign-out-alt"></i> Đăng
+                                    xuất</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="homeContent">
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <div class="about container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h1>UET-Q&A</h1>
+                            <p align="center">Trang web hỏi đáp và tham gia làm khảo sát cho sinh viên trường Đại Học
+                                Công Nghệ -
+                                ĐHQGHN</p>
+                            <p>Đội ngũ phát triển: </p>
+                            <ul>
+                                <li>Phạm Duy tiếp</li>
+                                <li>Trần Kim Hiếu</li>
+                                <li>Nguyễn Tuấn Linh</li>
+                                <li>Đỗ Lương Khoa</li>
+                                <li>Bùi Danh Tuấn</li>
+                                <li>Đào Trọng Đạt</li>
+                            </ul>
+                            <p>Địa chỉ: 144 Xuân Thủy, Cầu Giấy, Hà Nội</p>
+                            <p>Liên hệ: UETqa@gmail.com</p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="image/VNU-UET logo.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="footer-info col-sm-4">
+                    <h5>Navbar</h5>
+                    <p>2019 thử nghiệm, sản phẩm thực hành bộ môn</p>
+                </div>
+                <div class="footer-payment col-sm-4">
+                    <h5>Địa chỉ</h5>
+                    <p>Đại học công nghệ - ĐHQGHN</p>
+                    <p>Xuân Thủy, Cầu Giấy, Hà Nội</p>
+                </div>
+                <div class="footer-contact col-sm-4">
+                    <h5>Liên hệ chúng tôi</h5>
+                    <ul>
+                        <li><a href="#"><img src="image/icons/facebook.svg" /></a></li>
+                        <li><a href="#"><img src="image/icons/gmail.svg" /></a></li>
+                        <li><a href="#"><img src="image/icons/twitter.svg" /></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -15,7 +15,6 @@ body {
   border: none !important;
 }
 p {
-  
 }
 /*css cho back top top button*/
 #BTTbutton {
@@ -665,6 +664,20 @@ footer ul li a img {
 }
 .result {
   margin-top: 1.5rem;
+}
+
+/**css cho trang gioi thieu**/
+.about h1 {
+  color: rgb(29, 161, 242);
+  font-family: "Poppins";
+  font-weight: 600;
+  text-align: center;
+}
+.about img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
 }
 
 @media only screen and (max-width: 920px) {
