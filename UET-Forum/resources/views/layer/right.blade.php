@@ -1,10 +1,10 @@
 <div class="col rightBar">
     @if(!empty($search)&&$search=='room')
-    <form class="form-inline">
+    <form action='{{route('dashboard-search')}}' method="get"  class="form-inline">
         <div class="input-group mb-3 searchbox">
-            <input type="search" class="form-control sinput" placeholder="Tìm kiếm...">
+            <input type="search" class="form-control sinput" name="name" @if(isset($conditions['name'])) value="{{$conditions['name']}}"@endif placeholder="Tìm kiếm...">
             <div class="input-group-append">
-                <button class="btn searchbtn" type="button"><i class="fas fa-search"></i></button>
+                <button class="btn searchbtn" type="submit"><i class="fas fa-search"></i></button>
             </div>
         </div>
     </form>

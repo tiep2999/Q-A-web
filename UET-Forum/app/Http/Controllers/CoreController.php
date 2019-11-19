@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 
 use App\Model\Category;
+use App\Model\Notify;
 use App\Model\Room;
 use App\Model\Survey;
 use App\Model\SurveyUser;
@@ -39,6 +40,14 @@ class CoreController extends \Illuminate\Routing\Controller
         $data['count']['survey'] = $count;
         $data['cUser'] = $cUser;
 //        $data['count']['user'] = User::where('active_flg','1')->get()->count();
+        if($cUser['role_id']==1){
+            $users = User::where('active_flg',1)->orderBy('update_date','DESC')->limit(5)->get();
+            $data['users'] = $users->toArray();
+        }else{
+            $notify = Notify::getAll();
+            $data['notify'] = $notify;
+        }
+
         return $data;
 
     }

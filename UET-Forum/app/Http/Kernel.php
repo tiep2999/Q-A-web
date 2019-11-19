@@ -8,6 +8,7 @@ use App\Http\Middleware\CheckLogin;
 use App\Http\Middleware\DefaultLaravel;
 use App\Http\Middleware\Lang;
 use App\Http\Middleware\Logout;
+use App\Http\Middleware\RoleAdmin;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -72,6 +73,7 @@ class Kernel extends HttpKernel
         'beforeLogin'=>BeforeLogin::class,
         'afterLogin' => AfterLogin::class,
         'logout' => Logout::class,
+        'roleAdmin' => RoleAdmin::class,
     ];
 
     /**
