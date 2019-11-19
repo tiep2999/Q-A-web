@@ -288,6 +288,110 @@ INSERT INTO `statusRoom` (`id`,`name`,`descibe`,`created`) values
 (2,'private','phong kin','2019-02-09 00:00:00'),
 (3,'close','phong da dong nhung van xem duoc','2019-02-09 00:00:00');
 
+
+--
+-- Table structure for table `survey`
+--
+CREATE TABLE `survey` (
+`id` int(11) NOT NULL,
+`name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+`descibe` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+`created` datetime DEFAULT NULL,
+`admin` bigint(20) DEFAULT NULL,
+`activeFlg` int(11) DEFAULT 1
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `survey`
+--
+
+INSERT INTO `survey` (`id`,`name`,`descibe`,`created`,`admin`,`activeFlg`) values
+(1,'phieu khao sat 1','phieu khao sat trinh do web sv cntt','2019-02-09 00:00:00',1,1),
+(2,'phieu khao sat 2','phieu ks giao vien cntt','2019-02-09 00:00:00',2,1),
+(3,'phieu 3','phieu ks cho vui','2019-02-09 00:00:00',1,1);
+
+--
+-- Table structure for table `survey_user`
+--
+CREATE TABLE `survey_user` (
+`id` int(11) NOT NULL,
+`user_id`  bigint(20) DEFAULT NULL,
+`survey_id`  bigint(20) DEFAULT NULL,
+`updated` datetime DEFAULT NULL,
+`status` int(11) DEFAULT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `survey_user`
+--
+
+INSERT INTO `survey_user` (`id`,`user_id`,`survey_id`,`updated`,`status`) values
+(1,1,1,'2019-02-09 00:00:00',1),
+(2,1,2,'2019-02-09 00:00:00',0),
+(3,1,3,'2019-02-09 00:00:00',0);
+
+
+--
+-- Table structure for table `questionSurvey`
+--
+CREATE TABLE `questionSurvey` (
+`id` int(11) NOT NULL,
+`type_id`  bigint(20) DEFAULT NULL,
+`survey_id`  bigint(20) DEFAULT NULL,
+`content` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `questionSurvey`
+--
+
+INSERT INTO `questionSurvey` (`id`,`type_id`,`survey_id`,`content`) values
+(1,1,1,'dai hoc cong nghe o dau ?'),
+(2,2,1,'anh co dep trai khong ?'),
+(3,3,1,'ban nghi sao ve dai hoc cn?');
+
+--
+-- Table structure for table `answer`
+--
+CREATE TABLE `answer` (
+`id` int(11) NOT NULL,
+`question_id`  bigint(20) DEFAULT NULL,
+`amount`  int(11) DEFAULT NULL,
+`content` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `answer`
+--
+
+INSERT INTO `answer` (`id`,`question_id`,`amount`,`content`) values
+(1,1,2,'dh cong nghe o xuan thuy'),
+(2,1,1,'dh cong nghe o bac ninh'),
+(3,2,2,'YES'),
+(4,2,3,'NO'),
+(5,3,1,'Dai hoc cong nghe vui vai lin ra hahahaa !');
+
+--
+-- Table structure for table `type`
+--
+CREATE TABLE `type` (
+`id` int(11) NOT NULL,
+`name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+`descibe` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+`created` datetime DEFAULT NULL
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+--
+-- Dumping data for table `type`
+--
+
+INSERT INTO `type` (`id`,`name`,`descibe`,`created`) values
+(1,'trac nghiem nhieu cau hoi','loai cau hoi cau hoi co nhieu dap an','2019-02-09 00:00:00'),
+(2,'trac nghiem dung sai','loai cau hoi dung sai','2019-02-09 00:00:00'),
+(3,'cau hoi tu luan','nguoi dung tu tra loi theo tu luan','2019-02-09 00:00:00');
+
+
 -- --------------------------------------------------------
 
 --
@@ -387,7 +491,44 @@ ALTER TABLE `category`
 --
 ALTER TABLE `statusRoom`
  ADD PRIMARY KEY (`id`);
+--
+-- Indexes for table `survey`
+--
+ ALTER TABLE `survey`
+ ADD PRIMARY KEY (`id`),
+ ADD KEY `admin_fk` (`admin`);
+
+--
+-- Indexes for table `survey_user`
+--
+ ALTER TABLE `survey_user`
+ ADD PRIMARY KEY (`id`),
+ ADD KEY `survey_user_user_fk` (`user_id`),
+  ADD KEY `survey_user_survey_fk` (`survey_id`);
+
+--
+-- Indexes for table `answer`
+--
+ ALTER TABLE `answer`
+ ADD PRIMARY KEY (`id`),
+ ADD KEY `answer_question_fk` (`question_id`);
  
+ --
+-- Indexes for table `questionSurvey`
+--
+ ALTER TABLE `questionSurvey`
+ ADD PRIMARY KEY (`id`),
+ ADD KEY `question_type_id_fk` (`type_id`),
+ ADD KEY `question_survey_id_fk` (`survey_id`);
+ 
+ --
+-- Indexes for table `type`
+--
+ ALTER TABLE `type`
+ ADD PRIMARY KEY (`id`);
+ 
+  
+  
   
 --
 -- AUTO_INCREMENT for dumped tables
@@ -471,6 +612,37 @@ ALTER TABLE `category`
 --
 ALTER TABLE `statusRoom`
  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `survey`
+--
+ALTER TABLE `survey`
+ MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+
+--
+-- AUTO_INCREMENT for table `survey_user`
+--
+ALTER TABLE `survey_user`
+ MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `answer`
+--
+ALTER TABLE `answer`
+ MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `questionSurvey`
+--
+ALTER TABLE `questionSurvey`
+ MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `type`
+--
+ALTER TABLE `type`
+ MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
 
 --
 -- Constraints for dumped tables
@@ -534,7 +706,32 @@ ALTER TABLE `functionGlobal`
 ALTER TABLE `functionRoom` 
  ADD CONSTRAINT `functionRoom_role_id` FOREIGN KEY (`role_id`) REFERENCES `roleRoom` (`id`),
  ADD CONSTRAINT `functionRoom_function_id` FOREIGN KEY (`function_id`) REFERENCES `function` (`id`);
-  
+  --
+-- Constraints for table `survey`
+--
+ALTER TABLE `survey` 
+ ADD CONSTRAINT `admin_fk` FOREIGN KEY (`admin`) REFERENCES `user` (`id`);
+--
+-- Constraints for table `survey_user`
+--
+ALTER TABLE `survey_user` 
+ ADD CONSTRAINT `survey_user_user_fk` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+ ADD CONSTRAINT `survey_user_survey_fk` FOREIGN KEY (`survey_id`) REFERENCES `survey` (`id`);
+ 
+ --
+-- Constraints for table `answer`
+--
+ALTER TABLE `answer` 
+ ADD CONSTRAINT `answer_question_fk` FOREIGN KEY (`question_id`) REFERENCES `questionSurvey` (`id`);
+ 
+  --
+-- Constraints for table `answer`
+--
+ALTER TABLE `questionSurvey` 
+ ADD CONSTRAINT `question_survey_id_fk` FOREIGN KEY (`survey_id`) REFERENCES `survey` (`id`),
+ ADD CONSTRAINT `question_type_id_fk` FOREIGN KEY (`type_id`) REFERENCES `type` (`id`);
+ 
+ 
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

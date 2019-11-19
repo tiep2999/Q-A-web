@@ -80,17 +80,17 @@
                                         đóng</a>
                                 </li>
                             </ul>
-                            <ul class="nav float-right">
-                                <li class="nav-item">
-                                    <label for="numP" style="color: black">Kết quả / Trang: </label>
-                                    <select class="form-control-sm mx-3 my-2 numP" name="numP">
-                                        <option>5</option>
-                                        <option>10</option>
-                                        <option>20</option>
-                                        <option>50</option>
-                                    </select>
-                                </li>
-                            </ul>
+{{--                            <ul class="nav float-right">--}}
+{{--                                <li class="nav-item">--}}
+{{--                                    <label for="numP" style="color: black">Kết quả / Trang: </label>--}}
+{{--                                    <select class="form-control-sm mx-3 my-2 numP" name="numP">--}}
+{{--                                        <option>5</option>--}}
+{{--                                        <option>10</option>--}}
+{{--                                        <option>20</option>--}}
+{{--                                        <option>50</option>--}}
+{{--                                    </select>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
                         </div>
                         <!--liet ke phong-->
                         <div id="lietkephong">
@@ -136,23 +136,23 @@
                                 @endforeach
 
                             </ul>
-                            <nav>
-                                <ul class="pagination pagination-sm justify-content-center">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+{{--                            <nav>--}}
+{{--                                <ul class="pagination pagination-sm justify-content-center">--}}
+{{--                                    <li class="page-item">--}}
+{{--                                        <a class="page-link" href="#" aria-label="Previous">--}}
+{{--                                            <span aria-hidden="true">&laquo;</span>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>--}}
+{{--                                    <li class="page-item"><a class="page-link" href="#">2</a></li>--}}
+{{--                                    <li class="page-item"><a class="page-link" href="#">3</a></li>--}}
+{{--                                    <li class="page-item">--}}
+{{--                                        <a class="page-link" href="#" aria-label="Next">--}}
+{{--                                            <span aria-hidden="true">&raquo;</span>--}}
+{{--                                        </a>--}}
+{{--                                    </li>--}}
+{{--                                </ul>--}}
+{{--                            </nav>--}}
                         </div>
                     </div>
                 </div>

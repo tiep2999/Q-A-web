@@ -84,17 +84,20 @@
                                 <button class="btn btn-sm btn-primary" style="margin-right: 1rem;" type="button"
                                         data-toggle="collapse" data-target="#addquestion" aria-expanded="false"
                                         aria-controls="addquestion">Thêm câu hỏi <i class="fas fa-plus"></i></button>
-                                <a href="{{route('show-result-survey',['id'=>$survey['id']])}}" role="button" class="btn btn-sm btn-success" style="margin-right: 1rem;">Xem
+                                <a href="{{route('show-result-survey',['id'=>$survey['id']])}}" role="button"
+                                   class="btn btn-sm btn-success" style="margin-right: 1rem;">Xem
                                     kết quả <i class="fas fa-poll"></i></a>
-                                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit"
-                                        data-whatever="@mdo" style="margin-right: 1rem">Chỉnh sửa <i
-                                            class="fas fa-pen"></i></button>
-                                <form action="{{route('delete-survey')}}" method="post">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{$survey['id']}}">
-                                    <button type="submit" class="btn btn-sm btn-danger">Đóng khảo sát
-                                        <i class="fas fa-door-closed"></i></button>
-                                </form>
+                                {{--                                <button class="btn btn-sm btn-info" data-toggle="modal" data-target="#edit"--}}
+                                {{--                                        data-whatever="@mdo" style="margin-right: 1rem">Chỉnh sửa <i--}}
+                                {{--                                            class="fas fa-pen"></i></button>--}}
+                                @if(!isset($survey['died']))
+                                    <form action="{{route('delete-survey')}}" method="post">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{$survey['id']}}">
+                                        <button type="submit" class="btn btn-sm btn-danger">Đóng khảo sát
+                                            <i class="fas fa-door-closed"></i></button>
+                                    </form>
+                            @endif
                         @endif
                         <!--Khung sua phong-->
                             <div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="edit"
@@ -139,9 +142,9 @@
                                                 </form>
                                             </div>
                                             <div class="modal-footer">
-{{--                                                <button type="button" class="btn btn-secondary"--}}
-{{--                                                        data-dismiss="modal">Hủy--}}
-{{--                                                </button>--}}
+                                                {{--                                                <button type="button" class="btn btn-secondary"--}}
+                                                {{--                                                        data-dismiss="modal">Hủy--}}
+                                                {{--                                                </button>--}}
                                                 <input type="submit" class="btn btn-info" id="edit" name="sua"
                                                        value="Cập nhật">
                                             </div>
@@ -200,7 +203,7 @@
                                             <div class="buttons">
                                                 <input type="submit" class="btn btn-primary" id="taopks" name="tao"
                                                        value="Tạo">
-                                                <button type="button" class="btn btn-secondary">Hủy</button>
+                                                {{--                                                <button type="button" class="btn btn-secondary">Hủy</button>--}}
                                             </div>
                                         </form>
                                     </div>
@@ -221,9 +224,9 @@
                                             <div class="buttons">
                                                 <input type="submit" class="btn btn-primary" id="taopks" name="tao"
                                                        value="Tạo">
-                                                <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Hủy
-                                                </button>
+                                                {{--                                                <button type="button" class="btn btn-secondary"--}}
+                                                {{--                                                        data-dismiss="modal">Hủy--}}
+                                                {{--                                                </button>--}}
                                             </div>
                                         </form>
                                     </div>
@@ -242,9 +245,9 @@
                                             <div class="buttons">
                                                 <input type="submit" class="btn btn-primary" id="taopks" name="tao"
                                                        value="Tạo">
-                                                <button type="button" class="btn btn-secondary"
-                                                        data-dismiss="modal">Hủy
-                                                </button>
+                                                {{--                                                <button type="button" class="btn btn-secondary"--}}
+                                                {{--                                                        data-dismiss="modal">Hủy--}}
+                                                {{--                                                </button>--}}
                                             </div>
                                         </form>
                                     </div>

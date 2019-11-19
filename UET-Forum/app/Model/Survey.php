@@ -13,9 +13,11 @@ class Survey extends Model
     protected $primaryKey = "id";
     public $timestamps = false;
 
-    public function question(){
-        return $this->hasMany('App\Model\QuestionSurvey','survey_id','id');
+    public function question()
+    {
+        return $this->hasMany('App\Model\QuestionSurvey', 'survey_id', 'id');
     }
+
     /*
      * @param $id: id of user
      * return array survey not finished by id user
@@ -48,9 +50,15 @@ class Survey extends Model
         return $surveys;
     }
 
-    public function getSurveyById($id)
+    public function getSurveyById($id, bool $died = false)
     {
         try {
+            if ($died) {
+                $sur = Survey::find($id);
+                $sur = $this->addInfor([$sur->toArray()]);
+                $sur['0']['died'] = 1;
+                return $sur;
+            }
             $sur = Survey::find($id);
             $sur = $this->addInfor([$sur->toArray()]);
             return $sur;
@@ -59,7 +67,8 @@ class Survey extends Model
         }
     }
 
-    public function insertSurvey($data){
+    public function insertSurvey($data)
+    {
         $sur = new Survey();
         try {
             if (isset($data['nameSur']) && isset($data['describeSur'])) {
@@ -81,18 +90,19 @@ class Survey extends Model
                 }
             }
             return true;
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             dd($e);
         }
 
         return false;
     }
 
-    public function deleteSurveyById($id){
-        try{
+    public function deleteSurveyById($id)
+    {
+        try {
             $sur = Survey::find($id);
-            SurveyUser::whereIn('survey_id',[$id])->update(['status'=>2]);
-        }catch (\Exception $e){
+            SurveyUser::whereIn('survey_id', [$id])->update(['status' => 2]);
+        } catch (\Exception $e) {
             dd($e);
         }
         return false;
@@ -102,10 +112,39 @@ class Survey extends Model
     /*
      *
      */
-    public function getResultBySurveyId($id){
+    public function getResultBySurveyId($id)
+    {
         $ques = new QuestionSurvey();
         $sur = $this->getSurveyById($id);
         return $sur['0'];
+    }
+
+    public function getAllSurveyByAdminId($id, array $cons=null)
+    {
+        if (isset($cons['live'])) {
+            try {
+                $survey = User::find($id)->liveSurvey->toArray();
+                return $this->addInfor($survey);
+            } catch (\Exception $e) {
+                dd($e);
+            }
+        } elseif (isset($cons['died'])) {
+            try {
+                $survey = User::find($id)->diedSurvey->toArray();
+                return $this->addInfor($survey);
+            } catch (\Exception $e) {
+                dd($e);
+            }
+        } else {
+            try {
+                $survey = User::find($id)->allSurvey->toArray();
+                return $this->addInfor($survey);
+            } catch (\Exception $e) {
+                dd($e);
+            }
+        }
+
+        return null;
     }
 
 

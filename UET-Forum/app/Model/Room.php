@@ -58,7 +58,7 @@ class Room extends Model
     {
 
         foreach ($rooms as $key => $value) {
-            $value['admin'] = User::find($value['admin'])->only('id', 'userName', 'fullName');
+            $value['admin'] = User::find($value['admin'])->only('id', 'userName', 'fullName','avatar');
             $value['category_id'] = Category::find($value['category_id'])->toArray();
             $value['status_id'] = StatusRoom::find($value['status_id'])->toArray();
             $rooms[$key] = $value;

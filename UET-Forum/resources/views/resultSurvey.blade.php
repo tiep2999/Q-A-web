@@ -43,7 +43,7 @@
                         <div class="roomFooter">
                             <div class="clearfix">
                                 <div class="float-left">
-                                    <form method="get"  action="{{route('survey-join',['id'=>$data['id']])}}">
+                                    <form method="get"  action="{{route('survey-join',['id'=>$data['id'],'admin'=>1])}}">
                                         <button type="submit" class="btn btn-sm btn-outline-dark float-left"
                                                 style="margin-right: 1rem"><i class="fas fa-arrow-left"></i> Trở về
                                         </button>

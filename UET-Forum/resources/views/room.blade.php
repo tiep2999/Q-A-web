@@ -193,7 +193,7 @@
                                     <a href="#">{{$room['admin']['fullName']}}</a>
                                     <p>Ngày tạo: {{$room['created']}}</p>
                                 </div>
-                                <img src="{{asset('css/image/user/withBG.png')}}" width="35">
+                                <img src="{{asset($room['admin']['avatar'])}}" width="35">
                             </div>
                         </div>
                         <div class="comment">

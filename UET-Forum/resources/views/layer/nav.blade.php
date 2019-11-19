@@ -27,7 +27,7 @@
                                 <div class="card">
                                     <div class="row no-gutters">
                                         <div class="col-md">
-                                            <img src="{{asset("css/image/user/withBG.png")}}" class="card-img rounded-circle" width="auto">
+                                            <img src="{{asset($cUser['avatar'])}}" class="card-img rounded-circle" width="auto">
                                         </div>
                                         <div class="col-md-11">
                                             <div class="card-body">
@@ -44,7 +44,7 @@
                                 <div class="card" style="max-width: 540px;">
                                     <div class="row no-gutters">
                                         <div class="col-md">
-                                            <img src="{{asset("css/image/user/withBG.png")}}" class="card-img rounded-circle" width="auto">
+                                            <img src="{{asset($cUser['avatar'])}}" class="card-img rounded-circle" width="auto">
                                         </div>
                                         <div class="col-md-11">
                                             <div class="card-body">
@@ -62,7 +62,7 @@
                                 <div class="card" style="max-width: 540px;">
                                     <div class="row no-gutters">
                                         <div class="col-md">
-                                            <img src="{{asset("css/image/user/withBG.png")}}" class="card-img rounded-circle" width="auto">
+                                            <img src="{{asset($cUser['avatar'])}}" class="card-img rounded-circle" width="auto">
                                         </div>
                                         <div class="col-md-11">
                                             <div class="card-body">
@@ -78,7 +78,7 @@
                                 <div class="card" style="max-width: 540px;">
                                     <div class="row no-gutters">
                                         <div class="col-md">
-                                            <img src="{{asset("css/image/user/withBG.png")}}" class="card-img rounded-circle" width="auto">
+                                            <img src="{{asset($cUser['avatar'])}}" class="card-img rounded-circle" width="auto">
                                         </div>
                                         <div class="col-md-11">
                                             <div class="card-body">
@@ -94,7 +94,7 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <button type="button" class="btn btn-outline-light" data-toggle="dropdown"><img src={{asset("css/image/user/withBG.png")}} class="rounded-circle" width="25px"> {{$_COOKIE['fullName']}}</button>
+                        <button type="button" class="btn btn-outline-light" data-toggle="dropdown"><img src="{{asset($cUser['avatar'])}}" class="rounded-circle" width="25px"> {{$_COOKIE['fullName']}}</button>
                         <div class="dropdown-menu dropdown-menu-lg-right userMenu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{route('profile')}}"><i class="fas fa-user"></i> Thông tin cá nhân</a>
                             <a class="dropdown-item" href="{{route('room',['id'=>encrypt($cUser['remember_token'])])}}"><i class="fas fa-question-circle"></i>Phiên gần nhất

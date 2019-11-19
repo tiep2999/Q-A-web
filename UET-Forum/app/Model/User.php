@@ -239,4 +239,16 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
     public function survey(){
         return $this->belongsToMany('App\Model\Survey','survey_user','user_id','survey_id')->where('status','=','0');
     }
+
+    public function allSurvey(){
+        return $this->belongsToMany('App\Model\Survey','survey_user','user_id','survey_id');
+    }
+
+    public function liveSurvey(){
+        return $this->belongsToMany('App\Model\Survey','survey_user','user_id','survey_id')->where('status','!=','2');
+    }
+
+    public function diedSurvey(){
+        return $this->belongsToMany('App\Model\Survey','survey_user','user_id','survey_id')->where('status','=','2');
+    }
 }
