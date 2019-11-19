@@ -257,4 +257,17 @@ class User extends Model implements \Illuminate\Contracts\Auth\Authenticatable
     {
         return $this->belongsToMany('App\Model\Survey', 'survey_user', 'user_id', 'survey_id')->where('status', '=', '2');
     }
+
+    public function deleteUser($id){
+        try{
+            $u = User::find($id);
+            $u->password = 'abc';
+            $u->active_flg = 0;
+            $u->save();
+            return true;
+        }catch (\Exception $e){
+            dd($e);
+        }
+        return false;
+    }
 }
