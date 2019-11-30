@@ -1,10 +1,32 @@
->## Q-A-web
-> - *REDIS*
-> - *LARAVEL 5.8.*
-> - *NODEJS( socket.io )*
->
-> Build: <br>
-> 1. start **redis** by port 8001: cmd: redis-server --port 8001 <br> *https://github.com/ServiceStack/redis-windows/raw/master/downloads/redis-latest.zip* <br>
->1.2 composer require predis/predis
-> 2. set **key** in file .env : FORUM_KEY=2bd0cfab9c09e3fb3dbc4dc7b71b6033 <br>
-> 3. connect **internet** and begin enjoying web
+### Danh sách thành viên nhóm
+* Trần Kim Hiếu
+
+    * Ngày sinh: 20/08/1999
+
+    * MSSV: 17020750
+* Nguyễn Tuấn Linh
+
+    * Ngày sinh: 12/03/1999
+
+    * MSSV: 17020859
+* Phạm Duy Tiếp
+
+    * Ngày sinh: 02/09/1999
+
+    * MSSV: 17021064
+* Đỗ Lương Khoa
+
+    * Ngày sinh: 06/06/1999
+
+    * MSSV: 17020838
+ * Bùi Danh Tuấn
+
+    * Ngày sinh: 22/12/1999
+
+    * MSSV: 17021101
+ * Đào Trọng Đạt
+
+    * Ngày sinh: 16/03/1999
+
+    * MSV: 17020668
+    
